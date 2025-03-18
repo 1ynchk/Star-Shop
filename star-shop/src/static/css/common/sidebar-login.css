@@ -1,0 +1,56 @@
+.sidebar_login_wrapper {
+    cursor: pointer;
+    background-color: #3232322e;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar_login {
+    cursor: default;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    width: 400px;
+    height: 100vh;
+    padding: 50px;
+}
+
+.sidebar__cross_container {
+    cursor: pointer;
+    display: flex;
+    justify-content: start;
+    font-size: 30px;
+}
+
+.sidebar__container {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.sidebar__title {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.sidebar__subtitle {
+    margin-left: 10px;
+    font-size: 22px;
+}
+
+.sidebar__container.column {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar__subtitle.active {
+    color: white;
+    border-radius: 5px;
+    background-color: orange;
+    padding: 10px 15px;
+}
