@@ -2,6 +2,10 @@ import '../../static/css/common/header.css'
 import logo from '../../static/images/logo.png'
 import { IoIosSearch } from "react-icons/io";
 
+import { CgProfile } from "react-icons/cg";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { IoCartOutline } from "react-icons/io5";
+
 const Header = (props) => {
     const { isSidebar, setSidebar } = props
 
@@ -48,16 +52,19 @@ const Header = (props) => {
                     <div
                         onClick={() => setSidebar(!isSidebar)}
                         className='header__subcontainer'>
-                        <img alt='profile' />
-                        <div className='header__subtitle'>Профиль</div>
+                        <CgProfile className='header__img'/>
+                        <div className='header__subtitle'>Войти</div>
+                        <div className='shiny'></div>
                     </div>
                     <div className='header__subcontainer'>
-                        <img alt='profile' />
+                        <MdOutlineFavoriteBorder className='header__img'/>
                         <div className='header__subtitle'>Избраное</div>
+                        <div className='shiny'></div>
                     </div>
                     <div className='header__subcontainer'>
-                        <img alt='profile' />
+                        <IoCartOutline className='header__img'/>
                         <div className='header__subtitle'>Корзина</div>
+                        <div className='shiny'></div>
                     </div>
                 </div>
             </div>

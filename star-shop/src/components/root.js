@@ -12,9 +12,9 @@ function App() {
   const [isSidebar, setSidebar] = useState(false)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(fetchCheckLogin())
-  }, [])
+  // useEffect(() => {
+  //   dispatch(fetchCheckLogin())
+  // }, [])
 
   return (
     <div className='App'>

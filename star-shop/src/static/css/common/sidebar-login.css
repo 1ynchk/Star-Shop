@@ -12,7 +12,7 @@
     position: absolute;
     right: 0;
     background-color: white;
-    width: 400px;
+    width: 500px;
     height: 100vh;
     padding: 50px;
 }
@@ -39,18 +39,63 @@
 }
 
 .sidebar__subtitle {
+    text-align: center;
     margin-left: 10px;
-    font-size: 22px;
-}
-
-.sidebar__container.column {
-    justify-content: space-between;
-    align-items: center;
+    font-size: 16px;
+    z-index: 3;
+    width: 200px;
+    transition: .3s ease;
+    cursor: pointer;
 }
 
 .sidebar__subtitle.active {
     color: white;
-    border-radius: 5px;
+}
+
+.sidebar__container.column {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.button-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
     background-color: orange;
-    padding: 10px 15px;
+    border-radius: 8px;
+    z-index: 0;
+}
+
+.sidebar__login_container {
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar_btn {
+    cursor: default;
+    color: rgb(50, 50, 50);
+    border-radius: 10px;
+    background-color: grey;
+    margin-top: 20px;
+    padding: 15px 20px;
+}
+
+.sidebar_btn.active {
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+}
+
+.sidebar__login_title {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
