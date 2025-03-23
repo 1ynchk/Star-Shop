@@ -99,3 +99,30 @@
     font-weight: 500;
     margin-bottom: 10px;
 }
+
+.sidebar__request_error_container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.request_error_img {
+    font-size: 80px;
+}
+
+.request_error_value {
+    margin-top: 30px;
+}
+
+.request_error_btn {
+    margin-top: 30px;
+    padding: 15px 20px;
+    background-color: orange;
+    color: white;
+    border-radius: 10px;
+}
+
+.sidebar__loading_container {
+    height: 50%;
+}
