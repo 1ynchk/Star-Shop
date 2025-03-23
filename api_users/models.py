@@ -11,10 +11,11 @@ class Users(AbstractUser):
     name = models.CharField(default='Анонимный', max_length=155)
     surname = models.CharField(default='Пользователь', max_length=155)
     username = models.CharField(unique=False, null=True, blank=True)
+    last_name = None 
+    first_name = None
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
-
 
     def __str__(self):
         return self.email
