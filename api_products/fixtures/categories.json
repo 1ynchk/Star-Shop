@@ -1,0 +1,1053 @@
+[
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAA",
+        "fields": {
+            "name": "Боевики и триллеры"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAB",
+        "fields": {
+            "name": "Детективы"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAC",
+        "fields": {
+            "name": "Драматургия"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAD",
+        "fields": {
+            "name": "Кино и книги"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAE",
+        "fields": {
+            "name": "Книги на иностранных языках"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAF",
+        "fields": {
+            "name": "Книги о приключениях"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAG",
+        "fields": {
+            "name": "Комиксы. Манга. Артбуки"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAH",
+        "fields": {
+            "name": "Литературные премии"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAI",
+        "fields": {
+            "name": "Любовный роман"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAJ",
+        "fields": {
+            "name": "Поэзия"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAK",
+        "fields": {
+            "name": "Проза"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAL",
+        "fields": {
+            "name": "Ужасы. Мистика"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAM",
+        "fields": {
+            "name": "Фантастика"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAN",
+        "fields": {
+            "name": "Фэнтези"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAO",
+        "fields": {
+            "name": "Эпос и фольклор"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAP",
+        "fields": {
+            "name": "Юмор и сатира"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6MXP1Q111DG0N9VQ96NK53",
+        "fields": {
+            "name": "Художественная литература",
+            "subcats": [
+                "01HZX8F3M5AYX1G7R9E2B8TQAA",
+                "01HZX8F3M5AYX1G7R9E2B8TQAB",
+                "01HZX8F3M5AYX1G7R9E2B8TQAC",
+                "01HZX8F3M5AYX1G7R9E2B8TQAD",
+                "01HZX8F3M5AYX1G7R9E2B8TQAE",
+                "01HZX8F3M5AYX1G7R9E2B8TQAF",
+                "01HZX8F3M5AYX1G7R9E2B8TQAG",
+                "01HZX8F3M5AYX1G7R9E2B8TQAH",
+                "01HZX8F3M5AYX1G7R9E2B8TQAI",
+                "01HZX8F3M5AYX1G7R9E2B8TQAJ",
+                "01HZX8F3M5AYX1G7R9E2B8TQAK",
+                "01HZX8F3M5AYX1G7R9E2B8TQAL",
+                "01HZX8F3M5AYX1G7R9E2B8TQAM",
+                "01HZX8F3M5AYX1G7R9E2B8TQAN",
+                "01HZX8F3M5AYX1G7R9E2B8TQAO",
+                "01HZX8F3M5AYX1G7R9E2B8TQAP"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAQ",
+        "fields": {
+            "name": "Басни"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAR",
+        "fields": {
+            "name": "Детский досуг"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAS",
+        "fields": {
+            "name": "Первые книги малыша. Развитие ребенка"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8F3M5AYX1G7R9E2B8TQAT",
+        "fields": {
+            "name": "Познавательная литература"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8A5M5AYX1G7R9E2B8TQZ2",
+        "fields": {
+            "name": "Проза для детей"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8A6M5AYX1G7R9E2B8TQZ3",
+        "fields": {
+            "name": "Сказки для детей"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8A7M5AYX1G7R9E2B8TQZ4",
+        "fields": {
+            "name": "Стихи для детей"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX8A8M5AYX1G7R9E2B8TQZ5",
+        "fields": {
+            "name": "Эпос и фольклор для детей"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6MYD0CHHXNC9RGC5C9VCJN",
+        "fields": {
+            "name": "Детские книги",
+            "subcats": [
+                "01HZX8F3M5AYX1G7R9E2B8TQAQ",
+                "01HZX8F3M5AYX1G7R9E2B8TQAR",
+                "01HZX8F3M5AYX1G7R9E2B8TQAS",
+                "01HZX8F3M5AYX1G7R9E2B8TQAT",
+                "01HZX8A5M5AYX1G7R9E2B8TQZ2",
+                "01HZX8A6M5AYX1G7R9E2B8TQZ3",
+                "01HZX8A7M5AYX1G7R9E2B8TQZ4",
+                "01HZX8A8M5AYX1G7R9E2B8TQZ5"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX9A1M5AYX1G7R9E2B8TQXK",
+        "fields": {
+            "name": "Игрушки"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX9A2M5AYX1G7R9E2B8TQLY",
+        "fields": {
+            "name": "Наборы для творчества"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX9A3M5AYX1G7R9E2B8TQZM",
+        "fields": {
+            "name": "Настольные игры"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6MYTS17507657P1MRT8AAA",
+        "fields": {
+            "name": "Товары для детей",
+            "subcats": [
+                "01HZX9A1M5AYX1G7R9E2B8TQXK",
+                "01HZX9A2M5AYX1G7R9E2B8TQLY",
+                "01HZX9A3M5AYX1G7R9E2B8TQZM"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAA1M5AYX1G7R9E2B8TQXK",
+        "fields": {
+            "name": "Детективы для подростков"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAA2M5AYX1G7R9E2B8TQLY",
+        "fields": {
+            "name": "Зарубежная литература для подростков"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAA3M5AYX1G7R9E2B8TQZM",
+        "fields": {
+            "name": "Романтические книги для подростков"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAA4M5AYX1G7R9E2B8TQZ1",
+        "fields": {
+            "name": "Русская литература для подростков"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAA5M5AYX1G7R9E2B8TQZ2",
+        "fields": {
+            "name": "Ужасы для подростков"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAA6M5AYX1G7R9E2B8TQZ3",
+        "fields": {
+            "name": "Фантастика и фэнтези для подростков"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6MZZADFDBVV8X6CSPNGR8Q",
+        "fields": {
+            "name": "Книги для подростков",
+            "subcats": [
+                "01HZXAA1M5AYX1G7R9E2B8TQXK",
+                "01HZXAA2M5AYX1G7R9E2B8TQLY",
+                "01HZXAA3M5AYX1G7R9E2B8TQZM",
+                "01HZXAA4M5AYX1G7R9E2B8TQZ1",
+                "01HZXAA5M5AYX1G7R9E2B8TQZ2",
+                "01HZXAA6M5AYX1G7R9E2B8TQZ3"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX7F3M5AYX1G7R9E2B8TQZ1",
+        "fields": {
+            "name": "HR. Делопроизводство"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX7F3M5AYX1G7R9E2B8TQZ2",
+        "fields": {
+            "name": "Банковское дело. Финансы"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX7F3M5AYX1G7R9E2B8TQZ3",
+        "fields": {
+            "name": "Бухгалтерия"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX7F3M5AYX1G7R9E2B8TQZ4",
+        "fields": {
+            "name": "Личная эффективность"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX7F3M5AYX1G7R9E2B8TQZ5",
+        "fields": {
+            "name": "Логистика"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX7F3M5AYX1G7R9E2B8TQZ6",
+        "fields": {
+            "name": "Маркетинг и Реклама"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX7F3M5AYX1G7R9E2B8TQZ7",
+        "fields": {
+            "name": "Менеджмент"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX7F3M5AYX1G7R9E2B8TQZ8",
+        "fields": {
+            "name": "Продажи"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZX7F3M5AYX1G7R9E2B8TQZ9",
+        "fields": {
+            "name": "Просто о бизнесе"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4KQA9M5B4Q514395PBECTZ",
+        "fields": {
+            "name": "Работа с клиентами"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAA7M5AYX1G7R9E2B8TQZ1",
+        "fields": {
+            "name": "Успешные переговоры"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6MZ8JJ00M0HYHH9YS54WM0",
+        "fields": {
+            "name": "Бизнес-литература",
+            "subcats": [
+                "01HZX7F3M5AYX1G7R9E2B8TQZ1",
+                "01HZX7F3M5AYX1G7R9E2B8TQZ2",
+                "01HZX7F3M5AYX1G7R9E2B8TQZ3",
+                "01HZX7F3M5AYX1G7R9E2B8TQZ4",
+                "01HZX7F3M5AYX1G7R9E2B8TQZ5",
+                "01HZX7F3M5AYX1G7R9E2B8TQZ6",
+                "01HZX7F3M5AYX1G7R9E2B8TQZ7",
+                "01HZX7F3M5AYX1G7R9E2B8TQZ8",
+                "01HZX7F3M5AYX1G7R9E2B8TQZ9",
+                "01JQ4KQA9M5B4Q514395PBECTZ",
+                "01HZXAA7M5AYX1G7R9E2B8TQZ1"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAA8M5AYX1G7R9E2B8TQZ2",
+        "fields": {
+            "name": "Изучение иностранных языков"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAA9M5AYX1G7R9E2B8TQZ3",
+        "fields": {
+            "name": "Руководства"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NG947CE3H99FEF15BNWSP",
+        "fields": {
+            "name": "Саморазвитие и личностный рост"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAABM5AYX1G7R9E2B8TQZ5",
+        "fields": {
+            "name": "Справочники"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAACM5AYX1G7R9E2B8TQZ6",
+        "fields": {
+            "name": "Энциклопедии"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6N0CHH8PZBJPJA3HGTY5J0",
+        "fields": {
+            "name": "Самообразование и развитие",
+            "subcats": [
+                "01HZXAA8M5AYX1G7R9E2B8TQZ2",
+                "01HZXAA9M5AYX1G7R9E2B8TQZ3",
+                "01JQ4NG947CE3H99FEF15BNWSP",
+                "01HZXAABM5AYX1G7R9E2B8TQZ5",
+                "01HZXAACM5AYX1G7R9E2B8TQZ6"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAADM5AYX1G7R9E2B8TQZ7",
+        "fields": {
+            "name": "Культура и искусство"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAAEM5AYX1G7R9E2B8TQZ8",
+        "fields": {
+            "name": "Домоводство"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAAFM5AYX1G7R9E2B8TQZ9",
+        "fields": {
+            "name": "Коллекционирование"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NH6WZKVGX949KWK033FF4",
+        "fields": {
+            "name": "Красота"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NHR9E8HVCZMT59QG35Q0R",
+        "fields": {
+            "name": "Кулинария"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NJ9YGRS3BXWDVMVN4CEQH",
+        "fields": {
+            "name": "Охота. Рыбалка. Собирательство"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NJT4P5HDM8XBAK5YABCXA",
+        "fields": {
+            "name": "Праздники. Развлечения"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NKBT43XF987GA950XACCM",
+        "fields": {
+            "name": "Путешествия и туризм"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NKR28EQVHKFPST873P7BF",
+        "fields": {
+            "name": "Ремонт и дизайн"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NM4HYXZ52958S74649SRX",
+        "fields": {
+            "name": "Руководства. Игровые миры"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NMHZA27EZBWY6EW2DW5E1",
+        "fields": {
+            "name": "Рукоделие. Творчество"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01HZXAAA5AYX1G7R9E2B8TQZ18",
+        "fields": {
+            "name": "Сад и огород"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NMYAQV0X50E9EQ8JQPKEG",
+        "fields": {
+            "name": "Тайны, сенсации, факты, катастрофы"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NNBP1WRCF51BFDT8VGAQE",
+        "fields": {
+            "name": "Транспорт"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NPZBGZEMCWHK8NJ6485GG",
+        "fields": {
+            "name": "Уход за животными"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NQDYR566SHJ1H13BQ4EPK",
+        "fields": {
+            "name": "Фитнес и спорт"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NQSXYDT2YQNGVDTVFSHC9",
+        "fields": {
+            "name": "Эзотерика. Парапсихология"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NREH1QPNBHGKC49ZFK5AH",
+        "fields": {
+            "name": "Эротика 18+"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6N0RFJXS76ZGNHEVADVEBA",
+        "fields": {
+            "name": "Хобби и досуг",
+            "subcats": [
+                "01HZXAADM5AYX1G7R9E2B8TQZ7",
+                "01HZXAAEM5AYX1G7R9E2B8TQZ8",
+                "01HZXAAFM5AYX1G7R9E2B8TQZ9",
+                "01JQ4NH6WZKVGX949KWK033FF4",
+                "01JQ4NHR9E8HVCZMT59QG35Q0R",
+                "01JQ4NJ9YGRS3BXWDVMVN4CEQH",
+                "01JQ4NJT4P5HDM8XBAK5YABCXA",
+                "01JQ4NKBT43XF987GA950XACCM",
+                "01JQ4NKR28EQVHKFPST873P7BF",
+                "01JQ4NM4HYXZ52958S74649SRX",
+                "01JQ4NMHZA27EZBWY6EW2DW5E1",
+                "01HZXAAA5AYX1G7R9E2B8TQZ18",
+                "01JQ4NMYAQV0X50E9EQ8JQPKEG",
+                "01JQ4NNBP1WRCF51BFDT8VGAQE",
+                "01JQ4NPZBGZEMCWHK8NJ6485GG",
+                "01JQ4NQDYR566SHJ1H13BQ4EPK",
+                "01JQ4NQSXYDT2YQNGVDTVFSHC9",
+                "01JQ4NREH1QPNBHGKC49ZFK5AH"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NRTTQ2RSM0BBS6AT5532M",
+        "fields": {
+            "name": "Книги для родителей"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NS6RF92PZ37RTB450FA2V",
+        "fields": {
+            "name": "Педагогика"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6N148GXS5HPMXFTZJNVV71",
+        "fields": {
+            "name": "Педагогика и воспитание",
+            "subcats": [
+                "01JQ4NRTTQ2RSM0BBS6AT5532M",
+                "01JQ4NS6RF92PZ37RTB450FA2V"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NSJZG11P4QZZ4Q72M6FWV",
+        "fields": {
+            "name": "Пособия для детей с ограниченными возможностями"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NT1KP2A5YQW920H7KND5N",
+        "fields": {
+            "name": "Дополнительное образование для детей"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NTDJEF2Y138BMQCEARJNB",
+        "fields": {
+            "name": "Книги для учителей"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NTSQEYW9QFHPE6TCN7QPD",
+        "fields": {
+            "name": "Начальная школа"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NV71TASE6KTWQVVAE68R5",
+        "fields": {
+            "name": "Подготовка к ЕГЭ"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVH",
+        "fields": {
+            "name": "Подготовка к ОГЭ (ГИА)"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4NVK3KH1H0DT46VQ5VDSS8",
+        "fields": {
+            "name": "Подготовка к школе"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M7B1R2X9N8EMJ738Y7HGF",
+        "fields": {
+            "name": "Средняя школа"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M9C1X0D8N8EMJ739T3HGV",
+        "fields": {
+            "name": "Старшая школа"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M6F1D3X9N8EMJ740Z5HGJ",
+        "fields": {
+            "name": "Учебники для вузов и колледжей"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6N1PNWE6B2Q0KKTGRNFNWX",
+        "fields": {
+            "name": "Учебная литература",
+            "subcats": [
+                "01JQ4NSJZG11P4QZZ4Q72M6FWV",
+                "01JQ4NT1KP2A5YQW920H7KND5N",
+                "01JQ4NTDJEF2Y138BMQCEARJNB",
+                "01JQ4NTSQEYW9QFHPE6TCN7QPD",
+                "01JQ4NV71TASE6KTWQVVAE68R5",
+                "01JQ4MP0P1X37N8EMJ735ESKVH",
+                "01JQ4NVK3KH1H0DT46VQ5VDSS8",
+                "01JQ4M7B1R2X9N8EMJ738Y7HGF",
+                "01JQ4M9C1X0D8N8EMJ739T3HGV",
+                "01JQ4M6F1D3X9N8EMJ740Z5HGJ"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M4A1B8X9N8EMJ741P6JKL",
+        "fields": {
+            "name": "Астрономия"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M7B2D4X9N8EMJ742W3HYP",
+        "fields": {
+            "name": "Биологические науки"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M9F1A6X9N8EMJ743C6XYT",
+        "fields": {
+            "name": "Государство и право"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M8G1D9X9N8EMJ744B5XFW",
+        "fields": {
+            "name": "Информационные технологии"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M7H1F2X9N8EMJ745A3FHZ",
+        "fields": {
+            "name": "Исторические науки"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M6P1G0X9N8EMJ746E3DGT",
+        "fields": {
+            "name": "Кодексы и комментарии"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M5F1J7X9N8EMJ747B6PZX",
+        "fields": {
+            "name": "Математические науки"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M9B1F1X9N8EMJ748C7YPQ",
+        "fields": {
+            "name": "Медицина и здоровье"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M6F1F9X9N8EMJ749D8ZJP",
+        "fields": {
+            "name": "Науки о Земле"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M7G1D6X9N8EMJ750P9VXZ",
+        "fields": {
+            "name": "Политология и политика"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M8A1B3X9N8EMJ751L7YQD",
+        "fields": {
+            "name": "Психология"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4M9B1D7X9N8EMJ752K8ZWL",
+        "fields": {
+            "name": "Современное естествознание"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVH",
+        "fields": {
+            "name": "Технические науки"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVJ",
+        "fields": {
+            "name": "Физические науки"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVL",
+        "fields": {
+            "name": "Филологические науки"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVX",
+        "fields": {
+            "name": "Философские науки. Социология"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVB",
+        "fields": {
+            "name": "Химические науки"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVD",
+        "fields": {
+            "name": "Экология"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVF",
+        "fields": {
+            "name": "Экономика"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6N1Z04GZ4VC2AXEGQ42EAZ",
+        "fields": {
+            "name": "Научно-популярная литература",
+            "subcats": [
+                "01JQ4M4A1B8X9N8EMJ741P6JKL",
+                "01JQ4M7B2D4X9N8EMJ742W3HYP",
+                "01JQ4M9F1A6X9N8EMJ743C6XYT",
+                "01JQ4M8G1D9X9N8EMJ744B5XFW",
+                "01JQ4M7H1F2X9N8EMJ745A3FHZ",
+                "01JQ4M6P1G0X9N8EMJ746E3DGT",
+                "01JQ4M5F1J7X9N8EMJ747B6PZX",
+                "01JQ4M9B1F1X9N8EMJ748C7YPQ",
+                "01JQ4M6F1F9X9N8EMJ749D8ZJP",
+                "01JQ4M7G1D6X9N8EMJ750P9VXZ",
+                "01JQ4M8A1B3X9N8EMJ751L7YQD",
+                "01JQ4M9B1D7X9N8EMJ752K8ZWL",
+                "01JQ4MP0P1X37N8EMJ735ESKVH",
+                "01JQ4MP0P1X37N8EMJ735ESKVJ",
+                "01JQ4MP0P1X37N8EMJ735ESKVL",
+                "01JQ4MP0P1X37N8EMJ735ESKVX",
+                "01JQ4MP0P1X37N8EMJ735ESKVB",
+                "01JQ4MP0P1X37N8EMJ735ESKVD",
+                "01JQ4MP0P1X37N8EMJ735ESKVF"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVG",
+        "fields": {
+            "name": "Биографии. Мемуары"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVH",
+        "fields": {
+            "name": "Жизнь знаменитых людей"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVI",
+        "fields": {
+            "name": "Журналистика"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6N2J4BRRZDH8N8VDDWWH86",
+        "fields": {
+            "name": "Публицистика",
+            "subcats": [
+                "01JQ4MP0P1X37N8EMJ735ESKVG",
+                "01JQ4MP0P1X37N8EMJ735ESKVH",
+                "01JQ4MP0P1X37N8EMJ735ESKVI"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVJ",
+        "fields": {
+            "name": "Атрибутика"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVL",
+        "fields": {
+            "name": "Ежедневники. Планеры"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVM",
+        "fields": {
+            "name": "Книги для записей. Дневники"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVG",
+        "fields": {
+            "name": "Лицензионная продукция"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVH",
+        "fields": {
+            "name": "Скетчпады. Скетчбуки. Альбомы"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVI",
+        "fields": {
+            "name": "Тетради с эксклюзивным дизайном"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVJ",
+        "fields": {
+            "name": "Эксклюзивные блокноты"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6N2RNVSQKBZDX8MQX5QS5Z",
+        "fields": {
+            "name": "Эксклюзивная продукция",
+            "subcats": [
+                "01JQ4MP0P1X37N8EMJ735ESKVJ",
+                "01JQ4MP0P1X37N8EMJ735ESKVL",
+                "01JQ4MP0P1X37N8EMJ735ESKVM",
+                "01JQ4MP0P1X37N8EMJ735ESKVG",
+                "01JQ4MP0P1X37N8EMJ735ESKVH",
+                "01JQ4MP0P1X37N8EMJ735ESKVI"
+            ]
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVK",
+        "fields": {
+            "name": "Альбомы и скетчпады"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVL",
+        "fields": {
+            "name": "Блокноты и ежедневники"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVM",
+        "fields": {
+            "name": "Календари"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVN",
+        "fields": {
+            "name": "Наборы бумаги и картона"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVO",
+        "fields": {
+            "name": "Обложки, закладки и кардхолдеры"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVP",
+        "fields": {
+            "name": "Товары для офиса"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVQ",
+        "fields": {
+            "name": "Чертежные принадлежности"
+        }
+    },
+    {
+        "model": "api_products.subcategory",
+        "pk": "01JQ4MP0P1X37N8EMJ735ESKVR",
+        "fields": {
+            "name": "Школьные принадлежности"
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ6N247RG5TYT66AHQBQMMMT",
+        "fields": {
+            "name": "Канцтовары",
+            "subcats": [
+                "01JQ4MP0P1X37N8EMJ735ESKVK",
+                "01JQ4MP0P1X37N8EMJ735ESKVL",
+                "01JQ4MP0P1X37N8EMJ735ESKVM",
+                "01JQ4MP0P1X37N8EMJ735ESKVN",
+                "01JQ4MP0P1X37N8EMJ735ESKVO",
+                "01JQ4MP0P1X37N8EMJ735ESKVP",
+                "01JQ4MP0P1X37N8EMJ735ESKVQ",
+                "01JQ4MP0P1X37N8EMJ735ESKVR"
+            ]
+        }
+    },
+    {
+        "model": "api_products.category",
+        "pk": "01JQ4KY326YH0M3FDEXQ2GMD9O",
+        "fields": {
+            "name": "Календари 2025"
+        }
+    }
+]

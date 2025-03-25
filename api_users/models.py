@@ -23,26 +23,26 @@ class Users(AbstractUser):
     class Meta:
         db_table = 'api_users'
 
-class Favourite(models.Model):
-    '''Модель избранного'''
+# class Favourite(models.Model):
+#     '''Модель избранного'''
 
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    product = models.ForeignKey('api_products.Products', on_delete=models.CASCADE)
+#     user = models.ForeignKey(Users, on_delete=models.CASCADE)
+#     product = models.ForeignKey('api_products.Products', on_delete=models.CASCADE)
 
-    class Meta:
-        db_table = 'api_favourite'
+#     class Meta:
+#         db_table = 'api_favourite'
 
-    def __str__(self):
-        return f'{self.user} | {self.product}'
+#     def __str__(self):
+#         return f'{self.user} | {self.product}'
     
-class Cart(models.Model):
-    '''Модель корзины'''
+# class Cart(models.Model):
+#     '''Модель корзины'''
     
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    product = models.ForeignKey('api_products.Products', on_delete=models.CASCADE)
+#     user = models.ForeignKey(Users, on_delete=models.CASCADE)
+#     product = models.ForeignKey('api_products.Products', on_delete=models.CASCADE)
 
-    class Meta: 
-        db_table = 'api_cart'
+#     class Meta: 
+#         db_table = 'api_cart'
 
-    def __str__(self):
-        return f'{self.user} | {self.product}'
+#     def __str__(self):
+#         return f'{self.user} | {self.product}'

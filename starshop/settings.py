@@ -25,10 +25,12 @@ INSTALLED_APPS = [
     # apps 
     'api_users',
     'api_products',
+    'api_main',
     
     # 3rd party
     'corsheaders',
-    'rest_framework'
+    'rest_framework',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -42,7 +44,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# COOKIE
+# COOKIES
 
 CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SECURE = True
@@ -144,13 +146,34 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# S3 VAULT
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'  
+
+STORAGES = {
+    'default': {
+    'BACKEND': 'storages.backends.s3.S3Storage',
+    'OPTIONS': {
+        'access_key': os.getenv('AWS_ACCESS_KEY_ID'),
+        'secret_key': os.getenv('AWS_SECRET_ACCESS_KEY'),
+        'bucket_name': os.getenv('AWS_STORAGE_BUCKET_NAME'),
+        'endpoint_url': os.getenv('AWS_S3_ENDPOINT_URL'),
+        'signature_version': 's3' 
+        },
+    },
+    'staticfiles': {
+    'BACKEND': 'storages.backends.s3.S3Storage',
+    'OPTIONS': {
+        'access_key': os.getenv('AWS_ACCESS_KEY_ID'),
+        'secret_key': os.getenv('AWS_SECRET_ACCESS_KEY'),
+        'bucket_name': os.getenv('AWS_STORAGE_BUCKET_NAME'),
+        'endpoint_url': os.getenv('AWS_S3_ENDPOINT_URL'),
+        'signature_version': 's3' 
+    },
+    } 
+}
+
+MEDIA_URL = f'{os.getenv('AWS_S3_ENDPOINT_URL')}/{os.getenv('AWS_STORAGE_BUCKET_NAME')}/media/'
+STATIC_URL = f'{os.getenv('AWS_S3_ENDPOINT_URL')}/{os.getenv('AWS_STORAGE_BUCKET_NAME')}/static/'

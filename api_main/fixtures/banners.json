@@ -1,0 +1,62 @@
+[
+    {
+        "model": "api_main.Banner",
+        "fields": {
+            "tag": "first-banner"
+        }
+    },
+    {
+        "model": "api_main.Banner",
+        "fields": {
+            "tag": "second-banner"
+        }
+    },
+    {
+        "model": "api_main.Banner",
+        "fields": {
+            "tag": "third-banner"
+        }
+    },
+    {
+        "model": "api_main.Banner",
+        "fields": {
+            "tag": "fourth-banner"
+        }
+    },
+    {
+        "model": "api_main.Banner",
+        "fields": {
+            "tag": "fifth-banner"
+        }
+    },
+    {
+        "model": "api_main.MainCategories",
+        "fields": {
+            "cat": "01JQ6N247RG5TYT66AHQBQMMMT"
+        }
+    },
+    {
+        "model": "api_main.MainCategories",
+        "fields": {
+            "cat": "01JQ6N1Z04GZ4VC2AXEGQ42EAZ"
+        }
+    },
+    {
+        "model": "api_main.MainCategories",
+        "fields": {
+            "cat": "01JQ6N1PNWE6B2Q0KKTGRNFNWX"
+        }
+    },
+    {
+        "model": "api_main.MainCategories",
+        "fields": {
+            "cat": "01JQ6N0RFJXS76ZGNHEVADVEBA"
+        }
+    },
+    {
+        "model": "api_main.MainCategories",
+        "fields": {
+            "cat": "01JQ6N0CHH8PZBJPJA3HGTY5J0"
+        }
+    }
+]
