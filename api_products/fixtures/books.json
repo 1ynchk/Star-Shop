@@ -1,0 +1,44 @@
+[
+    {
+        "model": "api_products.Author",
+        "pk": "01JQ97CZZFSXSXDJNRT5AXMKGG",
+        "fields": {
+            "name": "Джордж оруэл"
+        }
+    },
+    {
+        "model": "api_products.Author",
+        "pk": "01JQ97F4T4MJWS4WSRR60G174M",
+        "fields": {
+            "name": "Чак паланик"
+        }
+    },
+    {
+        "model": "api_products.Author",
+        "pk": "01JQ97G997K4B7ZWYSRJZ5NV2N",
+        "fields": {
+            "name": "Булгаков Михаил Афанасьевич"
+        }
+    },
+    {
+        "model": "api_products.Author",
+        "pk": "01JQ97KJXBAYM3V4MBD9G490HF",
+        "fields": {
+            "name": "Замятин Евгений Иванович"
+        }
+    },
+    {
+        "model": "api_products.Author",
+        "pk": "01JQ97MR3BX5BP6E71PWJD77J3",
+        "fields": {
+            "name": "Достоевский Федор Михайлович"
+        }
+    },
+    {
+        "model": "api_products.Author",
+        "pk": "01JQ97PG3T89F2MGMPVWB3PP6Z",
+        "fields": {
+            "name": "Олдос хаксли"
+        }
+    }
+]

@@ -18,7 +18,7 @@ class Banner(models.Model):
             super().save(*args, **kwargs)
 
 class MainCategories(models.Model):
-    '''Таблица для категорий в хедере главного меню''' 
+    '''Таблица для категорий в хедере''' 
     
     cat = models.ForeignKey('api_products.Category', on_delete=models.CASCADE)
 
