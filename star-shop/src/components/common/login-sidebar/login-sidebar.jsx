@@ -15,7 +15,7 @@ const SidebarLogin = (props) => {
     const loading = useSelector(state => state.users.loading)
 
     const [isRegister, setRegister] = useState(false)
-    const { isSidebar, setSidebar } = props
+    const { isSidebarLogin, setSidebarLogin } = props
     const [isActiveBtn, setActiveBtn] = useState(false)
 
     const [emailLogin, setEmailLogin] = useState(null)
@@ -62,12 +62,12 @@ const SidebarLogin = (props) => {
     return (
         <AnimatePresence exitBeforeEnter>
             {
-                isSidebar && (
+                isSidebarLogin && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        onClick={() => setSidebar(!isSidebar)}
+                        onClick={() => setSidebarLogin(!isSidebarLogin)}
                         className="sidebar_login_wrapper">
                         <motion.div
                             transition={{ delay: 0.2, ease: easeOut }}
@@ -77,7 +77,7 @@ const SidebarLogin = (props) => {
                             onClick={(e) => e.stopPropagation()}
                             className='sidebar_login'>
                             <div
-                                onClick={() => setSidebar(false)}
+                                onClick={() => setSidebarLogin(false)}
                                 className='sidebar__cross_container'>
                                 <IoCloseOutline />
                             </div>

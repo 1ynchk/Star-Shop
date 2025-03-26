@@ -106,3 +106,16 @@ body {
     background-color: orange;
     height: 1px;
 }
+
+.mainarea {
+    padding: 25px 5px;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    background-color: rgba(50, 50, 50, 0.9);
+    border-radius: 30px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}

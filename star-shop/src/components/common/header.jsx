@@ -10,13 +10,28 @@ import { IoCartOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { fetchLogout } from './../../store/requests/Users/logout';
+import { NavLink } from 'react-router-dom'
+
+import { fetchGetMainCategories } from './../../store/requests/MainPage/get-main-categories';
 
 const Header = (props) => {
 
     const isLogin = useSelector(state => state.users.isLogin)
     const checkLoginLoading = useSelector(state => state.users.checkLoginLoading)
 
-    const { isSidebar, setSidebar } = props
+    const [mainCategories, setMainCategories] = useState([])
+    const [Loading, setLoading] = useState(true)
+
+    const {
+        isSidebarLogin,
+        setSidebarLogin,
+        isSidebarCatalog,
+        setSidebarCatalog
+    } = props
+
+    useEffect(() => {
+        fetchGetMainCategories({ 'setter': setMainCategories, 'setterLoading': setLoading })
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -42,7 +57,9 @@ const Header = (props) => {
                 <form
                     onSubmit={(e) => handleSubmit(e)}
                     className='header__search_container'>
-                    <button className='header__catalog'>
+                    <button
+                    onClick={() => setSidebarCatalog(!isSidebarCatalog)} 
+                    className='header__catalog'>
                         Каталог
                     </button>
                     <div className='header_search_subcontainer'>
@@ -58,8 +75,8 @@ const Header = (props) => {
                 </form>
 
                 <HeaderUsersPart
-                    isSidebar={isSidebar}
-                    setSidebar={setSidebar}
+                    isSidebarLogin={isSidebarLogin}
+                    setSidebarLogin={setSidebarLogin}
                     isLogin={isLogin}
                     checkLoginLoading={checkLoginLoading}
                 />
@@ -67,11 +84,29 @@ const Header = (props) => {
 
             <div className='header__wrapper'>
                 <div className='header__container full-width'>
-                    <nav className='header__element'>Хиты продаж</nav>
-                    <nav className='header__element'>Акции</nav>
-                    <nav className='header__element'>Школьная пора</nav>
-                    <nav className='header__element'>Сувениры</nav>
-                    <nav className='header__element'>Канцелярия</nav>
+                    {
+                        Loading && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className='loading_container empty_loading'>
+                                <div className='shiny empty_loading'></div>
+                            </motion.div>
+                        )
+                    }
+                    {
+                        !Loading && mainCategories.map((el, ind) => {
+                            return (
+                                <NavLink
+                                    key={ind}
+                                    className='header__element'
+                                >
+                                    {el.cat.name}
+                                </NavLink>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </header>
@@ -84,8 +119,8 @@ const HeaderUsersPart = (props) => {
     const dispatch = useDispatch()
 
     const {
-        isSidebar,
-        setSidebar,
+        isSidebarLogin,
+        setSidebarLogin,
         isLogin,
         checkLoginLoading
     } = props
@@ -116,7 +151,7 @@ const HeaderUsersPart = (props) => {
             {
                 !isLogin && !checkLoginLoading && (
                     <motion.div
-                        onClick={() => setSidebar(!isSidebar)}
+                        onClick={() => setSidebarLogin(!isSidebarLogin)}
                         className='header__subcontainer'>
                         <CgProfile className='header__img' />
                         <div className='header__subtitle'>Войти</div>

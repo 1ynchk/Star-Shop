@@ -122,6 +122,11 @@
     transform: scale(1.02);
 }
 
+.header__element {
+    width: 150px;
+    color: rgb(50, 50, 50);
+}
+
 .header__container.full-width {
     padding: 15 0px;
     width: 100%;

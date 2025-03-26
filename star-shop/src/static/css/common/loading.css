@@ -39,3 +39,10 @@
     height: 50px;
     background-color: rgba(128, 128, 128, 0.5);
 }
+
+.loading_container {
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+    min-height: 40px;
+}
