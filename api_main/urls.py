@@ -2,10 +2,10 @@ from django.urls import path
 
 from .views import (
     get_main_categories,
-    get_banners
+    get_first_section,
     )
 
 urlpatterns = [
     path('get-main-categories/', get_main_categories, name='main-categories'),
-    path('get-banners/', get_banners, name='get-banners')
+    path('get-first-section/', get_first_section, name='get-first-section'),
 ]

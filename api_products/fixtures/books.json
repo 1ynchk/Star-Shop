@@ -40,5 +40,293 @@
         "fields": {
             "name": "Олдос хаксли"
         }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM11RZDYVWMERX4HSQ9G00N",
+        "fields": {
+            "name": "1984",
+            "desc": "Роман-антиутопия о тоталитарном государстве.",
+            "price": "499.99",
+            "articul": "1984-ORW",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAM",
+            "author": "01JQ97CZZFSXSXDJNRT5AXMKGG",
+            "publisher": "Издательство XYZ",
+            "series": "Классика",
+            "binding": "Т",
+            "pub_year": 1949,
+            "count_pages": 328,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM1A6DNV1DGSDN8KNK656SZ",
+        "fields": {
+            "name": "Скотный двор",
+            "desc": "Сатирическая повесть-притча.",
+            "price": "399.99",
+            "articul": "AF-ORW",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAP",
+            "author": "01JQ97CZZFSXSXDJNRT5AXMKGG",
+            "publisher": "Издательство XYZ",
+            "series": "Классика",
+            "binding": "М",
+            "pub_year": 1945,
+            "count_pages": 152,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM1QT9H8F6HZRK22ERSK0FD",
+        "fields": {
+            "name": "Бойцовский клуб",
+            "desc": "Культовый роман о поиске смысла жизни и насилии.",
+            "price": "599.99",
+            "articul": "FC-PAL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAA",
+            "author": "01JQ97CZZFSXSXDJNRT5AXMKGG",
+            "publisher": "Издательство XYZ",
+            "series": "Культовая проза",
+            "binding": "Т",
+            "pub_year": 1996,
+            "count_pages": 208,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM1R7CCC4RQN8B7CY1QA0VE",
+        "fields": {
+            "name": "Удушье",
+            "desc": "Роман о мужчине, зарабатывающем на своей мнимой гибели в ресторанах.",
+            "price": "549.99",
+            "articul": "CH-PAL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAP",
+            "author": "01JQ97CZZFSXSXDJNRT5AXMKGG",
+            "publisher": "Издательство XYZ",
+            "series": "Культовая проза",
+            "binding": "М",
+            "pub_year": 2001,
+            "count_pages": 304,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM1RJ10VVWMYZDM8VYJFX3Y",
+        "fields": {
+            "name": "Колыбельная",
+            "desc": "История журналиста, расследующего загадочные случаи внезапной смерти детей.",
+            "price": "579.99",
+            "articul": "LC-PAL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAL",
+            "author": "01JQ97CZZFSXSXDJNRT5AXMKGG",
+            "publisher": "Издательство XYZ",
+            "series": "Культовая проза",
+            "binding": "Т",
+            "pub_year": 2002,
+            "count_pages": 272,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM1RW476P2H5WWP4FT4T8BC",
+        "fields": {
+            "name": "Призраки",
+            "desc": "Коллекция извращенных, жутких и шокирующих рассказов о творческих людях.",
+            "price": "599.99",
+            "articul": "HA-PAL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAL",
+            "author": "01JQ97CZZFSXSXDJNRT5AXMKGG",
+            "publisher": "Издательство XYZ",
+            "series": "Культовая проза",
+            "binding": "Т",
+            "pub_year": 2005,
+            "count_pages": 416,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM1S3XRWE0K0RYFYACPFT22",
+        "fields": {
+            "name": "Снафф",
+            "desc": "Сатирический роман о порноиндустрии и культуре современного общества.",
+            "price": "499.99",
+            "articul": "SN-PAL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAP",
+            "author": "01JQ97CZZFSXSXDJNRT5AXMKGG",
+            "publisher": "Издательство XYZ",
+            "series": "Культовая проза",
+            "binding": "М",
+            "pub_year": 2008,
+            "count_pages": 208,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM2JKJ4N9DQZQFXNHMV3X9B",
+        "fields": {
+            "name": "Мастер и Маргарита",
+            "desc": "Знаменитый роман о дьяволе, любви и советской действительности.",
+            "price": "799.99",
+            "articul": "MM-BUL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAL",
+            "author": "01JQ97G997K4B7ZWYSRJZ5NV2N",
+            "publisher": "Издательство XYZ",
+            "series": "Классическая проза",
+            "binding": "Т",
+            "pub_year": 1967,
+            "count_pages": 480,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM2JWBA1NYNH10V9DWN9KYS",
+        "fields": {
+            "name": "Собачье сердце",
+            "desc": "Сатирическая повесть о научном эксперименте, превратившем собаку в человека.",
+            "price": "599.99",
+            "articul": "SH-BUL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAP",
+            "author": "01JQ97G997K4B7ZWYSRJZ5NV2N",
+            "publisher": "Издательство XYZ",
+            "series": "Классическая проза",
+            "binding": "Т",
+            "pub_year": 1925,
+            "count_pages": 192,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM2K6NMYX6W9J3RBYC1KETV",
+        "fields": {
+            "name": "Белая гвардия",
+            "desc": "Исторический роман о судьбе русской интеллигенции в годы Гражданской войны.",
+            "price": "699.99",
+            "articul": "WG-BUL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAF",
+            "author": "01JQ97G997K4B7ZWYSRJZ5NV2N",
+            "publisher": "Издательство XYZ",
+            "series": "Классическая проза",
+            "binding": "Т",
+            "pub_year": 1925,
+            "count_pages": 384,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM2KK35EWA7Z5MWCBN9ADJA",
+        "fields": {
+            "name": "Записки юного врача",
+            "desc": "Цикл рассказов о молодом враче, работающем в сельской больнице.",
+            "price": "579.99",
+            "articul": "NYD-BUL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAP",
+            "author": "01JQ97G997K4B7ZWYSRJZ5NV2N",
+            "publisher": "Издательство XYZ",
+            "series": "Классическая проза",
+            "binding": "М",
+            "pub_year": 1926,
+            "count_pages": 256,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM2KVERA0XKQQS63SR2ZAHF",
+        "fields": {
+            "name": "Роковые яйца",
+            "desc": "Фантастическая повесть о научном открытии, вызвавшем катастрофические последствия.",
+            "price": "549.99",
+            "articul": "FE-BUL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAP",
+            "author": "01JQ97G997K4B7ZWYSRJZ5NV2N",
+            "publisher": "Издательство XYZ",
+            "series": "Классическая проза",
+            "binding": "М",
+            "pub_year": 1925,
+            "count_pages": 160,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.Book",
+        "pk": "01JQM2M2G6BS17S3ATFQ0RH9SS",
+        "fields": {
+            "name": "Дьяволиада",
+            "desc": "Гротескная повесть о бюрократическом абсурде и мистике.",
+            "price": "529.99",
+            "articul": "DV-BUL",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAP",
+            "author": "01JQ97G997K4B7ZWYSRJZ5NV2N",
+            "publisher": "Издательство XYZ",
+            "series": "Классическая проза",
+            "binding": "М",
+            "pub_year": 1924,
+            "count_pages": 128,
+            "date_add": "2025-03-30"
+        }
+    },
+    {
+        "model": "api_products.book",
+        "pk": "01JQM2VG0KJJ0CJ46E0FEF865P",
+        "fields": {
+            "name": "Мы",
+            "desc": "Дистопия о тоталитарном обществе.",
+            "price": 450.00,
+            "articul": "BOOK001",
+            "author": "01JQ97KJXBAYM3V4MBD9G490HF",
+            "publisher": "Издательство Прогресс",
+            "series": "Литературные шедевры",
+            "binding": "Т",
+            "pub_year": 1920,
+            "count_pages": 320,
+            "date_add": "2025-03-30",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAM"
+        }
+    },
+    {
+        "model": "api_products.book",
+        "pk": "01JQM2VS5DJN3YRYWDYS6HDHW7",
+        "fields": {
+            "name": "Третий Ватикан",
+            "desc": "Философский роман о природе власти.",
+            "price": 500.00,
+            "articul": "BOOK002",
+            "author": "01JQ97KJXBAYM3V4MBD9G490HF",
+            "publisher": "Издательство Русь",
+            "series": "Мир философии",
+            "binding": "М",
+            "pub_year": 1935,
+            "count_pages": 400,
+            "date_add": "2025-03-30",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAB"
+        }
+    },
+    {
+        "model": "api_products.book",
+        "pk": "01JQM2VZDAE9T6EDCAMQRSJJE8",
+        "fields": {
+            "name": "Остров",
+            "desc": "Роман о путешествии через неизведанные острова.",
+            "price": 520.00,
+            "articul": "BOOK003",
+            "author": "01JQ97KJXBAYM3V4MBD9G490HF",
+            "publisher": "Издательство Мечта",
+            "series": "Коллекция приключений",
+            "binding": "Т",
+            "pub_year": 1930,
+            "count_pages": 280,
+            "date_add": "2025-03-30",
+            "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAN"
+        }
     }
 ]

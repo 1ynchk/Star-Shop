@@ -1,0 +1,182 @@
+[
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM455SX7Y90407464HDVKV0",
+        "fields": {
+            "name": "Пенал для канцтоваров",
+            "desc": "Прочный пенал для хранения ручек, карандашей и других мелких канцелярских товаров.",
+            "price": 199.00,
+            "articul": "CH001",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM45E59X9WNETHDHH9RRD8N",
+        "fields": {
+            "name": "Папка для документов",
+            "desc": "Удобная папка для хранения документов формата A4.",
+            "price": 150.00,
+            "articul": "CH002",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM45MECQ2M9ETFGVCAAJVV3",
+        "fields": {
+            "name": "Ручка шариковая",
+            "desc": "Качественная шариковая ручка для повседневного письма.",
+            "price": 25.00,
+            "articul": "CH003",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM45TXXSK3SJ2Q4M5ZA45MG",
+        "fields": {
+            "name": "Скрепки металлические",
+            "desc": "Набор металлических скрепок для бумаги.",
+            "price": 45.00,
+            "articul": "CH004",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM461J39PWKDXKZVFJETRY7",
+        "fields": {
+            "name": "Картридж для принтера",
+            "desc": "Картридж для лазерного принтера, черный.",
+            "price": 550.00,
+            "articul": "CH005",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM468WQ5E23YAGBBFFYBY72",
+        "fields": {
+            "name": "Фломастеры",
+            "desc": "Набор ярких фломастеров для рисования и творчества.",
+            "price": 120.00,
+            "articul": "CH006",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM46ERDEW2PCNJYJ3RCQJE6",
+        "fields": {
+            "name": "Блокнот с плотными страницами",
+            "desc": "Блокнот с плотными страницами для заметок и рисования.",
+            "price": 95.00,
+            "articul": "CH007",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM46N2JFDEM7G1P6CZ2N6NT",
+        "fields": {
+            "name": "Тетрадь на кольцах",
+            "desc": "Тетрадь на кольцах с возможностью добавлять и удалять страницы.",
+            "price": 120.00,
+            "articul": "CH008",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM46VP5VF92JR6AQHZK89TP",
+        "fields": {
+            "name": "Аксессуары для офиса",
+            "desc": "Комплект офисных аксессуаров: подставка для ручек, органайзер.",
+            "price": 300.00,
+            "articul": "CH009",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM47217Z7BPYKCFGYVNJJ56",
+        "fields": {
+            "name": "Ластик для карандаша",
+            "desc": "Мягкий и удобный ластик для карандашей.",
+            "price": 30.00,
+            "articul": "CH010",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM4780XYENHT3CGTYQ2R8ZB",
+        "fields": {
+            "name": "Календарь настольный",
+            "desc": "Настольный календарь с крупными цифрами.",
+            "price": 250.00,
+            "articul": "CH011",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM47F23R14W5WWN7BWP0V3P",
+        "fields": {
+            "name": "Календари на стену",
+            "desc": "Стеновой календарь с большим количеством изображений.",
+            "price": 300.00,
+            "articul": "CH012",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM47P3NE6AY47KVSQ3MNEQQ",
+        "fields": {
+            "name": "Обложка для документов",
+            "desc": "Прочные обложки для документов формата A4.",
+            "price": 80.00,
+            "articul": "CH013",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM47XFVR49QGXTF68H6HAFY",
+        "fields": {
+            "name": "Закладки для книг",
+            "desc": "Закладки для книг из прочного материала.",
+            "price": 50.00,
+            "articul": "CH014",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    },
+    {
+        "model": "api_products.chancellery",
+        "pk": "01JQM4841KSK4MEBXP13QW5TMP",
+        "fields": {
+            "name": "Картон цветной",
+            "desc": "Набор цветного картона для творчества.",
+            "price": 100.00,
+            "articul": "CH015",
+            "date_add": "2025-03-30",
+            "subcat": "01JQ4MP0P1X37N8EMJ735ESKVP"
+        }
+    }
+]

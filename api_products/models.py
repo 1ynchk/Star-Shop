@@ -55,7 +55,6 @@ class Category(models.Model):
 class Chancellery(Products):
     '''Таблица для канцелярии'''
     
-    pass 
 
 class Book(Products):
     '''Таблица для книг'''
