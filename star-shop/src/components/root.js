@@ -37,6 +37,7 @@ function App() {
         <div className='mainarea'>
           <Routes>
             <Route exact path='/' element={<MainPage />} />
+            {/* <Route path='*' /> */}
           </Routes>
         </div>
       </div>

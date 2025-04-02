@@ -123,8 +123,14 @@
 }
 
 .header__element {
+    font-weight: 300;
+    text-align: center;
     width: 150px;
     color: rgb(50, 50, 50);
+}
+
+.header__element.header_weight {
+    font-weight: 400;
 }
 
 .header__container.full-width {

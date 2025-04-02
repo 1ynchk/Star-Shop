@@ -100,7 +100,7 @@ const Header = (props) => {
                             return (
                                 <NavLink
                                     key={ind}
-                                    className='header__element'
+                                    className='header__element header_weight'
                                 >
                                     {el.cat.name}
                                 </NavLink>

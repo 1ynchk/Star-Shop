@@ -76,11 +76,10 @@ const SidebarLogin = (props) => {
                             exit={{ x: 50, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
                             className='sidebar_login'>
-                            <div
+                            <IoCloseOutline
                                 onClick={() => setSidebarLogin(false)}
-                                className='sidebar__cross_container'>
-                                <IoCloseOutline />
-                            </div>
+                                className='sidebar__cross_container'
+                            />
 
                             <div className='sidebar__container'>
                                 <div className='logo'>

@@ -4,9 +4,12 @@ import { motion, AnimatePresence } from "framer-motion"
 import { CiWarning } from "react-icons/ci";
 import { IoReload } from "react-icons/io5";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { IoIosArrowBack } from "react-icons/io";
+import { RxCross1 } from "react-icons/rx";
 
 import { fetchGetCategories } from '../../store/requests/MainPage/get-categories'
 import Loading from './loading'
+import { NavLink } from 'react-router-dom';
 
 const SidebarCatalog = (props) => {
 
@@ -54,7 +57,11 @@ const SidebarCatalog = (props) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        onClick={() => setSidebarCatalog(!isSidebarCatalog)}
+                        onClick={() => {
+                            setSidebarCatalog(!isSidebarCatalog)
+                            setSubcatChoisen(false)
+                        }
+                        }
                         className="sidebar_login_wrapper">
                         <motion.div
                             transition={{ delay: 0.2, ease: 'easeOut' }}
@@ -63,6 +70,47 @@ const SidebarCatalog = (props) => {
                             exit={{ x: -50, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
                             className='sidebar_catalog'>
+                            <RxCross1
+                                className='sidebar_catalog__close'
+                                onClick={() => {
+                                    setSidebarCatalog(!isSidebarCatalog)
+                                    setSubcatChoisen(false)
+                                }}
+                            />
+                            {
+                                isSubcatChoisen != false && (
+                                    <motion.div
+                                        initial={{ x: -10, opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        exit={{ x: -10, opacity: 0 }}
+                                        className='sidebar__header_container'>
+                                        <IoIosArrowBack
+                                            onClick={() => {
+                                                setSubcatChoisen(false)
+                                            }}
+                                            className='is_subcat_choisen'
+                                        />
+                                        <div className='sidebar_categories_title'>
+                                            {isSubcatChoisen.name}
+                                        </div>
+                                    </motion.div>
+                                )
+                            }
+                            {
+                                isSubcatChoisen == false && (
+                                    <motion.div
+                                        initial={{ x: -10, opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        exit={{ x: -10, opacity: 0 }}
+                                        className='sidebar__header_container'>
+                                        <div className='sidebar_categories_title'>
+                                            Категории
+                                        </div>
+                                    </motion.div>
+
+                                )
+                            }
+
                             <div className='sidebar_catalog__container'>
                                 {
                                     loading && <Loading />
@@ -73,15 +121,27 @@ const SidebarCatalog = (props) => {
                                             func={reloadCategories}
                                             error={error} />)
                                 }
-
                                 <div className='category_container'>
                                     {
-                                        !loading && (
+                                        !loading && isSubcatChoisen == false && (
                                             categories.map((el, ind) => {
                                                 return <Category
+                                                    setter={setSubcatChoisen}
+                                                    value={el}
                                                     key={ind}
                                                     subcats={el.subcats}
                                                     name={el.name} />
+                                            })
+                                        )
+                                    }
+                                    {
+                                        !loading && isSubcatChoisen != false && (
+                                            isSubcatChoisen.subcats.map((el, ind) => {
+                                                return <Subcategory
+                                                    key={ind}
+                                                    id={el.id}
+                                                    name={el.name}
+                                                />
                                             })
                                         )
                                     }
@@ -95,28 +155,75 @@ const SidebarCatalog = (props) => {
     )
 }
 
-const Category = (props) => {
+const Subcategory = (props) => {
 
     const {
+        id,
         name,
-        subcats
     } = props
 
     return (
-        <div
-            className='category'>
-            <div className='category__subcontainer'>
-                <div className='dot'></div>
+        <NavLink
+            className='category'
+        >
+            <motion.div
+                initial={{ x: -10, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -10, opacity: 0 }}
+                className='category__subcontainer'>
                 <div className='category__name'>
                     {name}
                 </div>
 
-            </div>
-            {
-                subcats.length != 0 && <FaLongArrowAltRight className='category__arrow' />
-            }
+            </motion.div>
+        </NavLink>
+    )
+}
 
-        </div>
+const Category = (props) => {
+    const {
+        name,
+        subcats,
+        setter,
+        value
+    } = props
+
+    return (
+        <motion.div
+            initial={{ x: -10, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -10, opacity: 0 }}>
+            {
+                subcats.length == 0 && (
+                    <NavLink
+                        className='category'
+                    >
+                        <motion.div
+                            className='category__subcontainer'>
+                            <div className='category__name'>
+                                {name}
+                            </div>
+
+                        </motion.div>
+                    </NavLink>
+                )
+            }
+            {
+                subcats.length != 0 && (
+                    <motion.div
+                        onClick={() => setter(value)}
+                        className='category'>
+                        <div className='category__subcontainer'>
+                            <div className='category__name'>
+                                {name}
+                            </div>
+
+                        </div>
+                        <FaLongArrowAltRight className='category__arrow' />
+                    </motion.div>
+                )
+            }
+        </motion.div>
     )
 }
 
