@@ -4,8 +4,17 @@ from .models import (
     Category, 
     Subcategory,
     Chancellery,
-    Book
+    Book,
+    Author,
+    ProductImages
     )
+
+class AuthorSerializer(serializers.ModelSerializer):
+    '''Сериализатор для авторов книг'''
+    
+    class Meta: 
+        model = Author
+        fields = '__all__'
 
 class CategorySerializerReduced(serializers.ModelSerializer):
     '''Сериализатор для категорий без подкатегорий'''
@@ -16,12 +25,12 @@ class CategorySerializerReduced(serializers.ModelSerializer):
         
 class SubcategorySerializer(serializers.ModelSerializer):
     '''Сериализатор для подкатегорий'''
-    
+
     class Meta:
         model = Subcategory
         fields = '__all__'
         
-class CateforySerializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     '''Сериализатор для категорий'''
 
     subcats = SubcategorySerializer(many=True)
@@ -30,9 +39,46 @@ class CateforySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'       
 
-class CommonMainPageProducts(serializers.ModelSerializer):
-    '''Общий сериализатор для продуктов главной страницы'''
+class ChancelleryMainPageSerializer(serializers.ModelSerializer):
+    '''Сериализатор для канцелярии главной страницы'''
 
     class Meta:
         model = Chancellery
-        fields = ['id', 'name', 'price', 'main_image']
+        fields = ['id', 'name', 'price', 'main_image', 'content_type']
+
+class BookMainPageSerializer(serializers.ModelSerializer):
+    '''Сериализатор для книг в главном меню'''
+
+    author = AuthorSerializer()
+    
+    class Meta: 
+        model = Book 
+        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'author']
+
+class ProductImagesSerializer(serializers.ModelSerializer):
+    '''Сериализатор дополнительных фотографий продуктов'''
+    
+    class Meta: 
+        model = ProductImages
+        fields = ['image']
+        
+class BookPageSerializer(serializers.ModelSerializer):
+    '''Сериализатор для страницы с книгой'''
+
+    subcat = SubcategorySerializer()
+    author = AuthorSerializer()
+    ancillary_images = ProductImagesSerializer(many=True)
+    
+    class Meta:
+        model = Book 
+        fields = '__all__'
+        
+class ChancelleryPageSerializer(serializers.ModelSerializer):
+    '''Сериализатор для страницы с канцелярией'''
+
+    subcat = SubcategorySerializer()
+    ancillary_images = ProductImagesSerializer(many=True)
+    
+    class Meta:
+        model = Chancellery
+        fields = '__all__'

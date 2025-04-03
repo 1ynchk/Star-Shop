@@ -56,7 +56,8 @@
             "binding": "Т",
             "pub_year": 1949,
             "count_pages": 328,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -74,7 +75,8 @@
             "binding": "М",
             "pub_year": 1945,
             "count_pages": 152,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -92,7 +94,8 @@
             "binding": "Т",
             "pub_year": 1996,
             "count_pages": 208,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -110,7 +113,8 @@
             "binding": "М",
             "pub_year": 2001,
             "count_pages": 304,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -128,7 +132,8 @@
             "binding": "Т",
             "pub_year": 2002,
             "count_pages": 272,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -146,7 +151,8 @@
             "binding": "Т",
             "pub_year": 2005,
             "count_pages": 416,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -164,7 +170,8 @@
             "binding": "М",
             "pub_year": 2008,
             "count_pages": 208,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -182,7 +189,8 @@
             "binding": "Т",
             "pub_year": 1967,
             "count_pages": 480,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -200,7 +208,8 @@
             "binding": "Т",
             "pub_year": 1925,
             "count_pages": 192,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -218,7 +227,8 @@
             "binding": "Т",
             "pub_year": 1925,
             "count_pages": 384,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -236,7 +246,8 @@
             "binding": "М",
             "pub_year": 1926,
             "count_pages": 256,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -254,7 +265,8 @@
             "binding": "М",
             "pub_year": 1925,
             "count_pages": 160,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -272,7 +284,8 @@
             "binding": "М",
             "pub_year": 1924,
             "count_pages": 128,
-            "date_add": "2025-03-30"
+            "date_add": "2025-03-30",
+            "content_type": "book"
         }
     },
     {
@@ -290,6 +303,7 @@
             "pub_year": 1920,
             "count_pages": 320,
             "date_add": "2025-03-30",
+            "content_type": "book",
             "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAM"
         }
     },
@@ -308,6 +322,7 @@
             "pub_year": 1935,
             "count_pages": 400,
             "date_add": "2025-03-30",
+            "content_type": "book",
             "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAB"
         }
     },
@@ -326,6 +341,7 @@
             "pub_year": 1930,
             "count_pages": 280,
             "date_add": "2025-03-30",
+            "content_type": "book",
             "subcat": "01HZX8F3M5AYX1G7R9E2B8TQAN"
         }
     }

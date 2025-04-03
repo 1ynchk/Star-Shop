@@ -1,6 +1,12 @@
 from django.contrib import admin
 
-from .models import Chancellery, Book, Category, Subcategory
+from .models import (
+    Chancellery, 
+    Book, 
+    Category, 
+    Subcategory,
+    ProductImages
+)
 
 # Register your models here.
 
@@ -14,13 +20,10 @@ class CommonProductsAdminClass(admin.ModelAdmin):
 @admin.register(Chancellery)
 class AdminChancellery(CommonProductsAdminClass):
     '''Админ панель канцелярии'''
-    pass
 
 @admin.register(Book)
 class AdminBook(CommonProductsAdminClass):
     '''Админ панель книг'''
-    
-    pass
 
 @admin.register(Subcategory)
 class AdminSubcategory(CommonProductsAdminClass):
@@ -29,3 +32,8 @@ class AdminSubcategory(CommonProductsAdminClass):
 @admin.register(Category)
 class AdminCategory(CommonProductsAdminClass):
     '''Админ панель категорий''' 
+    
+@admin.register(ProductImages)
+class AdminProductsImages(CommonProductsAdminClass):
+    '''Админ панель дополнительных фотографий для продуктов'''
+    

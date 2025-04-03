@@ -9,6 +9,11 @@ class Products(models.Model):
         Абстрактная модель продуктов, 
         от которой наследуются различные типы продуктов
     '''
+
+    type_product = (
+        ('book', 'Книги'),
+        ('chancellery', 'Канцелярия')
+    )
     
     id = ULIDField(default=default, primary_key=True, editable=False) 
     name = models.CharField(max_length=100, null=False) 
@@ -21,6 +26,7 @@ class Products(models.Model):
     ancillary_images = models.ManyToManyField('ProductImages')
     subcat = models.ForeignKey('Subcategory', on_delete=models.SET_NULL, null=True)
     date_add = models.DateField(auto_now_add=True)
+    content_type = models.CharField(choices=type_product)
 
     def __str__(self):
         return self.name 
@@ -55,6 +61,9 @@ class Category(models.Model):
 class Chancellery(Products):
     '''Таблица для канцелярии'''
     
+    def save(self, *args, **kwargs):
+        self.content_type = 'chancellery'
+        super().save(*args, **kwargs)
 
 class Book(Products):
     '''Таблица для книг'''
@@ -70,6 +79,10 @@ class Book(Products):
     binding = models.CharField(max_length=155, choices=binding_choices)
     pub_year = models.IntegerField()
     count_pages = models.IntegerField() 
+
+    def save(self, *args, **kwargs):
+        self.content_type = 'book'
+        super().save(*args, **kwargs)
 
     class Meta:
         db_table = 'api_books'
