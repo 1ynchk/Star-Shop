@@ -66,6 +66,7 @@ const MainPageProducts = (props) => {
                                             <div className='product_card'>
                                                 <NavLink to={{
                                                     pathname: '/products/' + el.id,
+                                                    search: '?type=' + el.content_type
                                                 }}>
                                                     <div className='product_card__img_container'>
                                                         <img
@@ -74,8 +75,16 @@ const MainPageProducts = (props) => {
                                                             alt='product card' />
                                                     </div>
                                                     <div className='product_card__title'>
-                                                        {el.name}
+                                                        {el.name.length < 50 ? el.name : `${el.name.slice(0, 50)}...`}
                                                     </div>
+                                                    {
+                                                        el.content_type == 'book' && (
+                                                            <div className='product_card_author'>
+                                                                {el.author.name}
+                                                            </div>
+                                                        )
+                                                    }
+
                                                 </NavLink>
                                                 <div className='product_card__price_container'>
                                                     {el.price}

@@ -51,9 +51,11 @@ const Header = (props) => {
                 </div>
             </div>
             <div className='header__wrapper'>
-                <div className='logo'>
+                <NavLink 
+                    to={'/'}
+                    className='logo'>
                     <img className='logo-img' alt='logo' src={logo} />
-                </div>
+                </NavLink>
                 <form
                     onSubmit={(e) => handleSubmit(e)}
                     className='header__search_container'>

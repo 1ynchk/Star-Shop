@@ -81,6 +81,7 @@
 }
 
 .product_card__title {
+    min-height: 25px;
     font-weight: 500;
     font-size: 17px;
     margin-bottom: 20px;
@@ -91,6 +92,13 @@
     overflow-wrap: break-word;
     margin-top: 15px;
     transition-duration: 0.5s;
+}
+
+.product_card_author {
+    min-height: 30px;
+    color: rgb(100, 100, 100);
+    margin-bottom: 20px;
+    font-size: 14px;
 }
 
 .product_card__title:hover {

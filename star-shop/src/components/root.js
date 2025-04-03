@@ -11,8 +11,9 @@ import Header from './common/header';
 import SidebarLogin from './common/login-sidebar/login-sidebar';
 import SidebarCatalog from './common/catalog-sidebar';
 import LoadingScreen from './common/loading-screen';
-
+import Page404 from './common/404-page';
 import MainPage from './main-page/Main-page';
+import ProductPage from './product-page/product-page';
 
 function App() {
 
@@ -37,7 +38,10 @@ function App() {
         <div className='mainarea'>
           <Routes>
             <Route exact path='/' element={<MainPage />} />
-            {/* <Route path='*' /> */}
+            <Route exact path='/products' >
+              <Route path=':id' element={<ProductPage/>} />
+            </Route>
+            <Route path='*' element={<Page404/>} />
           </Routes>
         </div>
       </div>

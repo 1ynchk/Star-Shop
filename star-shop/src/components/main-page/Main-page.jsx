@@ -19,8 +19,6 @@ const MainPage = (props) => {
         })
     }, [])
 
-    console.log(result)
-
     return (
         <div className="mainpage">
             <Banners loading={loading} banners={result.banners} error={error} />
