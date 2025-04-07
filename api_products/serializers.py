@@ -6,8 +6,11 @@ from .models import (
     Chancellery,
     Book,
     Author,
-    ProductImages
+    ProductImages,
+    ProductRating
     )
+
+from api_users.serializers import UserSerializer
 
 class AuthorSerializer(serializers.ModelSerializer):
     '''Сериализатор для авторов книг'''
@@ -82,3 +85,12 @@ class ChancelleryPageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chancellery
         fields = '__all__'
+        
+class ProductRatingSerializer(serializers.ModelSerializer):
+    '''Сериализатор для оценок пользователя'''
+
+    user = UserSerializer()
+    
+    class Meta:
+        model = ProductRating
+        fields = ['rate', 'user']

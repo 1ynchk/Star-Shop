@@ -5,7 +5,8 @@ from .models import (
     Book, 
     Category, 
     Subcategory,
-    ProductImages
+    ProductImages,
+    Author
 )
 
 # Register your models here.
@@ -20,6 +21,10 @@ class CommonProductsAdminClass(admin.ModelAdmin):
 @admin.register(Chancellery)
 class AdminChancellery(CommonProductsAdminClass):
     '''Админ панель канцелярии'''
+
+@admin.register(Author)
+class AdminAuthor(CommonProductsAdminClass):
+    '''Админ панель авторов'''
 
 @admin.register(Book)
 class AdminBook(CommonProductsAdminClass):

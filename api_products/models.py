@@ -1,6 +1,7 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
+from django.contrib.contenttypes.models import ContentType
 from django_ulid.models import default, ULIDField
-from django.db import models
 
 from django_ulid.models import default, ULIDField
 
@@ -27,12 +28,30 @@ class Products(models.Model):
     subcat = models.ForeignKey('Subcategory', on_delete=models.SET_NULL, null=True)
     date_add = models.DateField(auto_now_add=True)
     content_type = models.CharField(choices=type_product)
+    ratings = GenericRelation('ProductRating', object_id_field='object_id', content_type_field='content_type')
 
     def __str__(self):
         return self.name 
     
     class Meta:
         abstract = True
+
+class ProductRating(models.Model):
+    '''Единая таблица для оценок всех продуктов'''
+    
+    rate_choices = [
+        ('like', 'Нравится'),
+        ('dislike', 'Не нравится')
+    ]
+    
+    user = models.ForeignKey('api_users.Users', on_delete=models.CASCADE)
+    rate = models.CharField(max_length=50, choices=rate_choices)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.CharField(max_length=50)  
+    content_object = GenericForeignKey('content_type', 'object_id')
+    
+    def __str__(self):
+        return f'{self.content_object.name} | {self.user.email}'
 
 class ProductImages(models.Model):
     '''Таблица для фотографий продукта''' 
@@ -60,7 +79,7 @@ class Category(models.Model):
 
 class Chancellery(Products):
     '''Таблица для канцелярии'''
-    
+
     def save(self, *args, **kwargs):
         self.content_type = 'chancellery'
         super().save(*args, **kwargs)
@@ -86,7 +105,7 @@ class Book(Products):
 
     class Meta:
         db_table = 'api_books'
-
+        
 class Author(models.Model):
     '''Таблица для авторов книг'''
     
