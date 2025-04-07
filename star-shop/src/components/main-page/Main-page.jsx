@@ -26,11 +26,13 @@ const MainPage = (props) => {
                 loading={loading}
                 products={result.books}
                 label='Книги'
+                error={error}
             />
             <MainPageProducts
                 loading={loading}
                 products={result.chancellery}
                 label='Канцелярия'
+                error={error}
             />
         </div>
     )

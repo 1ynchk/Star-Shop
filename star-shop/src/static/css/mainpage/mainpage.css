@@ -6,3 +6,13 @@
     font-size: 30px;
     font-weight: 500;
 }
+
+.mainpageproducts__error {
+    background-color: rgba(128, 128, 128, 0.5);
+    width: 100%;
+    border-radius: 10px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

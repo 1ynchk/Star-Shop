@@ -6,6 +6,87 @@
 .product__container {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
+.product__book_author {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.assessment {
+    width: 400px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.assessment__rate {
+    height: 100%;
+    width: 100%;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease-in-out
+}
+
+.assessment__rate.dislike {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.assessment__rate.like {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+.assessment__delimeter {
+    left: 39px;
+    height: 40px;
+    position: absolute;
+    width: 1px;
+    background-color: rgba(50, 50, 50, 0.7);
+}
+
+.assessment__container.rate {
+    position: relative;
+    align-items: center;
+    border-radius: 10px;
+    width: 80px;
+    border: 1px solid rgba(50, 50, 50, 0.7);
+}
+
+.assessment__circle {
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: .3s ease;
+}
+
+.assessment__circle.green {
+    background-color: rgb(60, 128, 60);
+}
+
+.assessment__circle.yellow {
+    background-color: rgb(214, 214, 8);
+}
+
+.assessment__circle.red {
+    background-color: rgb(168, 67, 67);
+}
+
+.assessment__container {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

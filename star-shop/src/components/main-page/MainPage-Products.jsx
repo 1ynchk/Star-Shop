@@ -4,14 +4,23 @@ import 'swiper/swiper-bundle.css';
 import { Navigation } from 'swiper/modules';
 import { NavLink } from 'react-router-dom';
 import { MdFavoriteBorder } from "react-icons/md";
+import { useEffect, useState } from 'react';
 
 const MainPageProducts = (props) => {
+
+    const [arrayProducts, setArrayProducts] = useState([])
 
     const {
         products,
         loading,
-        label
+        label,
+        error
     } = props
+
+
+    useEffect(() => {
+        products == undefined ? setArrayProducts([]) : setArrayProducts(products)
+    }, [loading])
 
     return (
         <div className='mainpageproducts'>
@@ -57,7 +66,7 @@ const MainPageProducts = (props) => {
                         }}
                     >
                         {
-                            products.map((el, ind) => {
+                            arrayProducts.map((el, ind) => {
                                 return (
                                     <SwiperSlide
                                         key={ind}
@@ -103,12 +112,19 @@ const MainPageProducts = (props) => {
                                         </div>
                                     </SwiperSlide>
                                 )
-
                             })
                         }
                     </Swiper>
                 )
             }
+            {
+                error.length != 0 && (
+                    <div className='mainpageproducts__error'>
+                        {error}
+                    </div>
+                )
+            }
+
         </div >
 
     )
