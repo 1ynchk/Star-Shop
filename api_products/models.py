@@ -24,17 +24,32 @@ class Products(models.Model):
     main_image = models.FileField(
         upload_to='media/products/', 
         default='media/default/product-default.png')
-    ancillary_images = models.ManyToManyField('ProductImages')
+    discount = models.ForeignKey('ProductDiscount', blank=True, null=True, on_delete=models.SET_NULL)
+    ancillary_images = models.ManyToManyField('ProductImages', blank=True)
     subcat = models.ForeignKey('Subcategory', on_delete=models.SET_NULL, null=True)
     date_add = models.DateField(auto_now_add=True)
     content_type = models.CharField(choices=type_product)
-    ratings = GenericRelation('ProductRating', object_id_field='object_id', content_type_field='content_type')
+    ratings = GenericRelation(
+        'ProductRating', 
+        object_id_field='object_id', 
+        content_type_field='content_type')
 
     def __str__(self):
         return self.name 
     
     class Meta:
         abstract = True
+
+class ProductDiscount(models.Model):
+    '''Таблица для скидок продуктов'''
+   
+    name = models.CharField(max_length=100) 
+    price_with_discount = models.DecimalField(max_digits=3, decimal_places=2)
+    date_start = models.DateField()
+    date_end = models.DateField()
+    
+    def __str__(self):
+        return self.name
 
 class ProductRating(models.Model):
     '''Единая таблица для оценок всех продуктов'''

@@ -6,7 +6,8 @@ from .models import (
     Category, 
     Subcategory,
     ProductImages,
-    Author
+    Author,
+    ProductDiscount
 )
 
 # Register your models here.
@@ -42,3 +43,6 @@ class AdminCategory(CommonProductsAdminClass):
 class AdminProductsImages(CommonProductsAdminClass):
     '''Админ панель дополнительных фотографий для продуктов'''
     
+@admin.register(ProductDiscount)
+class AdminDiscount(CommonProductsAdminClass):
+    '''Админ панель для скидок продукта'''

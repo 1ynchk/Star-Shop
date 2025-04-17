@@ -30,8 +30,8 @@ def get_first_section(request):
     '''Получение фотографии для главной страницы''' 
 
     queryset_banners = Banner.objects.all()
-    queryset_chancellery = Chancellery.objects.all().order_by('-date_add')[:15]
-    queryset_book = Book.objects.select_related('author').all().order_by('-date_add')[:15] 
+    queryset_chancellery = Chancellery.objects.select_related('discount').all().order_by('-date_add')[:15]
+    queryset_book = Book.objects.select_related('author', 'discount').all().order_by('-date_add')[:15] 
     serialized_banners = BannerSerializer(queryset_banners, many=True).data
     serialized_chancellery = ChancelleryMainPageSerializer(queryset_chancellery, many=True).data
     serialized_book = BookMainPageSerializer(queryset_book, many=True).data 

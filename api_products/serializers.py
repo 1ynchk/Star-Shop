@@ -7,10 +7,18 @@ from .models import (
     Book,
     Author,
     ProductImages,
-    ProductRating
+    ProductRating,
+    ProductDiscount
     )
 
 from api_users.serializers import UserSerializer
+
+class ProductDiscountSerializer(serializers.ModelSerializer):
+    '''Сериализатор для скидок продукта'''
+    
+    class Meta:
+        model = ProductDiscount
+        fields = '__all__'
 
 class AuthorSerializer(serializers.ModelSerializer):
     '''Сериализатор для авторов книг'''
@@ -45,18 +53,21 @@ class CategorySerializer(serializers.ModelSerializer):
 class ChancelleryMainPageSerializer(serializers.ModelSerializer):
     '''Сериализатор для канцелярии главной страницы'''
 
+    discount = ProductDiscountSerializer()
+
     class Meta:
         model = Chancellery
-        fields = ['id', 'name', 'price', 'main_image', 'content_type']
+        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'discount']
 
 class BookMainPageSerializer(serializers.ModelSerializer):
     '''Сериализатор для книг в главном меню'''
 
     author = AuthorSerializer()
+    discount = ProductDiscountSerializer()
     
     class Meta: 
         model = Book 
-        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'author']
+        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'author', 'discount']
 
 class ProductImagesSerializer(serializers.ModelSerializer):
     '''Сериализатор дополнительных фотографий продуктов'''
@@ -71,6 +82,7 @@ class BookPageSerializer(serializers.ModelSerializer):
     subcat = SubcategorySerializer()
     author = AuthorSerializer()
     ancillary_images = ProductImagesSerializer(many=True)
+    discount = ProductDiscountSerializer()
     
     class Meta:
         model = Book 
@@ -81,6 +93,7 @@ class ChancelleryPageSerializer(serializers.ModelSerializer):
 
     subcat = SubcategorySerializer()
     ancillary_images = ProductImagesSerializer(many=True)
+    discount = ProductDiscountSerializer()
     
     class Meta:
         model = Chancellery

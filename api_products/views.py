@@ -2,6 +2,8 @@ from django.apps import apps
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
+import time
+
 from .models import (
     Category,
     Products,
@@ -38,7 +40,7 @@ def get_product(request):
     model_class = get_type_product(type) 
 
     try: 
-        fields = {'subcat'}
+        fields = {'subcat', 'discount'}
         
         if type == 'book':
             fields.add('author')
