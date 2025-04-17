@@ -22,6 +22,8 @@ const MainPageProducts = (props) => {
         products == undefined ? setArrayProducts([]) : setArrayProducts(products)
     }, [loading])
 
+    console.log(products)
+
     return (
         <div className='mainpageproducts'>
             <div className='mainpageproducts__title'>{label}</div>
@@ -95,9 +97,26 @@ const MainPageProducts = (props) => {
                                                     }
 
                                                 </NavLink>
-                                                <div className='product_card__price_container'>
-                                                    {el.price}
-                                                </div>
+                                                {
+                                                    el.discount == null && (
+                                                        <div className='product_card__price_container'>
+                                                            {el.price} &#8381;
+                                                        </div>
+                                                    )
+                                                }
+                                                {
+                                                    el.discount != null && (
+                                                        <div className='product_card__price_wrapper'>
+                                                            <div className='product_card__price_container crossed'>
+                                                                {(el.price * el.discount.price_with_discount).toFixed(2)} &#8381;
+                                                            </div>
+                                                            <div className='product_card__price_container with_sale'>
+                                                                {el.price} &#8381;
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+
                                                 <div className='product_card_btns'>
                                                     <div className='product_card_btn'>
                                                         В корзину

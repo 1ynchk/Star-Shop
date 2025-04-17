@@ -215,20 +215,25 @@ const HeaderUsersPart = (props) => {
             <AnimatePresence>
                 {
                     isProfileActive && isLogin && (
-                        <motion.div
+                        <motion.ul
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             className='profile_drop_list_container'>
-                            <ul className='profile_drop_list'>
+                                <NavLink
+                                    to='/profile/personal-data'
+                                    onClick={() => setProfileActive(false)}
+                                    className='profile_el_container'>
+                                    <CgProfile className='profile_el_img' />
+                                    <div className='profile_el_text'>Профиль</div>
+                                </NavLink>
                                 <li
                                     onClick={() => dispatch(fetchLogout())}
                                     className='profile_el_container'>
                                     <IoIosExit className='profile_el_img' />
                                     <div className='profile_el_text'>Выйти</div>
                                 </li>
-                            </ul>
-                        </motion.div>
+                        </motion.ul>
                     )
                 }
             </AnimatePresence>

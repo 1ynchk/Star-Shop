@@ -15,6 +15,9 @@ import Page404 from './common/404-page';
 import MainPage from './main-page/Main-page';
 import ProductPage from './product-page/product-page';
 
+import ProfileRoot from './profile/profile-root';
+import ProfilePersonalData from './profile/profile-personal-data';
+
 function App() {
 
   const screenLoading = useSelector(state => state.users.screenLoading)
@@ -38,10 +41,17 @@ function App() {
         <div className='mainarea'>
           <Routes>
             <Route exact path='/' element={<MainPage />} />
+
+            <Route exact path='/profile' element={<ProfileRoot/>}>
+              <Route path='personal-data' element={<ProfilePersonalData/>} />
+            </Route>
+
             <Route exact path='/products' >
               <Route path=':id' element={<ProductPage/>} />
             </Route>
+
             <Route path='*' element={<Page404/>} />
+
           </Routes>
         </div>
       </div>

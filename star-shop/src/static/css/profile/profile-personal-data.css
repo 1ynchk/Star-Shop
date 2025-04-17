@@ -1,0 +1,12 @@
+
+.profile_personal_data__btns {
+    width: 81%;
+}
+
+.profile_personal_data__btns > * {
+    width: 100%;
+}
+
+.profile_personal_data__form {
+    width: 90%;
+}

@@ -90,3 +90,34 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.product_description__title {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.product_description {
+    width: 400px;
+}
+
+.product_description__annotation {
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+.product_description__characteristics {
+    font-size: 17px;
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product_description__column {
+    padding: 8px 0px;
+    text-align: left;
+}
+
+.product_description__column:first-child {
+    font-weight: bold; 
+}

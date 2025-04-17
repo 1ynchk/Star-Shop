@@ -1,0 +1,20 @@
+.profile_sidebar {
+    display: flex;
+    flex-direction: column;    
+    width: 250px;
+}
+
+.profile_sidebar__name {
+    margin-bottom: 10px;
+}
+
+.profile_sidebar__link {
+    padding: 10px 0px;
+    font-size: 17px;
+    font-weight: 300;
+    transition: .3s ease;
+}
+
+.profile_sidebar__link:hover {
+    color: orange;
+}

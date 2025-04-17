@@ -11,7 +11,7 @@ const ProductSlice = createSlice(
             product: {},
             loading: false,
             assessments: [],
-            usersRate: null
+            usersRate: 'null'
         },
 
         reducers: {
@@ -27,7 +27,7 @@ const ProductSlice = createSlice(
                         state.assessments = action.payload.assessments
                         if (action.payload.user_id != 'None') {
                             let usersRate = state.assessments.filter(el => (el.user.id == action.payload.user_id))
-                            usersRate.length > 0 ? state.usersRate = usersRate[0].rate : state.usersRate = null
+                            usersRate.length > 0 ? state.usersRate = usersRate[0].rate : state.usersRate = 'null'
                         }
                     }
                 )
