@@ -22,8 +22,6 @@ const MainPageProducts = (props) => {
         products == undefined ? setArrayProducts([]) : setArrayProducts(products)
     }, [loading])
 
-    console.log(products)
-
     return (
         <div className='mainpageproducts'>
             <div className='mainpageproducts__title'>{label}</div>

@@ -9,6 +9,7 @@ import { useEffect } from "react"
 import Assessment from './product-assessment'
 import ProductImage from './product-image'
 import ProductDescription from './product-description'
+import EmptyReviews from './product-reviews';
 
 const ProductPage = () => {
     const { id } = useParams()
@@ -49,6 +50,8 @@ const ProductPage = () => {
                 <ProductDescription product={product} loading={loading} type={type} />
                 <AddToCartSection loading={loading} product={product} />
             </div>
+
+            <EmptyReviews/>
         </div>
     )
 }
@@ -59,8 +62,6 @@ const AddToCartSection = (props) => {
         product,
         loading
     } = props
-
-    console.log(product)
 
     return (
         <div className='product_addtocart'>

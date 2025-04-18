@@ -14,6 +14,7 @@ import LoadingScreen from './common/loading-screen';
 import Page404 from './common/404-page';
 import MainPage from './main-page/Main-page';
 import ProductPage from './product-page/product-page';
+import Warnings from './common/warnings';
 
 import ProfileRoot from './profile/profile-root';
 import ProfilePersonalData from './profile/profile-personal-data';
@@ -42,15 +43,15 @@ function App() {
           <Routes>
             <Route exact path='/' element={<MainPage />} />
 
-            <Route exact path='/profile' element={<ProfileRoot/>}>
-              <Route path='personal-data' element={<ProfilePersonalData/>} />
+            <Route exact path='/profile' element={<ProfileRoot />}>
+              <Route path='personal-data' element={<ProfilePersonalData />} />
             </Route>
 
             <Route exact path='/products' >
-              <Route path=':id' element={<ProductPage/>} />
+              <Route path=':id' element={<ProductPage />} />
             </Route>
 
-            <Route path='*' element={<Page404/>} />
+            <Route path='*' element={<Page404 />} />
 
           </Routes>
         </div>
@@ -62,6 +63,9 @@ function App() {
         isSidebarCatalog={isSidebarCatalog}
         setSidebarCatalog={setSidebarCatalog} />
       {screenLoading && <LoadingScreen />}
+      <div className='container'>
+        <Warnings />
+      </div>
     </div>
   )
 }
