@@ -78,7 +78,7 @@ def get_profile_info(request):
 @api_view(http_method_names=['POST'])
 def edit_profile_info(request): 
     '''Обновление информации пользователя'''
-    
+
     if (request.user.is_authenticated):
         try:
             user = Users.objects.get(id=request.user.id)

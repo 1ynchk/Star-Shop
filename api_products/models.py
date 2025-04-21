@@ -40,6 +40,14 @@ class Products(models.Model):
     class Meta:
         abstract = True
 
+class ProductReviews(models.Model):
+    '''Таблица для отзывов'''
+    
+    user = models.ForeignKey('api_users.Users', on_delete=models.CASCADE)    
+    object_id = models.CharField(max_length=100)
+    
+    
+
 class ProductDiscount(models.Model):
     '''Таблица для скидок продуктов'''
    
