@@ -10,10 +10,15 @@ import { AiOutlineDislike } from "react-icons/ai"
 
 const Assessment = (props) => {
 
+    const {
+        setSidebarLogin
+    } = props
+
     const [rate, setRate] = useState('null')
     const [isUserAction, setIsUserAction] = useState(false)
     const usersRate = useSelector(state => state.product.usersRate)
     const assessments = useSelector(state => state.product.assessments)
+    const isLogin = useSelector(state => state.users.isLogin)
     const dispatch = useDispatch()
 
     const { product_id, type, loading } = props
@@ -35,25 +40,30 @@ const Assessment = (props) => {
     }, [rate, isUserAction])
 
     const changeAssessment = (assessment) => {
-        setIsUserAction(true)
-        if (assessment == 'like') {
-            if (rate == 'dislike' || rate == 'null') {
-                setRate('like')
-            }
+        if (isLogin) {
+            setIsUserAction(true)
+            if (assessment == 'like') {
+                if (rate == 'dislike' || rate == 'null') {
+                    setRate('like')
+                }
 
-            if (rate == 'like' && assessment == 'like') {
-                setRate('null')
+                if (rate == 'like' && assessment == 'like') {
+                    setRate('null')
+                }
             }
-        }
-        if (assessment == 'dislike') {
-            if (rate == 'like' || rate == 'null') {
-                setRate('dislike')
-            }
+            if (assessment == 'dislike') {
+                if (rate == 'like' || rate == 'null') {
+                    setRate('dislike')
+                }
 
-            if (rate == 'dislike' && assessment == 'dislike') {
-                setRate('null')
+                if (rate == 'dislike' && assessment == 'dislike') {
+                    setRate('null')
+                }
             }
+        } else {
+            setSidebarLogin(true)
         }
+
     }
 
     return (

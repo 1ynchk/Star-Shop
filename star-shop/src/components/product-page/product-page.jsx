@@ -11,7 +11,12 @@ import ProductImage from './product-image'
 import ProductDescription from './product-description'
 import EmptyReviews from './product-reviews';
 
-const ProductPage = () => {
+const ProductPage = (props) => {
+
+    const {
+        setSidebarLogin
+    } = props
+
     const { id } = useParams()
     const dispatch = useDispatch()
 
@@ -43,6 +48,7 @@ const ProductPage = () => {
                 product_id={id}
                 type={type}
                 loading={loading}
+                setSidebarLogin={setSidebarLogin}
             />
 
             <div className="product__container">
@@ -51,7 +57,7 @@ const ProductPage = () => {
                 <AddToCartSection loading={loading} product={product} />
             </div>
 
-            <EmptyReviews/>
+            <EmptyReviews />
         </div>
     )
 }

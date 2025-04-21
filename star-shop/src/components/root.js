@@ -48,7 +48,7 @@ function App() {
             </Route>
 
             <Route exact path='/products' >
-              <Route path=':id' element={<ProductPage />} />
+              <Route path=':id' element={<ProductPage setSidebarLogin={setSidebarLogin} />} />
             </Route>
 
             <Route path='*' element={<Page404 />} />
