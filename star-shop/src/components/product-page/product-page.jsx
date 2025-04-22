@@ -9,7 +9,7 @@ import { useEffect } from "react"
 import Assessment from './product-assessment'
 import ProductImage from './product-image'
 import ProductDescription from './product-description'
-import EmptyReviews from './product-reviews';
+import ProductReviews from './product-reviews'
 
 const ProductPage = (props) => {
 
@@ -57,7 +57,7 @@ const ProductPage = (props) => {
                 <AddToCartSection loading={loading} product={product} />
             </div>
 
-            <EmptyReviews />
+            <ProductReviews type={type} />
         </div>
     )
 }
@@ -70,27 +70,43 @@ const AddToCartSection = (props) => {
     } = props
 
     return (
-        <div className='product_addtocart'>
+        <>
             {
-                product.discount == null && (
-                    <div className='product_card__price_container prod_page'>
-                        {product.price} &#8381;
+                !loading && (
+                    <div className='product_addtocart'>
+                        {
+                            product.discount == null && (
+                                <div className='product_card__price_container prod_page'>
+                                    {product.price} &#8381;
+                                </div>
+                            )
+                        }
+                        {
+                            product.discount != null && (
+                                <div className='product_card__price_wrapper prod_page_wrapper'>
+                                    <div className='product_card__price_container prod_page crossed'>
+                                        {(product.price * product.discount.price_with_discount).toFixed(2)} &#8381;
+                                    </div>
+                                    <div className='product_card__price_container with_sale prod_page_with_sale'>
+                                        {product.price} &#8381;
+                                    </div>
+                                </div>
+                            )
+                        }
                     </div>
                 )
             }
+
             {
-                product.discount != null && (
-                    <div className='product_card__price_wrapper prod_page_wrapper'>
-                        <div className='product_card__price_container prod_page crossed'>
-                            {(product.price * product.discount.price_with_discount).toFixed(2)} &#8381;
-                        </div>
-                        <div className='product_card__price_container with_sale prod_page_with_sale'>
-                            {product.price} &#8381;
-                        </div>
+                loading && (
+                    <div className='loading_container empty_loading product_addtocart'>
+                        <div className='shiny empty_loading'></div>
                     </div>
                 )
             }
-        </div>
+
+        </>
+
     )
 }
 

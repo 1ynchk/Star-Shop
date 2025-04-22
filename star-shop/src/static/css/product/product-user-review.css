@@ -1,0 +1,39 @@
+
+.userReview__value {
+    white-space: pre-wrap;
+    width: 100%;
+    word-break: break-all;
+    line-height: 22px;
+    margin-top: 15px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    transition: max-height 0.3s ease;
+}
+
+.product_user_review {
+    margin-top: 20px;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.product_user_review__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    border: 1px solid rgb(50, 50, 50);
+}
+
+.product_user_review__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.product_user_review__name {
+    font-size: 17px;
+    font-weight: 500;
+}

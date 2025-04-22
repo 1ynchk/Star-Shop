@@ -1,0 +1,80 @@
+.product_review_popup__wrapper {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(50, 50, 50, 0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product_review_popup__container {
+    width: 50%;
+    height: fit-content;
+    background-color: white;
+    border-radius: 10px;
+    cursor: default;
+    position: relative;
+    padding: 15px;
+}
+
+.product_review_popup__close {
+    font-size: 35px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.product_review_popup__subcontainer {
+    margin-top: 45px;
+    border: 1px solid rgba(50, 50, 50, 0.4);
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.product_review_popup__img {
+    width: 150px;
+}
+
+.product_review_popup__title {
+
+    font-size: 25px;
+}
+
+.product_review_popup__info {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product_review_popup__textarea {
+    border: 1px solid rgba(50, 50, 50, 0.4);
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height: 250px;
+    padding: 5px 10px;
+    resize: none;
+    font-size: 17px;
+}
+
+.product_review_popup__countsymbols {
+    color: rgba(50, 50, 50, 0.5);
+    margin-top: 10px;
+    justify-self: end;
+}
+
+.product_review_popup__btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: orange;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.product_review_popup__btn:disabled {
+    background-color: grey;
+}
