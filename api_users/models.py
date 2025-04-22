@@ -7,7 +7,7 @@ class Users(AbstractUser):
     
     id = ULIDField(default=default, primary_key=True, editable=False)
     email = models.CharField(null=False, unique=True)
-    avatar = models.CharField(default='https://t4.ftcdn.net/jpg/04/83/90/95/360_F_483909569_OI4LKNeFgHwvvVju60fejLd9gj43dIcd.jpg')
+    avatar = models.FileField(default='media/default/profile.png', upload_to='media/users/')
     name = models.CharField(default='Анонимный', max_length=155)
     surname = models.CharField(default='Пользователь', max_length=155)
     username = models.CharField(unique=False, null=True, blank=True)

@@ -7,14 +7,16 @@ import time
 from .models import (
     Category,
     Products,
-    ProductRating
+    ProductRating,
+    ProductReviews
 )
 
 from .serializers import (
     CategorySerializer,
     BookPageSerializer,
     ChancelleryPageSerializer,
-    ProductRatingSerializer
+    ProductRatingSerializer,
+    ReviewsSerializer
     )
 
 from django.contrib.contenttypes.models import ContentType
@@ -62,12 +64,16 @@ def get_product(request):
     assessments = ProductRating.objects.filter(object_id=id)
     serialized_assessments = ProductRatingSerializer(assessments, many=True).data
 
+    reviews = ProductReviews.objects.filter(object_id=id).order_by('-date_add')[:5]
+    serialized_reviews = ReviewsSerializer(reviews, many=True).data 
+
     return Response({
         'status': 'ok', 
         'comment': 'success', 
         'result': serialized_product,
         'assessments': serialized_assessments,
-        'user_id': str(request.user.id)
+        'user_id': str(request.user.id),
+        'reviews': serialized_reviews
         })
 
 @api_view(http_method_names=['POST'])
@@ -108,10 +114,34 @@ def post_assessment(request):
         'status': 'ok', 
         'comment': 'success',
         'assessments': serialized_assessments,
+        'user_id': str(request.user.id),
         }
 
-        print(serialized_assessments)
-
         return Response(response)
+        
+    return Response({'status': 'error', 'comment': 'User is not authenticated'}, status=400)
+
+@api_view(http_method_names=['POST'])
+def post_review(request):
+    '''Отзыв продукта'''
+    
+    if request.user.is_authenticated:
+        value = request.data.get('value')
+        product_id = request.data.get('product_id')
+
+        review, created = ProductReviews.objects.get_or_create(
+            user=request.user,
+            object_id=product_id
+        )   
+
+        if not created:
+            return Response({'status': 'error', 'comment': 'product has a review from this user'}, status=401)
+        
+        review.review = value
+        review.save()
+
+        serialized_review = ReviewsSerializer(review).data
+        
+        return Response({'status': 'ok', 'comment': 'success', 'review': serialized_review })
         
     return Response({'status': 'error', 'comment': 'User is not authenticated'}, status=400)

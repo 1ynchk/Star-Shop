@@ -8,10 +8,20 @@ from .models import (
     Author,
     ProductImages,
     ProductRating,
-    ProductDiscount
+    ProductDiscount,
+    ProductReviews
     )
 
-from api_users.serializers import UserSerializer
+from api_users.models import Users
+
+from api_users.serializers import UserSerializer, UserProfileSerializer
+
+class ProductUserReviewSerializer(serializers.ModelSerializer):
+    '''Сериализатор для пользовательского отзыва'''
+    
+    class Meta:
+        model = Users
+        fields = ['name', 'surname', 'id', 'avatar']
 
 class ProductDiscountSerializer(serializers.ModelSerializer):
     '''Сериализатор для скидок продукта'''
@@ -107,3 +117,12 @@ class ProductRatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductRating
         fields = ['rate', 'user']
+        
+class ReviewsSerializer(serializers.ModelSerializer):
+    '''Сериализатор для отзывов пользователей'''
+
+    user = ProductUserReviewSerializer()
+    
+    class Meta:
+        model = ProductReviews
+        fields = '__all__'

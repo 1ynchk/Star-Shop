@@ -33,6 +33,10 @@ class Products(models.Model):
         'ProductRating', 
         object_id_field='object_id', 
         content_type_field='content_type')
+    reviews = GenericRelation(
+        'ProductReviews',
+        object_id_field='objects_id' 
+    )
 
     def __str__(self):
         return self.name 
@@ -45,8 +49,12 @@ class ProductReviews(models.Model):
     
     user = models.ForeignKey('api_users.Users', on_delete=models.CASCADE)    
     object_id = models.CharField(max_length=100)
+    review = models.CharField(max_length=2000)
+    is_changed = models.BooleanField(default=False)
+    date_add = models.DateField(auto_now_add=True)
     
-    
+    def str(self):
+        return f'{self.user.email} | {self.object_id.name}' 
 
 class ProductDiscount(models.Model):
     '''Таблица для скидок продуктов'''
