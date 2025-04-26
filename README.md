@@ -2,6 +2,7 @@
 
 ```
 git clone https://github.com/1ynchk/Star-Shop
+cd Star-Shop
 docker-compose up
 ```
 
