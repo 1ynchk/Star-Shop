@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux';
 import Assessment from './product-assessment';
 import { useEffect, useRef, useState } from 'react';
-import { fetchPostReview } from './../../store/requests/Product/post-review';
+import { fetchPostReview } from '../../store/requests/Product/post-review';
 
 const ProductReviewPopup = (props) => {
 

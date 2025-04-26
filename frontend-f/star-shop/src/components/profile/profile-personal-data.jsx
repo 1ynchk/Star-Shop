@@ -1,12 +1,12 @@
 import '../../static/css/profile/profile-personal-data.css'
 import { motion } from "framer-motion"
 
-import ProfileSectionVars from './../bll/framer-motion/profile-sections';
+import ProfileSectionVars from '../bll/framer-motion/profile-sections';
 import CommonInputForm from "../bll/inputs";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchGetProfileInfo } from './../../store/requests/Users/profile-info';
-import { fetchEditProfileInfo } from './../../store/requests/Users/edit-profile-info';
+import { fetchGetProfileInfo } from '../../store/requests/Users/profile-info';
+import { fetchEditProfileInfo } from '../../store/requests/Users/edit-profile-info';
 
 const ProfilePersonalData = () => {
 

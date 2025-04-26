@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchEditProfileInfo } from '../requests/Users/edit-profile-info';
-import { fetchPostReview } from './../requests/Product/post-review';
+import { fetchPostReview } from '../requests/Product/post-review';
 
 const WarningsSlice = createSlice(
     {

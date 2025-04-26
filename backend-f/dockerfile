@@ -1,0 +1,12 @@
+FROM python:latest
+
+WORKDIR /app 
+
+COPY backend/requirements.txt .
+
+COPY backend .
+
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir gunicorn==23.0.0
+
+EXPOSE 8000

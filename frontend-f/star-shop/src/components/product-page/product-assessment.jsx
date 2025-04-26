@@ -1,4 +1,4 @@
-import { fetchPostAssessment } from './../../store/requests/Product/post-assessment'
+import { fetchPostAssessment } from '../../store/requests/Product/post-assessment'
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from 'framer-motion'

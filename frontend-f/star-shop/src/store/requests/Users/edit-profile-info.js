@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-import { host } from './../host';
-import getCSRFToken from './../../../components/bll/get-csrf-token';
+import { host } from '../host';
+import getCSRFToken from '../../../components/bll/get-csrf-token';
 
 export const fetchEditProfileInfo = createAsyncThunk('users/fetchEditProfileInfo',
     async (data) => {

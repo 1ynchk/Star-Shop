@@ -9,10 +9,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { IoCartOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { fetchLogout } from './../../store/requests/Users/logout';
+import { fetchLogout } from '../../store/requests/Users/logout';
 import { NavLink } from 'react-router-dom'
 
-import { fetchGetMainCategories } from './../../store/requests/MainPage/get-main-categories';
+import { fetchGetMainCategories } from '../../store/requests/MainPage/get-main-categories';
 
 const Header = (props) => {
 

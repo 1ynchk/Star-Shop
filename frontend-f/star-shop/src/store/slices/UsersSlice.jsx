@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { fetchCheckLogin } from "../requests/Users/check-login";
 import { fetchRegister } from "../requests/Users/register";
-import { fetchLogin } from './../requests/Users/login';
+import { fetchLogin } from '../requests/Users/login';
 import { fetchLogout } from "../requests/Users/logout";
-import { fetchGetProfileInfo } from './../requests/Users/profile-info';
-import { fetchEditProfileInfo } from './../requests/Users/edit-profile-info';
+import { fetchGetProfileInfo } from '../requests/Users/profile-info';
+import { fetchEditProfileInfo } from '../requests/Users/edit-profile-info';
 
 const UsersSlice = createSlice(
     {

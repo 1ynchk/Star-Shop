@@ -3,7 +3,7 @@ import '../../static/css/product/product.css'
 import '../../static/css/product/product-addtocart.css'
 import { useParams } from "react-router-dom"
 
-import { fetchGetProduct } from './../../store/requests/Product/get-product'
+import { fetchGetProduct } from '../../store/requests/Product/get-product'
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import Assessment from './product-assessment'

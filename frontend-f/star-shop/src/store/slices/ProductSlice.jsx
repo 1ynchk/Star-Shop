@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchGetProduct } from './../requests/Product/get-product';
-import { fetchPostAssessment } from './../requests/Product/post-assessment';
-import { fetchPostReview } from './../requests/Product/post-review';
+import { fetchGetProduct } from '../requests/Product/get-product';
+import { fetchPostAssessment } from '../requests/Product/post-assessment';
+import { fetchPostReview } from '../requests/Product/post-review';
 
 const ProductSlice = createSlice(
     {
