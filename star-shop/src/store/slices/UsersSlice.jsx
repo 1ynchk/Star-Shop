@@ -19,7 +19,8 @@ const UsersSlice = createSlice(
             loginError: '',
             isRegistred: false,
             screenLoading: false,
-            profileInfo: {}
+            profileInfo: {},
+            userId: null
         },
 
         reducers: {
@@ -43,6 +44,7 @@ const UsersSlice = createSlice(
                 .addCase(
                     fetchCheckLogin.fulfilled, (state, action) => {
                         state.isLogin = action.payload.auth
+                        state.userId = action.payload.user_id
                         state.checkLoginLoading = false
                     }
                 )

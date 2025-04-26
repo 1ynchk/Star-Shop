@@ -1,14 +1,39 @@
 
-.userReview__value {
+.product_user_review__value {
     white-space: pre-wrap;
     width: 100%;
     word-break: break-all;
     line-height: 22px;
-    margin-top: 15px;
+    margin-top: 10px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     transition: max-height 0.3s ease;
+    font-size: 17px;
+}
+
+.product_user_review__value.strict {
+    max-height: 66px;
+    overflow: hidden;
+}
+
+.product_user_review__value.open {
+    max-height: 1000px;
+}
+
+.product_user_review__open_container {
+    cursor: pointer;
+}
+
+.product_user_review__open {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.product_user_review__open_arrow {
+    margin-left: 10px;
 }
 
 .product_user_review {
@@ -36,4 +61,49 @@
 .product_user_review__name {
     font-size: 17px;
     font-weight: 500;
+}
+
+.product_user_review__subcontainer {
+    display: flex;
+    align-items: center;
+}
+
+.product_user_review__date {
+    font-size: 16px;
+    margin-left: 10px;
+    color: grey;
+}
+
+.product_user_review__editreview_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    border: 1px solid rgba(50, 50, 50, 0.5);
+    border-radius: 10px;
+    padding: 0px 10px;
+    justify-content: space-between;
+    width: 80px;
+    height: 30px;
+}
+
+.product_user_review__editreview {
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.product_user_review__editreview:hover {
+    transform: scale(1.1); 
+}
+
+.product_user_review__editreview_delimiter {
+    height: 100%;
+    width: 1px;
+    background-color: rgba(50, 50, 50, 0.5);
+}
+
+.product_user_review__wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
 }

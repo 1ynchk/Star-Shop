@@ -57,7 +57,9 @@ const ProductPage = (props) => {
                 <AddToCartSection loading={loading} product={product} />
             </div>
 
-            <ProductReviews type={type} />
+            <ProductReviews     
+                setSidebarLogin={setSidebarLogin} 
+                type={type} />
         </div>
     )
 }

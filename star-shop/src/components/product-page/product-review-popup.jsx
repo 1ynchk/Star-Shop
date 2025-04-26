@@ -26,7 +26,7 @@ const ProductReviewPopup = (props) => {
         setActivePopup,
         isActivePopup,
         loading,
-        type
+        type,
     } = props
 
     const product = useSelector(state => state.product.product)
@@ -35,8 +35,8 @@ const ProductReviewPopup = (props) => {
         e.preventDefault()
         dispatch(fetchPostReview(
             {
-                'product_id': product.id, 
-                'value': textAreaRef.current.value 
+                'product_id': product.id,
+                'value': textAreaRef.current.value
             }
         ))
     }
