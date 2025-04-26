@@ -1,11 +1,11 @@
-#Установка:
+Установка:
 
 ```
 git clone https://github.com/1ynchk/Star-Shop
 docker-compose up
 ```
 
-#Кастомизация: 
+Кастомизация: 
 
 ```
 services:
