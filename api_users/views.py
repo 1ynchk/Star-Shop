@@ -15,9 +15,9 @@ def check_login(request):
     '''Проверка, авторизирован пользователь или нет'''
     
     if request.user.is_authenticated: 
-        response = Response({'auth': True })
+        response = Response({'auth': True, 'user_id': str(request.user.id) })
         return response
-    return Response({'auth': False})
+    return Response({'auth': False, 'user_id': None})
 
 @api_view(http_method_names=['POST'])
 def user_login(request):

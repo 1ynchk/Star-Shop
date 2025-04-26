@@ -64,7 +64,7 @@ def get_product(request):
     assessments = ProductRating.objects.filter(object_id=id)
     serialized_assessments = ProductRatingSerializer(assessments, many=True).data
 
-    reviews = ProductReviews.objects.filter(object_id=id).order_by('-date_add')[:5]
+    reviews = ProductReviews.objects.filter(object_id=id).order_by('-date_add')
     serialized_reviews = ReviewsSerializer(reviews, many=True).data 
 
     return Response({
