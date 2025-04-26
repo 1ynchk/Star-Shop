@@ -1,0 +1,52 @@
+.product_reviews {
+    margin-top: 20px;
+}
+
+.emptyReview__image_container {
+    transform: rotate(-25deg);
+    background-color: rgba(255, 255, 255, 0.534);
+    border-radius: 100px;
+    width: 150px;
+    
+}
+
+.emptyReview {
+    border-radius: 10px;
+    width: 70%;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 15px;
+    background-color: rgba(235, 159, 19, 0.363);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.emptyReview__image {
+    width: 100%;
+}
+
+.emptyReview__title {
+    font-size: 19px;
+}
+
+.emptyReview__circle { 
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.534);
+    border-radius: 130px;
+}
+
+.emptyReview__circle.first {
+    top: -35px;
+    right: -40px;
+    width: 100px;
+    height: 100px;
+}
+
+.emptyReview__circle.second {
+    top: 120px;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.534);
+}

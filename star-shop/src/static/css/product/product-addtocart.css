@@ -1,0 +1,19 @@
+.product_addtocart {
+    padding: 15px;
+    width: 250px;
+    border-radius: 10px;
+    border: 1px solid rgba(50, 50, 50, 0.2);
+}
+
+.prod_page {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.product_card__price_container.with_sale.prod_page_with_sale {
+    font-size: 19px;
+}
+
+.product_card__price_wrapper.prod_page_wrapper {
+    width: 200px;
+}

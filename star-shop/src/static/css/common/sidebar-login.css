@@ -1,0 +1,129 @@
+.sidebar_login_wrapper {
+    cursor: pointer;
+    background-color: #3232322e;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 3;
+}
+
+.sidebar_login {
+    cursor: default;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    width: 500px;
+    height: 100vh;
+    padding: 50px;
+}
+
+.sidebar__cross_container {
+    cursor: pointer;
+    display: flex;
+    justify-content: start;
+    font-size: 30px;
+}
+
+.sidebar__container {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.sidebar__title {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.sidebar__subtitle {
+    text-align: center;
+    margin-left: 10px;
+    font-size: 16px;
+    z-index: 3;
+    width: 200px;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.sidebar__subtitle.active {
+    color: white;
+}
+
+.sidebar__container.column {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.button-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: orange;
+    border-radius: 8px;
+    z-index: 0;
+}
+
+.sidebar__login_container {
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar_btn {
+    cursor: default;
+    color: rgb(50, 50, 50);
+    border-radius: 10px;
+    background-color: grey;
+    margin-top: 20px;
+    padding: 15px 20px;
+}
+
+.sidebar_btn.active {
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+}
+
+.sidebar__login_title {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.sidebar__request_error_container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.request_error_img {
+    font-size: 80px;
+}
+
+.request_error_value {
+    margin-top: 30px;
+}
+
+.request_error_btn {
+    margin-top: 30px;
+    padding: 15px 20px;
+    background-color: orange;
+    color: white;
+    border-radius: 10px;
+}
+
+.sidebar__loading_container {
+    height: 50%;
+}
