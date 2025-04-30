@@ -36,6 +36,7 @@ def get_categories(request):
 def get_product(request):
     '''Получение продукта для страницы products'''
 
+
     id = request.GET.get('id')
     type = request.GET.get('type')
 
@@ -145,3 +146,38 @@ def post_review(request):
         return Response({'status': 'ok', 'comment': 'success', 'review': serialized_review })
         
     return Response({'status': 'error', 'comment': 'User is not authenticated'}, status=400)
+
+@api_view(http_method_names=['DELETE'])
+def review_delete(request):
+    '''Удаление отзыва'''
+
+    product_id = request.data.get('product_id')
+    review_id = request.data.get('review_id')
+  
+    try:
+        obj = ProductReviews.objects.get(user=request.user.id, object_id=product_id, id=review_id) 
+    except Exception:
+        return Response({'status': 'error', 'comment': 'there is not such a comment'}, status=400)
+    
+    obj.delete()
+    
+    return Response({'status': 'ok', 'comment': 'success', 'review_id': review_id})
+
+@api_view(http_method_names=['PUT'])
+def update_review(request):
+    '''Редактирование отзыва'''
+
+    product_id = request.data.get('product_id')
+    review_id = request.data.get('review_id')
+    review = request.data.get('review')
+    
+    try:
+        obj = ProductReviews.objects.get(user=request.user.id, object_id=product_id, id=review_id) 
+    except Exception:
+        return Response({'status': 'error', 'comment': 'there is not such a comment'}, status=400)
+    
+    obj.review = review
+    obj.is_changed = True
+    obj.save()
+
+    return Response({'status': 'ok', 'comment': 'succesful', 'review': ReviewsSerializer(obj).data})
