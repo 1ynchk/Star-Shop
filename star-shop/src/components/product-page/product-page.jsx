@@ -26,6 +26,7 @@ const ProductPage = (props) => {
     const loading = useSelector(state => state.product.loading)
 
     useEffect(() => {
+        window.scrollTo({top: 0, behavior: 'smooth'})
         dispatch(fetchGetProduct({ 'id': id, 'type': type }))
     }, [])
 

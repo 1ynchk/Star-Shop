@@ -2,6 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchEditProfileInfo } from '../requests/Users/edit-profile-info';
 import { fetchPostReview } from './../requests/Product/post-review';
+import { fetchReviewDelete } from '../requests/Product/delete-review';
+
+const defineError = (state, action) => {
+    let errorCode = +(action.error.message.slice(-3))
+    if (errorCode == 400) {
+        state.warning = 'Инкорректная форма'
+    } else {
+        state.warning = `Произошла ошибка ${errorCode}.`
+    }
+}
 
 const WarningsSlice = createSlice(
     {
@@ -21,12 +31,12 @@ const WarningsSlice = createSlice(
             builder
                 .addCase(
                     fetchEditProfileInfo.rejected, (state, action) => {
-                        let errorCode = +(action.error.message.slice(-3))
-                        if (errorCode == 400) {
-                            state.warning = 'Инкорректная форма'
-                        } else {
-                            state.warning = `Произошла ошибка ${errorCode}.`
-                        }
+                        defineError(state, action)
+                    }
+                )
+                .addCase(
+                    fetchReviewDelete.rejected, (state, action) => {
+                        defineError(state, action)
                     }
                 )
                 .addCase(

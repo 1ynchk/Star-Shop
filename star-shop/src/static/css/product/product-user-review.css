@@ -1,4 +1,3 @@
-
 .product_user_review__value {
     white-space: pre-wrap;
     width: 100%;
@@ -93,7 +92,7 @@
 }
 
 .product_user_review__editreview:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 .product_user_review__editreview_delimiter {
@@ -106,4 +105,101 @@
     display: flex;
     align-items: center;
     margin-top: 10px;
+}
+
+.product_user_review__editreview_modal {
+    position: absolute;
+    left: 0;
+    top: -80px;
+    background-color: white;
+    width: 120px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.4);
+    z-index: 2;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.product_user_review__editreview_btn {
+    background-color: orange;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.product_user_review__editreview_btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product_user_review__change_review_cancel {
+    border: 1px solid rgba(50, 50, 50, 0.5);
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.product_user_review__change_review_cancel:disabled {
+    cursor: default;
+}
+
+.product_user_review__change_review_save {
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: orange;
+}
+
+.product_user_review__change_value {
+    margin-top: 15px;
+    height: 100px;
+    width: 100%;
+    padding-bottom: 5px;
+    resize: none;
+    border-bottom: 1px solid rgb(50, 50, 50);
+    box-sizing: border-box;
+}
+
+.product_user_review__changed {
+    margin-left: 10px;
+    color: rgba(34, 60, 80, 0.4);
+    cursor: pointer;
+}
+
+.product_user_review__changed_message {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    transition: .3s;
+}
+
+.product_user_review__changed:hover+.product_user_review__changed_message {
+    visibility: visible;
+    opacity: 1;
+}
+
+.product_user_review__changed_container {
+    position: relative;
+}
+
+.product_user_review__change_review_save:disabled {
+    background-color: grey;
+    cursor: default;
+}
+
+.product_user_review__change_review_save_loading {
+    margin-left: 10px;
+    border-radius: 10px;
+    color: white;
+    width: 60px;
+    height: 18px;
+}
+
+.product_user_review__change_review_save_loading > * > * > *{
+    font-size: 15px;
+    color: white;
 }

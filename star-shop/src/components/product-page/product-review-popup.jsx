@@ -39,6 +39,7 @@ const ProductReviewPopup = (props) => {
                 'value': textAreaRef.current.value
             }
         ))
+        setActivePopup(false)
     }
 
     return (
@@ -106,7 +107,7 @@ const ProductReviewPopup = (props) => {
     )
 }
 
-const CountSymbols = (props) => {
+export const CountSymbols = (props) => {
 
     const {
         countSymbols
