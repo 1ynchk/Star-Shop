@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchGetProduct } from './../requests/Product/get-product';
 import { fetchPostAssessment } from './../requests/Product/post-assessment';
 import { fetchPostReview } from './../requests/Product/post-review';
+import { fetchReviewDelete } from './../requests/Product/delete-review';
+import { fetchUpdateReview } from './../requests/Product/update-review';
 
 const ProductSlice = createSlice(
     {
@@ -14,11 +16,15 @@ const ProductSlice = createSlice(
             assessments: [],
             usersRate: 'null',
             reviews: [],
-            reviewsLoading: false
+            reviewsLoading: false,
+            reviewUpdateLoading: false,
+            isReviewChanged: null
         },
 
         reducers: {
-
+            setReviewChanged(state, action) {
+                state.isReviewChanged = null
+            }
         },
 
         extraReducers: (builder) => {
@@ -33,6 +39,7 @@ const ProductSlice = createSlice(
                             let usersRate = state.assessments.filter(el => (el.user.id == action.payload.user_id))
                             usersRate.length > 0 ? state.usersRate = usersRate[0].rate : state.usersRate = 'null'
                         }
+                        console.log(state.reviews)
                     }
                 )
                 .addCase(
@@ -57,7 +64,6 @@ const ProductSlice = createSlice(
                     fetchPostReview.fulfilled, (state, action) => {
                         state.reviewsLoading = false
                         state.reviews.unshift(action.payload.review)
-                        console.log(state.reviews)
                     }
                 )
                 .addCase(
@@ -67,11 +73,40 @@ const ProductSlice = createSlice(
                 )
                 .addCase(
                     fetchPostReview.rejected, (state, action) => {
-                        state.reviewsLoading = false 
+                        state.reviewsLoading = false
+                    }
+                )
+                .addCase(
+                    fetchReviewDelete.fulfilled, (state, action) => {
+                        state.reviews = state.reviews.filter(el => (el.id != action.payload.review_id))
+                    }
+                )
+                .addCase(
+                    fetchUpdateReview.fulfilled, (state, action) => {
+                        state.reviewUpdateLoading = false
+                        for (let i in state.reviews) {
+                            if (state.reviews[i].id == action.payload.review.id) {
+                                state.reviews[i].review = action.payload.review.review
+                                state.isReviewChanged = true
+                            }
+                        }
+                    }
+                )
+                .addCase(
+                    fetchUpdateReview.pending, (state, action) => {
+                        state.reviewUpdateLoading = true
+                    }
+                )
+                .addCase(
+                    fetchUpdateReview.rejected, (state, action) => {
+                        state.fetchUpdateReview = false
+                        state.isReviewChanged = false
                     }
                 )
         }
     }
 )
+
+export const { setReviewChanged } = ProductSlice.actions
 
 export default ProductSlice.reducer

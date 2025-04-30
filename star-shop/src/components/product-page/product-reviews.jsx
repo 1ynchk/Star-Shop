@@ -3,8 +3,8 @@ import { useSelector } from "react-redux"
 import EmptyReviews from "./product-empty-review"
 import ProductWriteReview from "./product-write-review"
 import ProductReviewPopup from "./product-review-popup"
-import ProductUserReview from "./product-user-review"
 import { useState } from "react"
+import ProductUserReview from "./product-user-review/product-user-review"
 
 const ProductReviews = (props) => {
 
@@ -30,13 +30,15 @@ const ProductReviews = (props) => {
             }
             {
                 reviews.length != 0 && (
-                    reviews.map((el, ind) => {
+                    reviews.map(el => {
                         return <ProductUserReview
-                            key={ind}
+                            key={el.id}
+                            id={el.id}
                             user={el.user}
                             review={el.review}
                             product_id={el.object_id}
                             date_add={el.date_add}
+                            is_changed={el.is_changed}
                         />
                     })
                 )

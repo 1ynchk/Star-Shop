@@ -10,8 +10,11 @@ const Warnings = () => {
     const warning = useSelector(state => state.warnings.warning)
 
     useEffect(() => {
+        if (warning.length != 0) {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
         setTimeout(() => {
-            dispatch(clearWarning()) 
+            dispatch(clearWarning())
         }, 10000)
     }, [warning])
 
@@ -24,7 +27,7 @@ const Warnings = () => {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: 10, opacity: 0 }}
                         className="warnings">
-                            {warning}
+                        {warning}
                     </motion.div>
                 )
             }
