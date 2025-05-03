@@ -81,6 +81,11 @@ CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'starshop.urls'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 5
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

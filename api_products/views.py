@@ -1,12 +1,15 @@
 from django.apps import apps
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from django.db.models import When, Case, IntegerField
+from rest_framework.generics import ListAPIView
 
+from .pagination import ReviewsPagination
+from .bll.get_paginated_response_for_reviews import get_paginated_response_for_reviews
 import time
 
 from .models import (
     Category,
-    Products,
     ProductRating,
     ProductReviews
 )
@@ -65,8 +68,17 @@ def get_product(request):
     assessments = ProductRating.objects.filter(object_id=id)
     serialized_assessments = ProductRatingSerializer(assessments, many=True).data
 
-    reviews = ProductReviews.objects.filter(object_id=id).order_by('-date_add')
-    serialized_reviews = ReviewsSerializer(reviews, many=True).data 
+    if request.user.is_authenticated:
+        queryset = ProductReviews.objects.filter(object_id=id).order_by(
+        Case(
+            When(user_id=request.user.id, then=0),  
+            default=1,  
+            output_field=IntegerField()
+        ), '-date_add' )
+    else:
+        queryset = ProductReviews.objects.filter(object_id=id).order_by('-date_add')
+        
+    serialized_reviews = get_paginated_response_for_reviews(queryset=queryset, request=request).data
 
     return Response({
         'status': 'ok', 
@@ -181,3 +193,21 @@ def update_review(request):
     obj.save()
 
     return Response({'status': 'ok', 'comment': 'succesful', 'review': ReviewsSerializer(obj).data})
+
+class ReviewsApiList(ListAPIView):
+    '''Возвращает пагинированные отзывы'''
+    
+    pagination_class = ReviewsPagination
+    serializer_class = ReviewsSerializer
+    
+    def get(self, request):
+        product_id = request.query_params.get('product_id') 
+        queryset = ProductReviews.objects.select_related('user').filter(object_id=product_id).order_by('-date_add')
+        serialized_data = get_paginated_response_for_reviews(
+                queryset=queryset, 
+                request=request).data
+        return Response({
+            'status': 'ok',
+            'comment': 'success',
+            'data': serialized_data,
+            })

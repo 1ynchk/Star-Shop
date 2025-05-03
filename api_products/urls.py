@@ -6,7 +6,8 @@ from .views import (
     post_assessment,
     post_review,
     review_delete,
-    update_review
+    update_review,
+    ReviewsApiList
     )
 
 urlpatterns = [
@@ -15,5 +16,6 @@ urlpatterns = [
     path('post-assessment/', post_assessment, name='post-assessment'),
     path('post-review/', post_review, name='post-review'),
     path('delete-review/', review_delete, name='delete-review'),
-    path('update-review/', update_review, name='update-review') 
+    path('update-review/', update_review, name='update-review'),
+    path('paginated-reviews/', ReviewsApiList.as_view(), name='paginated-reviews') 
 ]
