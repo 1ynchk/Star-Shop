@@ -1,10 +1,13 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { motion } from "framer-motion"
 
 import EmptyReviews from "./product-empty-review"
 import ProductWriteReview from "./product-write-review"
 import ProductReviewPopup from "./product-review-popup"
 import { useState } from "react"
 import ProductUserReview from "./product-user-review/product-user-review"
+import { fetchGetNextPage } from './../../store/requests/Product/get-next-page';
+import Loading from "../common/loading"
 
 const ProductReviews = (props) => {
 
@@ -13,9 +16,17 @@ const ProductReviews = (props) => {
         setSidebarLogin
     } = props
 
+    const dispatch = useDispatch()
     const [isActivePopup, setActivePopup] = useState(false)
     const reviews = useSelector(state => state.product.reviews)
     const loading = useSelector(state => state.product.loading)
+    const nextPageReviews = useSelector(state => state.product.nextPageReviews)
+    const nextPageLoading = useSelector(state => state.product.nextPageLoading)
+
+    const handleNextPage = (e) => {
+        e.preventDefault()
+        dispatch(fetchGetNextPage({ 'next_page': nextPageReviews }))
+    }
 
     return (
         <div className="product_reviews">
@@ -50,6 +61,28 @@ const ProductReviews = (props) => {
                 loading={loading}
                 type={type}
             />
+
+            {
+                nextPageLoading && (
+                    <motion.div
+                        className="product_reviews__loading_container"
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        exit={{opacity: 0}}
+                        >
+                            <Loading/>
+                    </motion.div>
+                )
+            }
+            {
+                nextPageReviews != null && !nextPageLoading && (
+                    <button
+                        onClick={(e) => handleNextPage(e)}
+                        className="product_reviews__next">
+                        Загрузить еще отзывы
+                    </button>
+                )
+            }
 
         </div>
 

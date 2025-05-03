@@ -5,6 +5,8 @@ import { fetchPostAssessment } from './../requests/Product/post-assessment';
 import { fetchPostReview } from './../requests/Product/post-review';
 import { fetchReviewDelete } from './../requests/Product/delete-review';
 import { fetchUpdateReview } from './../requests/Product/update-review';
+import { fetchGetNextPage } from './../requests/Product/get-next-page';
+import { host } from '../requests/host';
 
 const ProductSlice = createSlice(
     {
@@ -18,7 +20,9 @@ const ProductSlice = createSlice(
             reviews: [],
             reviewsLoading: false,
             reviewUpdateLoading: false,
-            isReviewChanged: null
+            isReviewChanged: null,
+            nextPageReviews: null,
+            nextPageLoading: false
         },
 
         reducers: {
@@ -34,7 +38,10 @@ const ProductSlice = createSlice(
                         state.loading = false
                         state.product = action.payload.result
                         state.assessments = action.payload.assessments
-                        state.reviews = action.payload.reviews
+                        state.reviews = action.payload.reviews.results
+                        if (action.payload.reviews.next != null) {
+                            state.nextPageReviews = `${host}/api_products/paginated-reviews?product_id=${action.payload.result.id}&page=2`
+                        }
                         if (action.payload.user_id != 'None') {
                             let usersRate = state.assessments.filter(el => (el.user.id == action.payload.user_id))
                             usersRate.length > 0 ? state.usersRate = usersRate[0].rate : state.usersRate = 'null'
@@ -87,6 +94,7 @@ const ProductSlice = createSlice(
                         for (let i in state.reviews) {
                             if (state.reviews[i].id == action.payload.review.id) {
                                 state.reviews[i].review = action.payload.review.review
+                                state.reviews[i].is_changed = true
                                 state.isReviewChanged = true
                             }
                         }
@@ -101,6 +109,23 @@ const ProductSlice = createSlice(
                     fetchUpdateReview.rejected, (state, action) => {
                         state.fetchUpdateReview = false
                         state.isReviewChanged = false
+                    }
+                )
+                .addCase(
+                    fetchGetNextPage.fulfilled, (state, action) => {
+                        state.nextPageLoading = false
+                        state.nextPageReviews = action.payload.next
+                        state.reviews = state.reviews.concat(action.payload.data.results)
+                    }
+                )
+                .addCase(
+                    fetchGetNextPage.pending, (state, action) => {
+                        state.nextPageLoading = true
+                    }
+                )
+                .addCase(
+                    fetchGetNextPage.rejected, (state, action) => {
+                        state.nextPageLoading = false
                     }
                 )
         }
