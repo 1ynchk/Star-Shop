@@ -60,36 +60,3 @@ def registration(request):
         
         response = Response({'status': 'ok', 'comment': 'Users object\'s been created'}, status=202)
         return response
-
-@api_view(http_method_names=['GET'])
-def get_profile_info(request):
-    '''Возвращает информацию о пользователе'''        
-
-    if (request.user.is_authenticated):
-        try:
-            user = Users.objects.get(id=request.user.id)
-        except Exception:
-            return Response({'status': 'error', 'comment': 'there is not such a user'})
-        serialized_user = UserProfileSerializer(user).data
-        return Response({'status': 'ok', 'comment': 'status', 'data': serialized_user}) 
-    
-    return Response({'status': 'error', 'comment': 'unathorized'}, status=403)
-
-@api_view(http_method_names=['POST'])
-def edit_profile_info(request): 
-    '''Обновление информации пользователя'''
-
-    if (request.user.is_authenticated):
-        try:
-            user = Users.objects.get(id=request.user.id)
-        except Exception:
-            return Response({'status': 'error', 'comment': 'there is not such a user'})
-        serialized_obj = UserProfileUpdateSerializer(data=request.data, instance=user)
-        if serialized_obj.is_valid():
-            serialized_obj.save()
-            return Response({'status': 'ok', 'comment': 'success', 'data': serialized_obj.data})
-        else:
-            return Response({'status': 'error', 'comment': 'serialized object is not valid'}, status=400)
-        
-    return Response({'status': 'error', 'comment': 'unathorized'}, status=403)
-        

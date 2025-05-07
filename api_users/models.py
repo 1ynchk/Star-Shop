@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django_ulid.models import default, ULIDField
 
+
 class Users(AbstractUser):
     '''Модель юзера'''
     
@@ -22,18 +23,6 @@ class Users(AbstractUser):
     
     class Meta:
         db_table = 'api_users'
-
-# class Favourite(models.Model):
-#     '''Модель избранного'''
-
-#     user = models.ForeignKey(Users, on_delete=models.CASCADE)
-#     product = models.ForeignKey('api_products.Products', on_delete=models.CASCADE)
-
-#     class Meta:
-#         db_table = 'api_favourite'
-
-#     def __str__(self):
-#         return f'{self.user} | {self.product}'
     
 # class Cart(models.Model):
 #     '''Модель корзины'''

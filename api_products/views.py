@@ -22,9 +22,13 @@ from .serializers import (
     ReviewsSerializer
     )
 
+from api_favorite.models import Favorite
+from api_favorite.serializers import FavoriteSerializer
 from django.contrib.contenttypes.models import ContentType
-
-from .views_bll.exceptions import get_type_product
+from .bll.product_page import (
+    get_type_product, 
+    get_type_serializer, 
+    get_queryset_product_page)
 
 @api_view(http_method_names=['GET'])
 def get_categories(request):
@@ -38,33 +42,13 @@ def get_categories(request):
 @api_view(http_method_names=['GET'])
 def get_product(request):
     '''Получение продукта для страницы products'''
-
-
+    
     id = request.GET.get('id')
     type = request.GET.get('type')
-
     model_class = get_type_product(type) 
 
-    try: 
-        fields = {'subcat', 'discount'}
-        
-        if type == 'book':
-            fields.add('author')
-            
-        product = model_class \
-            .objects \
-            .select_related(*fields) \
-            .prefetch_related('ancillary_images') \
-            .get(id=id)
-            
-    except Exception:
-        return Response({'status': 'error', 'comment': 'product doesn\t exists'}, status=400)
-
-    if type == 'book':
-        serialized_product = BookPageSerializer(product).data
-    if type == 'chancellery':
-        serialized_product = ChancelleryPageSerializer(product).data
-
+    product = get_queryset_product_page(type, model_class, id) 
+    serialized_product = get_type_serializer(type, product)
     assessments = ProductRating.objects.filter(object_id=id)
     serialized_assessments = ProductRatingSerializer(assessments, many=True).data
 
@@ -75,9 +59,11 @@ def get_product(request):
             default=1,  
             output_field=IntegerField()
         ), '-date_add' )
+        favorite_obj = Favorite.objects.filter(user=request.user, object_id=id).first()
     else:
         queryset = ProductReviews.objects.filter(object_id=id).order_by('-date_add')
-        
+
+    serialized_favorite = FavoriteSerializer(favorite_obj).data if favorite_obj != None else None
     serialized_reviews = get_paginated_response_for_reviews(queryset=queryset, request=request).data
 
     return Response({
@@ -86,7 +72,8 @@ def get_product(request):
         'result': serialized_product,
         'assessments': serialized_assessments,
         'user_id': str(request.user.id),
-        'reviews': serialized_reviews
+        'reviews': serialized_reviews,
+        'favorite': serialized_favorite
         })
 
 @api_view(http_method_names=['POST'])

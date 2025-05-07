@@ -14,7 +14,7 @@ from .models import (
 
 from api_users.models import Users
 
-from api_users.serializers import UserSerializer, UserProfileSerializer
+from api_users.serializers import UserSerializer
 
 class ProductUserReviewSerializer(serializers.ModelSerializer):
     '''Сериализатор для пользовательского отзыва'''

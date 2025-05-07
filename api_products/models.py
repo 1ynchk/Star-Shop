@@ -27,6 +27,7 @@ class Products(models.Model):
     discount = models.ForeignKey('ProductDiscount', blank=True, null=True, on_delete=models.SET_NULL)
     ancillary_images = models.ManyToManyField('ProductImages', blank=True)
     subcat = models.ForeignKey('Subcategory', on_delete=models.SET_NULL, null=True)
+    amount = models.IntegerField(null=False)
     date_add = models.DateField(auto_now_add=True)
     content_type = models.CharField(choices=type_product)
     ratings = GenericRelation(
@@ -36,6 +37,10 @@ class Products(models.Model):
     reviews = GenericRelation(
         'ProductReviews',
         object_id_field='objects_id' 
+    )
+    favorite = GenericRelation(
+        'api_favorite.Favorite',
+        object_id_field='object_id' 
     )
 
     def __str__(self):

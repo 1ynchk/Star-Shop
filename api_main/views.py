@@ -29,7 +29,7 @@ def get_main_categories(request):
    
 @api_view(http_method_names=['GET'])
 def get_first_section(request):
-    '''Получение фотографии для главной страницы''' 
+    '''Первой секции для главной страницы''' 
 
     queryset_banners = Banner.objects.all()
     queryset_chancellery = Chancellery.objects.select_related('discount').all().order_by('-date_add')[:15]
@@ -45,6 +45,5 @@ def get_first_section(request):
             'banners': serialized_banners,
             'books': serialized_book,
             'chancellery': serialized_chancellery   
-        }
-        }) 
+        }}) 
 
