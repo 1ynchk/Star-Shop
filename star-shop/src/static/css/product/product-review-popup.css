@@ -37,6 +37,9 @@
 
 .product_review_popup__img {
     width: 150px;
+    border-radius: 10px;
+    height: 150px;
+    object-fit: cover;
 }
 
 .product_review_popup__title {

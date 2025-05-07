@@ -51,7 +51,7 @@ const Header = (props) => {
                 </div>
             </div>
             <div className='header__wrapper'>
-                <NavLink 
+                <NavLink
                     to={'/'}
                     className='logo'>
                     <img className='logo-img' alt='logo' src={logo} />
@@ -60,8 +60,8 @@ const Header = (props) => {
                     onSubmit={(e) => handleSubmit(e)}
                     className='header__search_container'>
                     <button
-                    onClick={() => setSidebarCatalog(!isSidebarCatalog)} 
-                    className='header__catalog'>
+                        onClick={() => setSidebarCatalog(!isSidebarCatalog)}
+                        className='header__catalog'>
                         Каталог
                     </button>
                     <div className='header_search_subcontainer'>
@@ -175,12 +175,26 @@ const HeaderUsersPart = (props) => {
             }
 
             {
-                !checkLoginLoading && (
-                    <motion.div className='header__subcontainer'>
+                isLogin && !checkLoginLoading && (
+                    <NavLink
+                        to='/profile/favorite'
+                        className='header__subcontainer'>
                         <MdOutlineFavoriteBorder className='header__img' />
                         <div className='header__subtitle'>Избраное</div>
                         <div className='shiny'></div>
-                    </motion.div>
+                    </NavLink>
+                )
+            }
+
+            {
+                !isLogin && !checkLoginLoading && (
+                    <button
+                        onClick={() => setSidebarLogin(true)}
+                        className='header__subcontainer'>
+                        <MdOutlineFavoriteBorder className='header__img' />
+                        <div className='header__subtitle'>Избраное</div>
+                        <div className='shiny'></div>
+                    </button>
                 )
             }
 
@@ -220,19 +234,19 @@ const HeaderUsersPart = (props) => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             className='profile_drop_list_container'>
-                                <NavLink
-                                    to='/profile/personal-data'
-                                    onClick={() => setProfileActive(false)}
-                                    className='profile_el_container'>
-                                    <CgProfile className='profile_el_img' />
-                                    <div className='profile_el_text'>Профиль</div>
-                                </NavLink>
-                                <li
-                                    onClick={() => dispatch(fetchLogout())}
-                                    className='profile_el_container'>
-                                    <IoIosExit className='profile_el_img' />
-                                    <div className='profile_el_text'>Выйти</div>
-                                </li>
+                            <NavLink
+                                to='/profile/personal-data'
+                                onClick={() => setProfileActive(false)}
+                                className='profile_el_container'>
+                                <CgProfile className='profile_el_img' />
+                                <div className='profile_el_text'>Профиль</div>
+                            </NavLink>
+                            <li
+                                onClick={() => dispatch(fetchLogout())}
+                                className='profile_el_container'>
+                                <IoIosExit className='profile_el_img' />
+                                <div className='profile_el_text'>Выйти</div>
+                            </li>
                         </motion.ul>
                     )
                 }

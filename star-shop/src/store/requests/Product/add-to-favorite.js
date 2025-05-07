@@ -4,13 +4,15 @@ import axios from 'axios';
 import { host } from './../host';
 import getCSRFToken from './../../../components/bll/get-csrf-token';
 
-export const fetchEditProfileInfo = createAsyncThunk('users/fetchEditProfileInfo',
-    async (data) => {
+export const fetchAddToFavorite = createAsyncThunk('product/fetchAddToFavorite', 
+    async (params) => {
         const token = getCSRFToken()
 
         const response = await axios.post(
-            `${host}/api_profile/edit-profile-info/`,
-            data,
+            `${host}/api_favorite/add-to-favorite/`,
+            {
+                product_id: params.product_id
+            },
             {
                 withCredentials: true,
                 headers: {

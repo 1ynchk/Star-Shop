@@ -4,8 +4,6 @@ import { fetchCheckLogin } from "../requests/Users/check-login";
 import { fetchRegister } from "../requests/Users/register";
 import { fetchLogin } from './../requests/Users/login';
 import { fetchLogout } from "../requests/Users/logout";
-import { fetchGetProfileInfo } from './../requests/Users/profile-info';
-import { fetchEditProfileInfo } from './../requests/Users/edit-profile-info';
 
 const UsersSlice = createSlice(
     {
@@ -19,7 +17,6 @@ const UsersSlice = createSlice(
             loginError: '',
             isRegistred: false,
             screenLoading: false,
-            profileInfo: {},
             userId: null
         },
 
@@ -121,42 +118,6 @@ const UsersSlice = createSlice(
                 .addCase(
                     fetchLogout.rejected, (state, action) => {
                         window.location.reload()
-                    }
-                )
-
-                // Profile get info
-                .addCase(
-                    fetchGetProfileInfo.fulfilled, (state, action) => {
-                        state.profileInfo = action.payload.data
-                        state.loading = false
-                    }
-                )
-                .addCase(
-                    fetchGetProfileInfo.pending, (state, action) => {
-                        state.loading = true
-                    }
-                )
-                .addCase(
-                    fetchGetProfileInfo.rejected, (state, action) => {
-                        state.loading = false
-                    }
-                )
-
-                // Profile edit info
-                .addCase(
-                    fetchEditProfileInfo.fulfilled, (state, action) => {
-                        state.profileInfo = action.payload.data
-                        state.loading = false
-                    }
-                )
-                .addCase(
-                    fetchEditProfileInfo.pending, (state, action) => {
-                        state.loading = true
-                    }
-                )
-                .addCase(
-                    fetchEditProfileInfo.rejected, (state, action) => {
-                        state.loading = false
                     }
                 )
         }

@@ -79,11 +79,18 @@
 
 .product_card__img_container {
     width: 100%;
-    min-height: 216px;
+    height: 240px;
+    overflow: hidden;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
 }
 
 .product_card__img {
     width: 100%;
+    border-radius: 10px;
 }
 
 .product_card__title {
@@ -121,7 +128,7 @@
 }
 
 .product_card__price {
-    margin-top: 15px;
+    /* margin-top: 10px; */
     font-weight: 600;
 }
 

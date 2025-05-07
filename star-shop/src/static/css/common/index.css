@@ -89,6 +89,16 @@ img {
     max-width: 1200px;
     margin-right: auto;
     margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 100vh;
+}
+
+html, body, #root, .App {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 button {
@@ -113,4 +123,6 @@ body {
 
 .mainarea {
     padding: 25px 5px;
+    flex: 1;
+    margin-bottom: 30px;
 }

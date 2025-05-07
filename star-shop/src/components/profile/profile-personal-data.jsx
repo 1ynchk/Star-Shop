@@ -19,7 +19,7 @@ const ProfilePersonalData = () => {
     const [firstPassword, setFirstPassword] = useState(null)
     const [secondPassword, setSecondPassword] = useState(null)
 
-    const profileInfo = useSelector(state => state.users.profileInfo)
+    const profileInfo = useSelector(state => state.profile.profileInfo)
     const loading = useSelector(state => state.users.loading)
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const ProfilePersonalData = () => {
     const isBasicInfoValid = (
         surname && surname.length >= 2 &&
         name && name.length >= 2 &&
-        email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+        email && /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
     )
 
     const isBasicInfoChanged = (
@@ -90,8 +90,7 @@ const ProfilePersonalData = () => {
         <motion.div
             initial='initial'
             animate='visible'
-            variants={ProfileSectionVars}
-            className="profile_personal_data">
+            variants={ProfileSectionVars}>
             <h3 className="profile_root__section_name">Личные данные</h3>
 
             <form
@@ -146,7 +145,7 @@ const ProfilePersonalData = () => {
                             </div>
                         ) : (
                             <CommonInputForm
-                                rules={email.length == 0 && !(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email))}
+                                rules={email.length == 0 || !(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email))}
                                 _type='text'
                                 value={email}
                                 setter={setEmail}

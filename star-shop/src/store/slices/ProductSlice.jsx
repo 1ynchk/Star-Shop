@@ -6,6 +6,7 @@ import { fetchPostReview } from './../requests/Product/post-review';
 import { fetchReviewDelete } from './../requests/Product/delete-review';
 import { fetchUpdateReview } from './../requests/Product/update-review';
 import { fetchGetNextPage } from './../requests/Product/get-next-page';
+import { fetchAddToFavorite } from './../requests/Product/add-to-favorite';
 import { host } from '../requests/host';
 
 const ProductSlice = createSlice(
@@ -22,12 +23,25 @@ const ProductSlice = createSlice(
             reviewUpdateLoading: false,
             isReviewChanged: null,
             nextPageReviews: null,
-            nextPageLoading: false
+            nextPageLoading: false,
+            isFavorite: null,
         },
 
         reducers: {
             setReviewChanged(state, action) {
                 state.isReviewChanged = null
+            },
+            clearState(state, action) {
+                state.product = []
+                state.loading = false
+                state.assessments = []
+                state.usersRate = 'null'
+                state.reviews = []
+                state.reviewsLoading = false
+                state.reviewUpdateLoading = false
+                state.isReviewChanged = null
+                state.nextPageReviews = null
+                state.nextPageLoading = false
             }
         },
 
@@ -39,6 +53,7 @@ const ProductSlice = createSlice(
                         state.product = action.payload.result
                         state.assessments = action.payload.assessments
                         state.reviews = action.payload.reviews.results
+                        state.isFavorite = action.payload.favorite
                         if (action.payload.reviews.next != null) {
                             state.nextPageReviews = `${host}/api_products/paginated-reviews?product_id=${action.payload.result.id}&page=2`
                         }
@@ -46,7 +61,6 @@ const ProductSlice = createSlice(
                             let usersRate = state.assessments.filter(el => (el.user.id == action.payload.user_id))
                             usersRate.length > 0 ? state.usersRate = usersRate[0].rate : state.usersRate = 'null'
                         }
-                        console.log(state.reviews)
                     }
                 )
                 .addCase(
@@ -128,10 +142,15 @@ const ProductSlice = createSlice(
                         state.nextPageLoading = false
                     }
                 )
+                .addCase(
+                    fetchAddToFavorite.fulfilled, (state, action) => {
+                        state.isFavorite = action.payload.data
+                    }
+                )
         }
     }
 )
 
-export const { setReviewChanged } = ProductSlice.actions
+export const { setReviewChanged, clearState } = ProductSlice.actions
 
 export default ProductSlice.reducer

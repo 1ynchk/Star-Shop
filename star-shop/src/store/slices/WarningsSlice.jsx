@@ -4,6 +4,7 @@ import { fetchEditProfileInfo } from '../requests/Users/edit-profile-info';
 import { fetchPostReview } from './../requests/Product/post-review';
 import { fetchReviewDelete } from '../requests/Product/delete-review';
 import { fetchUpdateReview } from '../requests/Product/update-review';
+import { fetchAddToFavorite } from './../requests/Product/add-to-favorite';
 
 const defineError = (state, action) => {
     let errorCode = +(action.error.message.slice(-3))
@@ -42,6 +43,11 @@ const WarningsSlice = createSlice(
                 )
                 .addCase(
                     fetchUpdateReview.rejected, (state, action) => {
+                        defineError(state, action)
+                    }
+                )
+                .addCase(
+                    fetchAddToFavorite.rejected, (state, action) => {
                         defineError(state, action)
                     }
                 )

@@ -3,15 +3,14 @@ import axios from "axios";
 
 import { host } from "../host";
 
-export const fetchGetProfileInfo = createAsyncThunk('users/fetchGetProfileInfo', 
+export const fetchProfile = createAsyncThunk('users/fetchProfile', 
     async () => {
         const response = await axios.get(
-            `${host}/api_profile/get-profile-info/`, 
+            `${host}/api_profile/favorite-list/`,
             {
                 withCredentials: true
             }
         )
-
         return response.data
     }
 )

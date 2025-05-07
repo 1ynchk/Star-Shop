@@ -15,9 +15,11 @@ import Page404 from './common/404-page';
 import MainPage from './main-page/Main-page';
 import ProductPage from './product-page/product-page';
 import Warnings from './common/warnings';
+import Footer from './common/footer';
 
 import ProfileRoot from './profile/profile-root';
 import ProfilePersonalData from './profile/profile-personal-data';
+import ProfileFavorite from './profile/profile-favorite';
 
 function App() {
 
@@ -42,9 +44,9 @@ function App() {
         <div className='mainarea'>
           <Routes>
             <Route exact path='/' element={<MainPage />} />
-
             <Route exact path='/profile' element={<ProfileRoot />}>
               <Route path='personal-data' element={<ProfilePersonalData />} />
+              <Route path='favorite' element={<ProfileFavorite/>} />
             </Route>
 
             <Route exact path='/products' >
@@ -52,10 +54,12 @@ function App() {
             </Route>
 
             <Route path='*' element={<Page404 />} />
-
           </Routes>
         </div>
+        <Footer/>
+        <Warnings />
       </div>
+
       <SidebarLogin
         isSidebarLogin={isSidebarLogin}
         setSidebarLogin={setSidebarLogin} />
@@ -63,9 +67,6 @@ function App() {
         isSidebarCatalog={isSidebarCatalog}
         setSidebarCatalog={setSidebarCatalog} />
       {screenLoading && <LoadingScreen />}
-      <div className='container'>
-        <Warnings />
-      </div>
     </div>
   )
 }
