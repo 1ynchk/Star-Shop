@@ -15,6 +15,8 @@ from .bll.favorite_page import (
     get_type_serializer,
     get_favorite_queryset
     )
+from api_favorite.serializers import FavoriteSerializer
+import time
 
 class FavoriteList(ListAPIView):
     '''Возвращает избранные продукты пользователя'''
@@ -23,14 +25,25 @@ class FavoriteList(ListAPIView):
        
         favorites = Favorite.objects.filter(user=request.user)
         products_id = [obj.object_id for obj in favorites]
-        data = [] 
+        data = []
+        
+        response = {
+            'status': 'ok', 
+            'comment': 'success', 
+            'result': {}} 
         
         for type in get_all_types():
             queryset = get_favorite_queryset(type, products_id)        
             serialized_queryset = get_type_serializer(type, queryset)
             data += serialized_queryset
-            
-        return Response({'status': 'ok', 'comment': 'success', 'data': data})
+
+        response['result']['data'] = data
+                
+        if request.user.is_authenticated:
+            serialized_favorite = FavoriteSerializer(favorites, many=True).data
+            response['result']['favorite'] = serialized_favorite
+
+        return Response(response)
             
                 
 

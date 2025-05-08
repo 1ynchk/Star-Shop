@@ -3,6 +3,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import generics
 
+from api_favorite.models import Favorite
+from api_favorite.serializers import FavoriteSerializer
+
 from api_products.models import Chancellery, Book
 from .models import Banner, MainCategories
 from .serializers import (
@@ -21,7 +24,7 @@ from api_products.serializers import  (
 @api_view(http_method_names=['GET'])
 def get_main_categories(request): 
     '''Получение категорий для хедера''' 
-    
+     
     queryset = MainCategories.objects.select_related('cat').all()
     serialiezed_queryset = MainCategoriesSerializer(queryset, many=True).data
 
@@ -37,13 +40,24 @@ def get_first_section(request):
     serialized_banners = BannerSerializer(queryset_banners, many=True).data
     serialized_chancellery = ChancelleryMainPageSerializer(queryset_chancellery, many=True).data
     serialized_book = BookMainPageSerializer(queryset_book, many=True).data 
-    
-    return Response({
+
+    response = {
         'status': 'ok', 
         'comment': 'success', 
         'result': {
             'banners': serialized_banners,
-            'books': serialized_book,
+            'book': serialized_book,
             'chancellery': serialized_chancellery   
-        }}) 
+        }}
+
+    if request.user.is_authenticated: 
+        chancellery_ids = [obj.id for obj in queryset_chancellery]
+        book_ids = [obj.id for obj in queryset_book]
+        all_ids = chancellery_ids + book_ids
+
+        favorite_queryset = Favorite.objects.filter(user=request.user, object_id__in=all_ids)
+        serialized_favorite = FavoriteSerializer(favorite_queryset, many=True).data
+        response['result']['favorite'] = serialized_favorite
+         
+    return Response(response) 
 

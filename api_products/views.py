@@ -16,8 +16,6 @@ from .models import (
 
 from .serializers import (
     CategorySerializer,
-    BookPageSerializer,
-    ChancelleryPageSerializer,
     ProductRatingSerializer,
     ReviewsSerializer
     )
@@ -33,7 +31,7 @@ from .bll.product_page import (
 @api_view(http_method_names=['GET'])
 def get_categories(request):
     '''Получение всех категорий'''
-    
+
     queryset = Category.objects.prefetch_related('subcats').all()
     serialized_queryset = CategorySerializer(queryset, many=True).data 
 
