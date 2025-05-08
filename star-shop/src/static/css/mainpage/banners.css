@@ -5,6 +5,15 @@
     border-radius: 10px;
 }
 
+.product_card_wrapper {
+    height: 400px;
+    width: 200px;
+}
+
+.swiper_card {
+    width: 200px;
+}
+
 .swiper_container {
     z-index: 0;
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -68,9 +77,13 @@
 }
 
 .product_card {
-    min-width: 200px;
+    height: 100%;
+    width: 200px;
     transform: scale(1.0);
     transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .product_card_btn_favourite:hover {
@@ -86,15 +99,19 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .product_card__img {
     width: 100%;
+    height: 100%;
     border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .product_card__title {
-    min-height: 25px;
+    margin-top: 10px;
     font-weight: 500;
     font-size: 17px;
     margin-bottom: 20px;
@@ -103,15 +120,14 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow-wrap: break-word;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     transition-duration: 0.5s;
 }
 
 .product_card_author {
-    min-height: 30px;
     color: rgb(100, 100, 100);
-    margin-bottom: 20px;
     font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .product_card__title:hover {
@@ -128,7 +144,6 @@
 }
 
 .product_card__price {
-    /* margin-top: 10px; */
     font-weight: 600;
 }
 
@@ -168,8 +183,15 @@
     font-weight: 500;
 }
 
-.product_card_btns {
+.product_card__last_section {
     display: flex;
+    flex-direction: column;
+}
+
+.product_card_btns {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     align-items: center;
 }
@@ -179,7 +201,6 @@
     border-radius: 5px;
     padding: 10px 25px;
     width: fit-content;
-    margin-top: 10px;
     font-size: 16px;
     background-color: orange;
 }
@@ -208,3 +229,6 @@
     text-decoration-color: red;
 }
 
+.product_card_wrapper.profile_favorite_card {
+    width: 230px;
+}

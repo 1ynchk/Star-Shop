@@ -10,14 +10,17 @@ import { RxCross1 } from "react-icons/rx";
 import { fetchGetCategories } from '../../store/requests/MainPage/get-categories'
 import Loading from './loading'
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCategoriesError } from '../../store/slices/MainPageSlice';
 
 const SidebarCatalog = (props) => {
 
     const [componentRender, setComponentRender] = useState(false)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState('')
-    const [categories, setCategories] = useState([])
+    const dispatch = useDispatch()
     const [isSubcatChoisen, setSubcatChoisen] = useState(false)
+    const categories = useSelector(state => state.mainpage.categories)
+    const categoriesLoading = useSelector(state => state.mainpage.categoriesLoading)
+    const categoriesError = useSelector(state => state.mainpage.categoriesError)
 
     const {
         isSidebarCatalog,
@@ -27,25 +30,15 @@ const SidebarCatalog = (props) => {
     useEffect(() => {
         if (isSidebarCatalog) {
             if (!componentRender) {
-                fetchGetCategories(
-                    {
-                        'setter': setCategories,
-                        'setterLoading': setLoading,
-                        'setterError': setError
-                    })
+                dispatch(fetchGetCategories())
                 setComponentRender(true)
             }
         }
     }, [isSidebarCatalog])
 
     const reloadCategories = () => {
-        setError('')
-        fetchGetCategories(
-            {
-                'setter': setCategories,
-                'setterLoading': setLoading,
-                'setterError': setError
-            })
+        dispatch(setCategoriesError(''))
+        dispatch(fetchGetCategories())
         setComponentRender(true)
     }
 
@@ -113,39 +106,43 @@ const SidebarCatalog = (props) => {
 
                             <div className='sidebar_catalog__container'>
                                 {
-                                    loading && <Loading />
+                                    categoriesLoading && <Loading />
                                 }
                                 {
-                                    error.length > 0 && !loading && (
+                                    categoriesError.length > 0 && !categoriesLoading && (
                                         <ErrorComponent
                                             func={reloadCategories}
-                                            error={error} />)
+                                            categoriesError={categoriesError} />)
                                 }
-                                <div className='category_container'>
-                                    {
-                                        !loading && isSubcatChoisen == false && (
-                                            categories.map((el, ind) => {
-                                                return <Category
-                                                    setter={setSubcatChoisen}
-                                                    value={el}
-                                                    key={ind}
-                                                    subcats={el.subcats}
-                                                    name={el.name} />
-                                            })
-                                        )
-                                    }
-                                    {
-                                        !loading && isSubcatChoisen != false && (
-                                            isSubcatChoisen.subcats.map((el, ind) => {
-                                                return <Subcategory
-                                                    key={ind}
-                                                    id={el.id}
-                                                    name={el.name}
-                                                />
-                                            })
-                                        )
-                                    }
-                                </div>
+                                {
+                                    categoriesError.length == 0 && (
+                                        <div className='category_container'>
+                                            {
+                                                !categoriesLoading && isSubcatChoisen == false && (
+                                                    categories.map((el, ind) => {
+                                                        return <Category
+                                                            setter={setSubcatChoisen}
+                                                            value={el}
+                                                            key={ind}
+                                                            subcats={el.subcats}
+                                                            name={el.name} />
+                                                    })
+                                                )
+                                            }
+                                            {
+                                                !categoriesLoading && isSubcatChoisen != false && (
+                                                    isSubcatChoisen.subcats.map((el, ind) => {
+                                                        return <Subcategory
+                                                            key={ind}
+                                                            id={el.id}
+                                                            name={el.name}
+                                                        />
+                                                    })
+                                                )
+                                            }
+                                        </div>)
+                                }
+
                             </div>
                         </motion.div>
                     </motion.div>
@@ -158,7 +155,6 @@ const SidebarCatalog = (props) => {
 const Subcategory = (props) => {
 
     const {
-        id,
         name,
     } = props
 
@@ -230,7 +226,7 @@ const Category = (props) => {
 const ErrorComponent = (props) => {
 
     const {
-        error,
+        categoriesError,
         func
     } = props
 
@@ -240,7 +236,7 @@ const ErrorComponent = (props) => {
                 <CiWarning
                     className='sidebar_error_icon' />
                 <div className='sidebar_error_number'>
-                    {error}
+                    {categoriesError}
                 </div>
             </div>
             <div>Произошла ошибка</div>

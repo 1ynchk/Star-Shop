@@ -8,19 +8,21 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoCartOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useDebugValue, useEffect, useState } from 'react';
 import { fetchLogout } from './../../store/requests/Users/logout';
 import { NavLink } from 'react-router-dom'
 
 import { fetchGetMainCategories } from './../../store/requests/MainPage/get-main-categories';
 
+
 const Header = (props) => {
+
+    const dispatch = useDispatch()
 
     const isLogin = useSelector(state => state.users.isLogin)
     const checkLoginLoading = useSelector(state => state.users.checkLoginLoading)
-
-    const [mainCategories, setMainCategories] = useState([])
-    const [Loading, setLoading] = useState(true)
+    const mainCategories = useSelector(state => state.mainpage.mainCategories)
+    const mainCategoriesLoading = useSelector(state => state.mainpage.mainCategoriesLoading)
 
     const {
         isSidebarLogin,
@@ -30,7 +32,7 @@ const Header = (props) => {
     } = props
 
     useEffect(() => {
-        fetchGetMainCategories({ 'setter': setMainCategories, 'setterLoading': setLoading })
+        dispatch(fetchGetMainCategories())
     }, [])
 
     const handleSubmit = (e) => {
@@ -87,7 +89,7 @@ const Header = (props) => {
             <div className='header__wrapper'>
                 <div className='header__container full-width'>
                     {
-                        Loading && (
+                        mainCategoriesLoading && (
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
@@ -98,7 +100,7 @@ const Header = (props) => {
                         )
                     }
                     {
-                        !Loading && mainCategories.map((el, ind) => {
+                        !mainCategoriesLoading && mainCategories.map((el, ind) => {
                             return (
                                 <NavLink
                                     key={ind}

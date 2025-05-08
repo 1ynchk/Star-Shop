@@ -2,10 +2,8 @@ import '../../static/css/product/product-addtocart.css'
 import { GiConfirmed } from "react-icons/gi";
 import { IoCloseOutline } from "react-icons/io5";
 import { CiGift } from "react-icons/ci";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { fetchAddToFavorite } from './../../store/requests/Product/add-to-favorite';
 import { useDispatch, useSelector } from 'react-redux';
-import { AnimatePresence, motion } from 'framer-motion';
+import AddToFavorite from './product-add-to-favorite';
 
 const AddToCartSection = (props) => {
 
@@ -89,36 +87,6 @@ const AddToCartSection = (props) => {
                 )
             }
         </>
-    )
-}
-
-const AddToFavorite = (props) => {
-
-    const {
-        isLogin,
-        dispatch,
-        product_id,
-        setSidebarLogin
-    } = props
-
-    const isFavorite = useSelector(state => state.product.isFavorite)
-
-    const handleClick = (e) => {
-        e.preventDefault()
-        if (isLogin) {
-            dispatch(fetchAddToFavorite({ 'product_id': product_id }))
-        } else {
-            setSidebarLogin(true)
-        }
-    }
-
-    return (
-        <button
-            onClick={(e) => handleClick(e)}
-            className={`product_addtocart__btn_favorite ${isFavorite ? 'active': ''}`}>
-            <MdOutlineFavoriteBorder 
-                className={`product_addtocart__favorite_icon ${isFavorite ? 'active' : ''}`} />
-        </button>
     )
 }
 

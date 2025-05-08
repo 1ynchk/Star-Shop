@@ -36,10 +36,9 @@
 .sidebar_error_container {
     display: flex;
     align-items: center;
-    width: 70px;
+    width: 90px;
     justify-content: space-between;
     max-height: 90%;
-    overflow: scroll;
 }
 
 .sidebar_reload {

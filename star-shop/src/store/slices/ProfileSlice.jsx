@@ -2,13 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { fetchGetProfileInfo } from './../requests/Users/profile-info';
 import { fetchEditProfileInfo } from './../requests/Users/edit-profile-info';
+import { fetchProfile } from './../requests/Users/profile-favorite';
 
 const ProfileSlice = createSlice(
     {
         'name': 'profile',
 
         initialState: {
-            profileInfo: {}
+            profileInfo: {},
+            infoLoading: false,
+            favoriteProducts: [],
+            favoriteLoading: false
         },
 
         reducers: {
@@ -16,22 +20,22 @@ const ProfileSlice = createSlice(
         },
 
         extraReducers: (builder) => {
-           builder  
+            builder
                 // Profile get info
                 .addCase(
                     fetchGetProfileInfo.fulfilled, (state, action) => {
                         state.profileInfo = action.payload.data
-                        state.loading = false
+                        state.infoLoading = false
                     }
                 )
                 .addCase(
                     fetchGetProfileInfo.pending, (state, action) => {
-                        state.loading = true
+                        state.infoLoading = true
                     }
                 )
                 .addCase(
                     fetchGetProfileInfo.rejected, (state, action) => {
-                        state.loading = false
+                        state.infoLoading = false
                     }
                 )
 
@@ -39,19 +43,37 @@ const ProfileSlice = createSlice(
                 .addCase(
                     fetchEditProfileInfo.fulfilled, (state, action) => {
                         state.profileInfo = action.payload.data
-                        state.loading = false
+                        state.infoLoading = false
                     }
                 )
                 .addCase(
                     fetchEditProfileInfo.pending, (state, action) => {
-                        state.loading = true
+                        state.infoLoading = true
                     }
                 )
                 .addCase(
                     fetchEditProfileInfo.rejected, (state, action) => {
-                        state.loading = false
+                        state.infoLoading = false
                     }
-                ) 
+                )
+
+                // Profile favorite
+                .addCase(
+                    fetchProfile.fulfilled, (state, action) => {
+                        state.favoriteProducts = action.payload.result.data 
+                        state.favoriteLoading = false
+                    }
+                )
+                .addCase(
+                    fetchProfile.pending, (state, action) => {
+                        state.favoriteLoading = true
+                    }
+                )
+                .addCase(
+                    fetchProfile.rejected, (state, action) => {
+                        state.favoriteLoading = false
+                    }
+                )
         }
     }
 )

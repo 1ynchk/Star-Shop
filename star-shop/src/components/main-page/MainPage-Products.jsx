@@ -2,9 +2,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Navigation } from 'swiper/modules';
-import { NavLink } from 'react-router-dom';
-import { MdFavoriteBorder } from "react-icons/md";
 import { useEffect, useState } from 'react';
+import ProductCard from './product-card';
 
 const MainPageProducts = (props) => {
 
@@ -12,21 +11,24 @@ const MainPageProducts = (props) => {
 
     const {
         products,
-        loading,
+        resultLoading,
         label,
-        error
+        resultError,
+        setSidebarLogin,
+        dispatch,
+        isLogin
     } = props
 
 
     useEffect(() => {
         products == undefined ? setArrayProducts([]) : setArrayProducts(products)
-    }, [loading])
+    }, [resultLoading])
 
     return (
         <div className='mainpageproducts'>
             <div className='mainpageproducts__title'>{label}</div>
             {
-                !loading && (
+                !resultLoading && (
                     <Swiper
                         modules={[Navigation]}
                         grabCursor={true}
@@ -39,12 +41,12 @@ const MainPageProducts = (props) => {
                         className='main_menu_swiper'
                         breakpoints={{
                             320: {
-                                slidesPerView: 3,
+                                slidesPerView: 1,
                                 spaceBetween: 10,
                                 slidesPerGroup: 3
                             },
                             480: {
-                                slidesPerView: 3,
+                                slidesPerView: 2,
                                 spaceBetween: 15,
                                 slidesPerGroup: 3
                             },
@@ -71,62 +73,19 @@ const MainPageProducts = (props) => {
                                     <SwiperSlide
                                         key={ind}
                                         className='swiper_card'>
-                                        <div className='product_card_wrapper'>
-                                            <div className='product_card'>
-                                                <NavLink to={{
-                                                    pathname: '/products/' + el.id,
-                                                    search: '?type=' + el.content_type
-                                                }}>
-                                                    <div className='product_card__img_container'>
-                                                        <img
-                                                            className='product_card__img'
-                                                            src={el.main_image}
-                                                            alt='product card' />
-                                                    </div>
-                                                    <div className='product_card__title'>
-                                                        {el.name.length < 50 ? el.name : `${el.name.slice(0, 50)}...`}
-                                                    </div>
-                                                    {
-                                                        el.content_type == 'book' && (
-                                                            <div className='product_card_author'>
-                                                                {el.author.name}
-                                                            </div>
-                                                        )
-                                                    }
-
-                                                </NavLink>
-                                                {
-                                                    el.discount == null && (
-                                                        <div className='product_card__price_container'>
-                                                            {el.price} &#8381;
-                                                        </div>
-                                                    )
-                                                }
-                                                {
-                                                    el.discount != null && (
-                                                        <div className='product_card__price_wrapper'>
-                                                            <div className='product_card__price_container crossed'>
-                                                                {(el.price * el.discount.price_with_discount).toFixed(2)} &#8381;
-                                                            </div>
-                                                            <div className='product_card__price_container with_sale'>
-                                                                {el.price} &#8381;
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                }
-
-                                                <div className='product_card_btns'>
-                                                    <div className='product_card_btn'>
-                                                        В корзину
-                                                    </div>
-                                                    <div className='product_btn_favorite' >
-                                                        <MdFavoriteBorder />
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                        <ProductCard
+                                            product_id={el.id}
+                                            content_type={el.content_type}
+                                            main_image={el.main_image}
+                                            name={el.name}
+                                            author={el.author}
+                                            price={el.price}
+                                            discount={el.discount}
+                                            isLogin={isLogin}
+                                            setSidebarLogin={setSidebarLogin}
+                                            dispatch={dispatch}
+                                            product={el}
+                                        />
                                     </SwiperSlide>
                                 )
                             })
@@ -135,9 +94,9 @@ const MainPageProducts = (props) => {
                 )
             }
             {
-                error.length != 0 && (
+                resultError.length != 0 && (
                     <div className='mainpageproducts__error'>
-                        {error}
+                        {resultError}
                     </div>
                 )
             }

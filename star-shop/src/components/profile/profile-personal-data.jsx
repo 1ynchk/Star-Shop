@@ -20,7 +20,7 @@ const ProfilePersonalData = () => {
     const [secondPassword, setSecondPassword] = useState(null)
 
     const profileInfo = useSelector(state => state.profile.profileInfo)
-    const loading = useSelector(state => state.users.loading)
+    const loading = useSelector(state => state.profile.infoLoading)
 
     useEffect(() => {
         dispatch(fetchGetProfileInfo())

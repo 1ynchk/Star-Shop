@@ -43,7 +43,7 @@ function App() {
           setSidebarLogin={setSidebarLogin} />
         <div className='mainarea'>
           <Routes>
-            <Route exact path='/' element={<MainPage />} />
+            <Route exact path='/' element={<MainPage setSidebarLogin={setSidebarLogin} />} />
             <Route exact path='/profile' element={<ProfileRoot />}>
               <Route path='personal-data' element={<ProfilePersonalData />} />
               <Route path='favorite' element={<ProfileFavorite/>} />

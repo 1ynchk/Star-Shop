@@ -9,7 +9,7 @@ const Banners = (props) => {
     const {
         banners,
         loading,
-        error
+        resultError
     } = props
 
     return (
@@ -30,7 +30,9 @@ const Banners = (props) => {
                     >
 
                         {
-                            !loading && banners != undefined && banners.map((el, ind) => {
+                            !loading 
+                            && banners != undefined 
+                            && banners.map((el, ind) => {
                                 return (
                                     <SwiperSlide
                                         key={ind}
@@ -41,9 +43,9 @@ const Banners = (props) => {
                             })
                         }
                         {
-                            error.length != 0 && (
+                            resultError.length != 0 && (
                                 <div className='error_container_banner swiper_container'>
-                                    <div>При загрузке возникла ошибка {error}</div>
+                                    <div>При загрузке возникла ошибка {resultError}</div>
                                 </div>
                             )
                         }
