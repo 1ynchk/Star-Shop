@@ -1,12 +1,12 @@
 from rest_framework import serializers
 from .models import Favorite
 
-from api_products.serializers import ProductUserReviewSerializer
+from api_users.serializers import UserSerializer
 
 class FavoriteSerializer(serializers.ModelSerializer):
     '''Сериализатор для таблицы избранного'''
 
-    user = ProductUserReviewSerializer()
+    user = UserSerializer()
     
     class Meta:
         model = Favorite

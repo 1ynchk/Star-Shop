@@ -45,7 +45,7 @@ def get_product(request):
     type = request.GET.get('type')
     model_class = get_type_product(type) 
 
-    product = get_queryset_product_page(type, model_class, id) 
+    product = get_queryset_product_page(type, model_class, id, request) 
     serialized_product = get_type_serializer(type, product)
     assessments = ProductRating.objects.filter(object_id=id)
     serialized_assessments = ProductRatingSerializer(assessments, many=True).data
@@ -57,11 +57,9 @@ def get_product(request):
             default=1,  
             output_field=IntegerField()
         ), '-date_add' )
-        favorite_obj = Favorite.objects.filter(user=request.user, object_id=id).first()
     else:
         queryset = ProductReviews.objects.filter(object_id=id).order_by('-date_add')
 
-    serialized_favorite = FavoriteSerializer(favorite_obj).data if favorite_obj != None else None
     serialized_reviews = get_paginated_response_for_reviews(queryset=queryset, request=request).data
 
     return Response({
@@ -71,7 +69,6 @@ def get_product(request):
         'assessments': serialized_assessments,
         'user_id': str(request.user.id),
         'reviews': serialized_reviews,
-        'favorite': serialized_favorite
         })
 
 @api_view(http_method_names=['POST'])

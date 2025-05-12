@@ -15,6 +15,7 @@ from .models import (
 from api_users.models import Users
 
 from api_users.serializers import UserSerializer
+from api_favorite.serializers import FavoriteSerializer
 
 class ProductUserReviewSerializer(serializers.ModelSerializer):
     '''Сериализатор для пользовательского отзыва'''
@@ -64,20 +65,22 @@ class ChancelleryMainPageSerializer(serializers.ModelSerializer):
     '''Сериализатор для канцелярии главной страницы'''
 
     discount = ProductDiscountSerializer()
+    user_favorite = FavoriteSerializer(many=True)
 
     class Meta:
         model = Chancellery
-        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'discount']
+        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'discount', 'user_favorite']
 
 class BookMainPageSerializer(serializers.ModelSerializer):
     '''Сериализатор для книг в главном меню'''
 
     author = AuthorSerializer()
     discount = ProductDiscountSerializer()
+    user_favorite = FavoriteSerializer(many=True)
     
     class Meta: 
         model = Book 
-        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'author', 'discount']
+        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'author', 'discount', 'user_favorite']
 
 class ProductImagesSerializer(serializers.ModelSerializer):
     '''Сериализатор дополнительных фотографий продуктов'''
@@ -93,10 +96,11 @@ class BookPageSerializer(serializers.ModelSerializer):
     author = AuthorSerializer()
     ancillary_images = ProductImagesSerializer(many=True)
     discount = ProductDiscountSerializer()
+    user_favorite = FavoriteSerializer(many=True)
     
     class Meta:
         model = Book 
-        fields = '__all__'
+        fields ='__all__'
         
 class ChancelleryPageSerializer(serializers.ModelSerializer):
     '''Сериализатор для страницы с канцелярией'''
@@ -104,6 +108,7 @@ class ChancelleryPageSerializer(serializers.ModelSerializer):
     subcat = SubcategorySerializer()
     ancillary_images = ProductImagesSerializer(many=True)
     discount = ProductDiscountSerializer()
+    user_favorite = FavoriteSerializer(many=True)
     
     class Meta:
         model = Chancellery

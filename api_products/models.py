@@ -40,7 +40,8 @@ class Products(models.Model):
     )
     favorite = GenericRelation(
         'api_favorite.Favorite',
-        object_id_field='object_id' 
+        object_id_field='object_id',
+        content_type_field='content_type' 
     )
 
     def __str__(self):
