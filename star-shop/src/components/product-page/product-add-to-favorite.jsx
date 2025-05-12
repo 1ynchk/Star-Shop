@@ -10,7 +10,8 @@ const AddToFavorite = (props) => {
         isLogin,
         dispatch,
         product_id,
-        setSidebarLogin
+        setSidebarLogin,
+        type
     } = props
 
     const isFavorite = useSelector(state => state.product.isFavorite)
@@ -18,7 +19,7 @@ const AddToFavorite = (props) => {
     const handleClick = (e) => {
         e.preventDefault()
         if (isLogin) {
-            dispatch(fetchAddToFavorite({ 'product_id': product_id }))
+            dispatch(fetchAddToFavorite({ 'product_id': product_id, 'type': type }))
         } else {
             setSidebarLogin(true)
         }

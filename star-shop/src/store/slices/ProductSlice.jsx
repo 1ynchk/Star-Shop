@@ -7,6 +7,7 @@ import { fetchReviewDelete } from './../requests/Product/delete-review';
 import { fetchUpdateReview } from './../requests/Product/update-review';
 import { fetchGetNextPage } from './../requests/Product/get-next-page';
 import { fetchAddToFavorite } from './../requests/Product/add-to-favorite';
+import { fetchCheckLogin } from './../requests/Users/check-login';
 import { host } from '../requests/host';
 
 const ProductSlice = createSlice(
@@ -25,6 +26,7 @@ const ProductSlice = createSlice(
             nextPageReviews: null,
             nextPageLoading: false,
             isFavorite: null,
+            userId: null
         },
 
         reducers: {
@@ -48,12 +50,18 @@ const ProductSlice = createSlice(
         extraReducers: (builder) => {
             builder
                 .addCase(
+                    fetchCheckLogin.fulfilled, (state, action) => {
+                        state.userId = action.payload.user_id
+                    }
+                )
+                .addCase(
                     fetchGetProduct.fulfilled, (state, action) => {
                         state.loading = false
                         state.product = action.payload.result
                         state.assessments = action.payload.assessments
                         state.reviews = action.payload.reviews.results
-                        state.isFavorite = action.payload.favorite
+                        state.isFavorite = action.payload.result.user_favorite[0]
+
                         if (action.payload.reviews.next != null) {
                             state.nextPageReviews = `${host}/api_products/paginated-reviews?product_id=${action.payload.result.id}&page=2`
                         }

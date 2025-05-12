@@ -35,6 +35,8 @@ const ProductPage = (props) => {
         }
     }, [])
 
+    console.log(product)
+
     return (
         <div className="product">
             {
@@ -61,6 +63,7 @@ const ProductPage = (props) => {
                 <ProductImage product={product} loading={loading} />
                 <ProductDescription product={product} loading={loading} type={type} />
                 <AddToCartSection
+                    type={type}
                     setSidebarLogin={setSidebarLogin}
                     loading={loading}
                     product={product} />

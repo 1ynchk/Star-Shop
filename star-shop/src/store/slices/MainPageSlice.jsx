@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchGetMainCategories } from './../requests/MainPage/get-main-categories';
 import { fetchGetCategories } from './../requests/MainPage/get-categories';
 import { fetchGetFirstSection } from './../requests/MainPage/get-first-section';
+import { fetchAddToFavorite } from '../requests/Product/add-to-favorite';
 
 const MainPageSlice = createSlice(
     {
@@ -69,30 +70,6 @@ const MainPageSlice = createSlice(
                 .addCase(
                     fetchGetFirstSection.fulfilled, (state, action) => {
                         state.result = action.payload.result
-
-                        if (state.result?.favorite?.length) {
-                            const favoritesMap = {};
-                            state.result.favorite.forEach(fav => {
-                                if (fav?.object_id) favoritesMap[fav.object_id] = fav
-                            })
-
-                            if (state.result.book?.length) {
-                                state.result.book = state.result.book.map(book => {
-                                    if (!book || typeof book !== 'object') return book
-                                    return favoritesMap[book.id]
-                                        ? { ...book, favorite: favoritesMap[book.id] }
-                                        : book
-                                })
-                            }
-                            if (state.result.chancellery?.length) {
-                                state.result.chancellery = state.result.chancellery.map(book => {
-                                    if (!book || typeof book !== 'object') return book
-                                    return favoritesMap[book.id]
-                                        ? { ...book, favorite: favoritesMap[book.id] }
-                                        : book
-                                })
-                            }
-                        }
                         state.resultLoading = false
                     }
                 )
@@ -106,6 +83,29 @@ const MainPageSlice = createSlice(
                         state.resultLoading = false
                         let errorCode = +(action.error.message.slice(-3))
                         state.resultError = `${errorCode}`
+                    }
+                )
+                // add to favorites
+                .addCase(
+                    fetchAddToFavorite.fulfilled, (state, action) => {
+                        for (let ind in state.result.book) {
+                            if (state.result.book[ind].id == action.payload.product_id) {
+                                if (action.payload.data == null) {
+                                    state.result.book[ind].user_favorite = []
+                                } else {
+                                    state.result.book[ind].user_favorite = [action.payload.data]
+                                }
+                            }
+                        }
+                        for (let ind in state.result.chancellery) {
+                            if (state.result.chancellery[ind].id == action.payload.product_id) {
+                                if (action.payload.data == null) {
+                                    state.result.chancellery[ind].user_favorite = []
+                                } else {
+                                    state.result.chancellery[ind].user_favorite = [action.payload.data]
+                                }
+                            }
+                        }
                     }
                 )
         }

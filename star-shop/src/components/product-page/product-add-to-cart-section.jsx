@@ -13,7 +13,8 @@ const AddToCartSection = (props) => {
     const {
         product,
         loading,
-        setSidebarLogin
+        setSidebarLogin,
+        type
     } = props
 
     return (
@@ -70,6 +71,7 @@ const AddToCartSection = (props) => {
                                 Купить
                             </button>
                             <AddToFavorite
+                                type={type}
                                 setSidebarLogin={setSidebarLogin}
                                 isLogin={isLogin}
                                 product_id={product.id}

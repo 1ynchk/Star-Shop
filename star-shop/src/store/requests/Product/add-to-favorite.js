@@ -11,7 +11,8 @@ export const fetchAddToFavorite = createAsyncThunk('product/fetchAddToFavorite',
         const response = await axios.post(
             `${host}/api_favorite/add-to-favorite/`,
             {
-                product_id: params.product_id
+                product_id: params.product_id,
+                type: params.type
             },
             {
                 withCredentials: true,

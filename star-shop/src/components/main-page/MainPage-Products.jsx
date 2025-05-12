@@ -22,7 +22,7 @@ const MainPageProducts = (props) => {
 
     useEffect(() => {
         products == undefined ? setArrayProducts([]) : setArrayProducts(products)
-    }, [resultLoading])
+    }, [resultLoading, products])
 
     return (
         <div className='mainpageproducts'>

@@ -71,6 +71,7 @@ const ProductCard = (props) => {
                             setSidebarLogin={setSidebarLogin}
                             dispatch={dispatch}
                             product={product}
+                            type={content_type}
                         />
                     </div>
                 </div>

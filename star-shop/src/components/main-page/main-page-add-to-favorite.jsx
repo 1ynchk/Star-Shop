@@ -10,12 +10,13 @@ const MainPageAddToFavorite = (props) => {
         dispatch,
         setSidebarLogin,
         product,
+        type
     } = props
 
     const handleClick = (e) => {
         e.preventDefault()
         if (isLogin) {
-            dispatch(fetchAddToFavorite({ 'product_id': product.id }))
+            dispatch(fetchAddToFavorite({ 'product_id': product.id, type: type }))
         } else {
             setSidebarLogin(true)
         }
@@ -24,7 +25,7 @@ const MainPageAddToFavorite = (props) => {
     return (
         <motion.button
             initial={{ backgroundColor: 'transparent' }}
-            animate={{ backgroundColor: product.favorite != undefined ? '#FF6F61' : 'transparent' }}
+            animate={{ backgroundColor: product.user_favorite.length != 0 ? '#FF6F61' : 'transparent' }}
             onClick={(e) => handleClick(e)}
             className={`product_addtocart__btn_favorite`}>
             <MdOutlineFavoriteBorder
