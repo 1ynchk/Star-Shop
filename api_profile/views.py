@@ -33,10 +33,10 @@ class FavoriteList(ListAPIView):
             'result': {}} 
         
         for type in get_all_types():
-            queryset = get_favorite_queryset(type, products_id)        
+            queryset = get_favorite_queryset(type, request, products_id) 
             serialized_queryset = get_type_serializer(type, queryset)
             data += serialized_queryset
-
+    
         response['result']['data'] = data
                 
         if request.user.is_authenticated:
