@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchGetProfileInfo } from './../requests/Users/profile-info';
 import { fetchEditProfileInfo } from './../requests/Users/edit-profile-info';
 import { fetchProfile } from './../requests/Users/profile-favorite';
+import { fetchAddToFavorite } from "../requests/Product/add-to-favorite";
 
 const ProfileSlice = createSlice(
     {
@@ -60,7 +61,7 @@ const ProfileSlice = createSlice(
                 // Profile favorite
                 .addCase(
                     fetchProfile.fulfilled, (state, action) => {
-                        state.favoriteProducts = action.payload.result.data 
+                        state.favoriteProducts = action.payload.result.data
                         state.favoriteLoading = false
                     }
                 )
@@ -72,6 +73,18 @@ const ProfileSlice = createSlice(
                 .addCase(
                     fetchProfile.rejected, (state, action) => {
                         state.favoriteLoading = false
+                    }
+                )
+
+                // add to favorite btn
+                .addCase(
+                    fetchAddToFavorite.fulfilled, (state, action) => {
+                        let arrayFavorites = JSON.parse(JSON.stringify(state.favoriteProducts))
+                        console.log(arrayFavorites)
+                        if (action.payload.data == null) {
+                            arrayFavorites = arrayFavorites.filter(el => el.id != action.payload.product_id) 
+                        }
+                        state.favoriteProducts = arrayFavorites
                     }
                 )
         }

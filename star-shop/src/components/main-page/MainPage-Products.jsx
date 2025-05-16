@@ -28,7 +28,7 @@ const MainPageProducts = (props) => {
         <div className='mainpageproducts'>
             <div className='mainpageproducts__title'>{label}</div>
             {
-                !resultLoading && (
+                !resultLoading ? (
                     <Swiper
                         modules={[Navigation]}
                         grabCursor={true}
@@ -91,6 +91,10 @@ const MainPageProducts = (props) => {
                             })
                         }
                     </Swiper>
+                ) : (
+                    <div className='loading_container empty_loading product_cards'>
+                        <div className='shiny empty_loading'></div>
+                    </div>
                 )
             }
             {

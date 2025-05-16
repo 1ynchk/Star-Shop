@@ -8,14 +8,14 @@ const Banners = (props) => {
 
     const {
         banners,
-        loading,
-        resultError
+        resultError,
+        resultLoading
     } = props
 
     return (
         <>
             {
-                !loading ? (
+                !resultLoading ? (
                     <Swiper
                         modules={[Navigation, Pagination]}
                         slidesPerView={1}
@@ -30,8 +30,8 @@ const Banners = (props) => {
                     >
 
                         {
-                            !loading 
-                            && banners != undefined 
+                            !resultLoading
+                            && banners != undefined
                             && banners.map((el, ind) => {
                                 return (
                                     <SwiperSlide
