@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'api_main',
     'api_favorite',
     'api_profile',
+    'api_cart',
     
     # 3rd party
     'corsheaders',

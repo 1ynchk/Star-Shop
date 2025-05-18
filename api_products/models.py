@@ -43,6 +43,11 @@ class Products(models.Model):
         object_id_field='object_id',
         content_type_field='content_type' 
     )
+    cart = GenericRelation(
+        'api_cart.Cart',
+        object_id_field='object_id',
+        content_type_field='content_type'
+    )
 
     def __str__(self):
         return self.name 

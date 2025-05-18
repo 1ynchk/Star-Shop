@@ -16,6 +16,7 @@ from api_users.models import Users
 
 from api_users.serializers import UserSerializer
 from api_favorite.serializers import FavoriteSerializer
+from api_cart.serializers import CartSerializer
 
 class ProductUserReviewSerializer(serializers.ModelSerializer):
     '''Сериализатор для пользовательского отзыва'''
@@ -97,6 +98,7 @@ class BookPageSerializer(serializers.ModelSerializer):
     ancillary_images = ProductImagesSerializer(many=True)
     discount = ProductDiscountSerializer()
     user_favorite = FavoriteSerializer(many=True)
+    user_cart = CartSerializer(many=True)
     
     class Meta:
         model = Book 
@@ -109,6 +111,7 @@ class ChancelleryPageSerializer(serializers.ModelSerializer):
     ancillary_images = ProductImagesSerializer(many=True)
     discount = ProductDiscountSerializer()
     user_favorite = FavoriteSerializer(many=True)
+    user_cart = CartSerializer(many=True)
     
     class Meta:
         model = Chancellery

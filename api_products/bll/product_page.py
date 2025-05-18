@@ -12,6 +12,7 @@ from ..serializers import (
     ChancelleryPageSerializer
 )
 from api_favorite.models import Favorite
+from api_cart.models import Cart
 
 ProductModel = TypeVar('ProductModel', bound=Model)
 
@@ -56,7 +57,14 @@ def get_queryset_product_page(type: str, model_class: Model, id: ulid, request: 
                     queryset=Favorite.objects.filter(
                         user=request.user,
                         object_id=id
-                    ), to_attr='user_favorite')) \
+                    ), to_attr='user_favorite'),
+                Prefetch(
+                    'cart',
+                    queryset=Cart.objects.filter(
+                        user=request.user,
+                        object_id=id
+                    ), to_attr='user_cart')
+                ) \
             .get(id=id)
     else: 
         product = model_class \
@@ -66,7 +74,10 @@ def get_queryset_product_page(type: str, model_class: Model, id: ulid, request: 
                 'ancillary_images', 
                 Prefetch(
                     'favorite',
-                    queryset=Favorite.objects.none(), to_attr='user_favorite')
+                    queryset=Favorite.objects.none(), to_attr='user_favorite'),
+                Prefetch(
+                    'cart',
+                    queryset=Cart.objects.none(), to_attr='user_cart')
                 ) \
             .get(id=id)
 

@@ -24,14 +24,3 @@ class Users(AbstractUser):
     class Meta:
         db_table = 'api_users'
     
-# class Cart(models.Model):
-#     '''Модель корзины'''
-    
-#     user = models.ForeignKey(Users, on_delete=models.CASCADE)
-#     product = models.ForeignKey('api_products.Products', on_delete=models.CASCADE)
-
-#     class Meta: 
-#         db_table = 'api_cart'
-
-#     def __str__(self):
-#         return f'{self.user} | {self.product}'
