@@ -9,10 +9,21 @@ import { fetchPostReview } from './../../store/requests/Product/post-review';
 
 const ProductReviewPopup = (props) => {
 
+    const {
+        setActivePopup,
+        isActivePopup,
+        loading,
+        type,
+    } = props
+
     const [countSymbols, setCountSymbols] = useState(0)
     const [isBtnAcitve, setBtnActive] = useState(false)
     const dispatch = useDispatch()
     const textAreaRef = useRef(null)
+
+    useEffect(() => {
+        setCountSymbols(0)
+    }, [isActivePopup])
 
     useEffect(() => {
         if (countSymbols >= 300) {
@@ -21,13 +32,6 @@ const ProductReviewPopup = (props) => {
             setBtnActive(false)
         }
     }, [countSymbols])
-
-    const {
-        setActivePopup,
-        isActivePopup,
-        loading,
-        type,
-    } = props
 
     const product = useSelector(state => state.product.product)
 

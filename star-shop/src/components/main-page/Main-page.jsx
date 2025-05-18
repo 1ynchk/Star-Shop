@@ -18,6 +18,7 @@ const MainPage = (props) => {
     let result = useSelector(state => state.mainpage.result)
     const resultError = useSelector(state => state.mainpage.resultError)
     const resultLoading = useSelector(state => state.mainpage.resultLoading)
+    const favoriteFetchLoading = useSelector(state => state.mainpage.favoriteFetchLoading)
 
     useEffect(() => {
         dispatch(fetchGetFirstSection())
@@ -37,6 +38,7 @@ const MainPage = (props) => {
                 setSidebarLogin={setSidebarLogin}
                 dispatch={dispatch}
                 isLogin={isLogin}
+                fetchLoadingFavorite={favoriteFetchLoading}
             />
             <MainPageProducts
                 resultLoading={resultLoading}
@@ -46,6 +48,7 @@ const MainPage = (props) => {
                 setSidebarLogin={setSidebarLogin}
                 dispatch={dispatch}
                 isLogin={isLogin}
+                fetchLoadingFavorite={favoriteFetchLoading}
             />
         </div>
     )

@@ -1,7 +1,7 @@
 import '../../static/css/product/product-addtocart.css'
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { fetchAddToFavorite } from '../../store/requests/Product/add-to-favorite';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const MainPageAddToFavorite = (props) => {
 
@@ -10,7 +10,8 @@ const MainPageAddToFavorite = (props) => {
         dispatch,
         setSidebarLogin,
         product,
-        type
+        type,
+        fetchLoadingFavorite
     } = props
 
     const handleClick = (e) => {
@@ -23,14 +24,21 @@ const MainPageAddToFavorite = (props) => {
     }
 
     return (
+
         <motion.button
+            disabled={fetchLoadingFavorite}
             initial={{ backgroundColor: 'transparent' }}
-            animate={{ backgroundColor: product.user_favorite.length != 0 ? '#FF6F61' : 'transparent' }}
+            animate={{
+                backgroundColor:
+                    product.user_favorite.length != 0 ? '#FF6F61' : 'transparent'
+            }}
             onClick={(e) => handleClick(e)}
             className={`product_addtocart__btn_favorite`}>
             <MdOutlineFavoriteBorder
                 className={`product_addtocart__favorite_icon`} />
         </motion.button>
+
+
     )
 }
 

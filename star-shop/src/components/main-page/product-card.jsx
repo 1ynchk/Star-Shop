@@ -14,7 +14,8 @@ const ProductCard = (props) => {
         discount,
         isLogin,
         setSidebarLogin,
-        dispatch
+        dispatch,
+        fetchLoadingFavorite
     } = props
 
     return (
@@ -72,6 +73,7 @@ const ProductCard = (props) => {
                             dispatch={dispatch}
                             product={product}
                             type={content_type}
+                            fetchLoadingFavorite={fetchLoadingFavorite}
                         />
                     </div>
                 </div>

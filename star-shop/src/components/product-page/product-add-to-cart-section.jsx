@@ -4,6 +4,8 @@ import { IoCloseOutline } from "react-icons/io5";
 import { CiGift } from "react-icons/ci";
 import { useDispatch, useSelector } from 'react-redux';
 import AddToFavorite from './product-add-to-favorite';
+import { fetchAddToCart } from '../../store/requests/Product/add-to-cart';
+import { motion } from 'framer-motion';
 
 const AddToCartSection = (props) => {
 
@@ -16,6 +18,8 @@ const AddToCartSection = (props) => {
         setSidebarLogin,
         type
     } = props
+
+
 
     return (
         <>
@@ -67,9 +71,13 @@ const AddToCartSection = (props) => {
                         </div>
 
                         <div className='product_addtocart__btns_container'>
-                            <button className='product_addtocart__btn_buy'>
-                                Купить
-                            </button>
+                            <ButtonAddToCart
+                                product_id={product.id}
+                                isLogin={isLogin}
+                                setSidebarLogin={setSidebarLogin}
+                                dispatch={dispatch}
+                                type={type}
+                            />
                             <AddToFavorite
                                 type={type}
                                 setSidebarLogin={setSidebarLogin}
@@ -90,6 +98,40 @@ const AddToCartSection = (props) => {
             }
         </>
     )
+}
+
+const ButtonAddToCart = (props) => {
+
+    const {
+        product_id,
+        setSidebarLogin,
+        isLogin,
+        type,
+        dispatch
+    } = props
+
+    const isCart = useSelector(state => state.product.isCart)
+    
+    const handleClick = () => {
+        if (!isLogin) {
+            setSidebarLogin(true)
+        } else {
+            dispatch(fetchAddToCart({ product_id: product_id, type: type }))
+        }
+    }
+    return (
+        <motion.button
+        initial={{ backgroundColor: '#FFA500' }}
+            animate={{ 
+                backgroundColor: isCart ? '#3F704D' : '#FFA500', 
+                color: isCart ? '#FFFFFF' : '#323232'
+             }}
+            onClick={() => handleClick()}
+            className='product_addtocart__btn_buy'>
+            Купить
+        </motion.button>
+    )
+
 }
 
 export default AddToCartSection

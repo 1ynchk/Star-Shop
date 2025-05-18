@@ -17,7 +17,8 @@ const MainPageSlice = createSlice(
             categoriesError: '',
             result: {},
             resultLoading: false,
-            resultError: ''
+            resultError: '',
+            favoriteFetchLoading: false
         },
 
         reducers: {
@@ -106,6 +107,17 @@ const MainPageSlice = createSlice(
                                 }
                             }
                         }
+                        state.favoriteFetchLoading = false
+                    }
+                )
+                .addCase(
+                    fetchAddToFavorite.pending, (state, action) => {
+                        state.favoriteFetchLoading = true
+                    }
+                )
+                .addCase(
+                    fetchAddToFavorite.rejected, (state, action) => {
+                        state.favoriteFetchLoading = false
                     }
                 )
         }

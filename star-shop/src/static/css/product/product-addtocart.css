@@ -69,10 +69,6 @@
     transition: .3s ease;
 }
 
-.product_addtocart__btn_favorite.active {
-    background-color: #FF6F61;
-}
-
 .product_addtocart__favorite_icon {
     color: black;
     transition: .3s ease;
@@ -80,4 +76,9 @@
 
 .product_addtocart__favorite_icon.active {
     color: #ff3a28;
+}
+
+.product_addtocart__btn_favorite:disabled {
+    cursor: default;
+    background-color: #808080;
 }

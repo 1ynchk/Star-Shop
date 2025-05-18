@@ -21,6 +21,7 @@ const ProfileFavorite = (props) => {
     const favoriteProducts = useSelector(state => state.profile.favoriteProducts)
     const favoriteLoading = useSelector(state => state.profile.favoriteLoading)
     const isLogin = useSelector(state => state.users.isLogin)
+    const favoriteFetchLoading = useSelector(state => state.profile.favoriteFetchLoading)
 
     return (
         <motion.div
@@ -52,6 +53,7 @@ const ProfileFavorite = (props) => {
                                 discount={el.discount}
                                 product={el}
                                 dispatch={dispatch}
+                                fetchLoadingFavorite={favoriteFetchLoading}
                             />
                         })
                     )

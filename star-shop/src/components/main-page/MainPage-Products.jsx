@@ -16,7 +16,8 @@ const MainPageProducts = (props) => {
         resultError,
         setSidebarLogin,
         dispatch,
-        isLogin
+        isLogin,
+        fetchLoadingFavorite
     } = props
 
 
@@ -85,6 +86,7 @@ const MainPageProducts = (props) => {
                                             setSidebarLogin={setSidebarLogin}
                                             dispatch={dispatch}
                                             product={el}
+                                            fetchLoadingFavorite={fetchLoadingFavorite}
                                         />
                                     </SwiperSlide>
                                 )

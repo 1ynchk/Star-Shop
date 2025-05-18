@@ -8,6 +8,7 @@ import { fetchUpdateReview } from './../requests/Product/update-review';
 import { fetchGetNextPage } from './../requests/Product/get-next-page';
 import { fetchAddToFavorite } from './../requests/Product/add-to-favorite';
 import { fetchCheckLogin } from './../requests/Users/check-login';
+import { fetchAddToCart } from './../requests/Product/add-to-cart';
 import { host } from '../requests/host';
 
 const ProductSlice = createSlice(
@@ -26,6 +27,7 @@ const ProductSlice = createSlice(
             nextPageReviews: null,
             nextPageLoading: false,
             isFavorite: null,
+            isCart: null,
             userId: null
         },
 
@@ -44,6 +46,8 @@ const ProductSlice = createSlice(
                 state.isReviewChanged = null
                 state.nextPageReviews = null
                 state.nextPageLoading = false
+                state.isCart = null
+                state.isFavorite = null
             }
         },
 
@@ -61,6 +65,7 @@ const ProductSlice = createSlice(
                         state.assessments = action.payload.assessments
                         state.reviews = action.payload.reviews.results
                         state.isFavorite = action.payload.result.user_favorite[0]
+                        state.isCart = action.payload.result.user_cart[0]
 
                         if (action.payload.reviews.next != null) {
                             state.nextPageReviews = `${host}/api_products/paginated-reviews?product_id=${action.payload.result.id}&page=2`
@@ -153,6 +158,11 @@ const ProductSlice = createSlice(
                 .addCase(
                     fetchAddToFavorite.fulfilled, (state, action) => {
                         state.isFavorite = action.payload.data
+                    }
+                )
+                .addCase(
+                    fetchAddToCart.fulfilled, (state, action) => {
+                        state.isCart = action.payload.data
                     }
                 )
         }

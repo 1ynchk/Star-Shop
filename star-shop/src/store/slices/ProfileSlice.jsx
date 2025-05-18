@@ -13,7 +13,8 @@ const ProfileSlice = createSlice(
             profileInfo: {},
             infoLoading: false,
             favoriteProducts: [],
-            favoriteLoading: false
+            favoriteLoading: false,
+            favoriteFetchLoading: false
         },
 
         reducers: {
@@ -82,9 +83,20 @@ const ProfileSlice = createSlice(
                         let arrayFavorites = JSON.parse(JSON.stringify(state.favoriteProducts))
                         console.log(arrayFavorites)
                         if (action.payload.data == null) {
-                            arrayFavorites = arrayFavorites.filter(el => el.id != action.payload.product_id) 
+                            arrayFavorites = arrayFavorites.filter(el => el.id != action.payload.product_id)
                         }
                         state.favoriteProducts = arrayFavorites
+                        state.favoriteFetchLoading = false
+                    }
+                )
+                .addCase(
+                    fetchAddToFavorite.pending, (state, action) => {
+                        state.favoriteFetchLoading = true
+                    }
+                )
+                .addCase(
+                    fetchAddToFavorite.rejected, (state, action) => {
+                        state.favoriteFetchLoading = false 
                     }
                 )
         }
