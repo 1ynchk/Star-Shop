@@ -19,6 +19,7 @@ const MainPage = (props) => {
     const resultError = useSelector(state => state.mainpage.resultError)
     const resultLoading = useSelector(state => state.mainpage.resultLoading)
     const favoriteFetchLoading = useSelector(state => state.mainpage.favoriteFetchLoading)
+    const cartFetchLoading = useSelector(state => state.mainpage.cartFetchLoading)
 
     useEffect(() => {
         dispatch(fetchGetFirstSection())
@@ -39,6 +40,7 @@ const MainPage = (props) => {
                 dispatch={dispatch}
                 isLogin={isLogin}
                 fetchLoadingFavorite={favoriteFetchLoading}
+                cartFetchLoading={cartFetchLoading}
             />
             <MainPageProducts
                 resultLoading={resultLoading}
@@ -49,6 +51,7 @@ const MainPage = (props) => {
                 dispatch={dispatch}
                 isLogin={isLogin}
                 fetchLoadingFavorite={favoriteFetchLoading}
+                cartFetchLoading={cartFetchLoading}
             />
         </div>
     )

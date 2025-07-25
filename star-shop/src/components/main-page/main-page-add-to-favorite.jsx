@@ -1,7 +1,7 @@
 import '../../static/css/product/product-addtocart.css'
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { fetchAddToFavorite } from '../../store/requests/Product/add-to-favorite';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const MainPageAddToFavorite = (props) => {
 
@@ -17,7 +17,11 @@ const MainPageAddToFavorite = (props) => {
     const handleClick = (e) => {
         e.preventDefault()
         if (isLogin) {
-            dispatch(fetchAddToFavorite({ 'product_id': product.id, type: type }))
+            dispatch(fetchAddToFavorite(
+                {
+                'product_id': product.id, 
+                "type": type }
+            ))
         } else {
             setSidebarLogin(true)
         }

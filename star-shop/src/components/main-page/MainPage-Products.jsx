@@ -17,7 +17,8 @@ const MainPageProducts = (props) => {
         setSidebarLogin,
         dispatch,
         isLogin,
-        fetchLoadingFavorite
+        fetchLoadingFavorite,
+        cartFetchLoading
     } = props
 
 
@@ -87,6 +88,7 @@ const MainPageProducts = (props) => {
                                             dispatch={dispatch}
                                             product={el}
                                             fetchLoadingFavorite={fetchLoadingFavorite}
+                                            cartFetchLoading={cartFetchLoading}
                                         />
                                     </SwiperSlide>
                                 )

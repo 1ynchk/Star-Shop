@@ -4,6 +4,7 @@ import { fetchGetMainCategories } from './../requests/MainPage/get-main-categori
 import { fetchGetCategories } from './../requests/MainPage/get-categories';
 import { fetchGetFirstSection } from './../requests/MainPage/get-first-section';
 import { fetchAddToFavorite } from '../requests/Product/add-to-favorite';
+import { fetchAddToCart } from '../requests/Product/add-to-cart';
 
 const MainPageSlice = createSlice(
     {
@@ -18,7 +19,8 @@ const MainPageSlice = createSlice(
             result: {},
             resultLoading: false,
             resultError: '',
-            favoriteFetchLoading: false
+            favoriteFetchLoading: false,
+            cartFetchLoading: false
         },
 
         reducers: {
@@ -108,6 +110,29 @@ const MainPageSlice = createSlice(
                             }
                         }
                         state.favoriteFetchLoading = false
+                    }
+                )
+                .addCase(
+                    fetchAddToCart.fulfilled, (state, action) => {
+                        for (let ind in state.result.book) {
+                            if (state.result.book[ind].id == action.payload.product_id) {
+                                if (action.payload.data == null) {
+                                    state.result.book[ind].user_cart = []
+                                } else {
+                                    state.result.book[ind].user_cart = [action.payload.data]
+                                }
+                            }
+                        }
+                        for (let ind in state.result.chancellery) {
+                            if (state.result.chancellery[ind].id == action.payload.product_id) {
+                                if (action.payload.data == null) {
+                                    state.result.chancellery[ind].user_cart = []
+                                } else {
+                                    state.result.chancellery[ind].user_cart = [action.payload.data]
+                                }
+                            }
+                        }
+                        state.cartFetchLoading = false
                     }
                 )
                 .addCase(

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import AddToFavorite from './product-add-to-favorite';
 import { fetchAddToCart } from '../../store/requests/Product/add-to-cart';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const AddToCartSection = (props) => {
 
@@ -18,8 +19,6 @@ const AddToCartSection = (props) => {
         setSidebarLogin,
         type
     } = props
-
-
 
     return (
         <>
@@ -110,6 +109,7 @@ const ButtonAddToCart = (props) => {
         dispatch
     } = props
 
+    const navigate = useNavigate()
     const isCart = useSelector(state => state.product.isCart)
     
     const handleClick = () => {
@@ -119,6 +119,7 @@ const ButtonAddToCart = (props) => {
             dispatch(fetchAddToCart({ product_id: product_id, type: type }))
         }
     }
+
     return (
         <motion.button
         initial={{ backgroundColor: '#FFA500' }}
@@ -126,9 +127,17 @@ const ButtonAddToCart = (props) => {
                 backgroundColor: isCart ? '#3F704D' : '#FFA500', 
                 color: isCart ? '#FFFFFF' : '#323232'
              }}
-            onClick={() => handleClick()}
+            onClick={() => {
+                if (isCart) {
+                    navigate('/profile/cart')
+                } else {
+                    handleClick()
+                }
+            }}
             className='product_addtocart__btn_buy'>
-            Купить
+                {
+                    isCart ? 'В корзину' : 'Купить'
+                }
         </motion.button>
     )
 

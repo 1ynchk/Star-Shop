@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import MainPageAddToFavorite from './main-page-add-to-favorite';
+import MainPageAddToCart from './main-page-add-to-cart';
 
 const ProductCard = (props) => {
 
@@ -15,7 +16,8 @@ const ProductCard = (props) => {
         isLogin,
         setSidebarLogin,
         dispatch,
-        fetchLoadingFavorite
+        fetchLoadingFavorite,
+        cartFetchLoading
     } = props
 
     return (
@@ -64,9 +66,14 @@ const ProductCard = (props) => {
                     }
 
                     <div className='product_card_btns'>
-                        <div className='product_card_btn'>
-                            В корзину
-                        </div>
+                        <MainPageAddToCart
+                            isLogin={isLogin}
+                            setSidebarLogin={setSidebarLogin}
+                            dispatch={dispatch}
+                            product={product}
+                            type={content_type}
+                            cartFetchLoading={cartFetchLoading}
+                        />
                         <MainPageAddToFavorite
                             isLogin={isLogin}
                             setSidebarLogin={setSidebarLogin}
