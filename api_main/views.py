@@ -17,6 +17,7 @@ from api_products.serializers import  (
 )
 
 from api_favorite.models import Favorite
+from api_cart.models import Cart
 
 # Create your views here.
 @api_view(http_method_names=['GET'])
@@ -36,32 +37,52 @@ def get_first_section(request):
     
     if request.user.is_authenticated: 
         queryset_chancellery = Chancellery.objects \
-        .prefetch_related(Prefetch(
-            'favorite', 
-            queryset=Favorite.objects.filter(user=request.user), 
-            to_attr='user_favorite')) \
+        .prefetch_related(
+            Prefetch(
+                'favorite', 
+                queryset=Favorite.objects.filter(user=request.user), 
+                to_attr='user_favorite'),
+            Prefetch(
+                'cart', 
+                queryset=Cart.objects.filter(user=request.user), 
+                to_attr='user_cart'),
+            ) \
         .select_related('discount').all().order_by('-date_add')[:15]
         queryset_book = Book.objects \
         .prefetch_related(
             Prefetch(
                 'favorite', 
                 queryset=Favorite.objects.filter(user=request.user), 
-                to_attr='user_favorite')
+                to_attr='user_favorite'),
+            Prefetch(
+                'cart', 
+                queryset=Cart.objects.filter(user=request.user), 
+                to_attr='user_cart'),
             ) \
         .select_related('author', 'discount').all().order_by('-date_add')[:15] 
     else: 
         queryset_chancellery = Chancellery.objects \
-        .prefetch_related(Prefetch(
-            'favorite', 
-            queryset=Favorite.objects.none(), 
-            to_attr='user_favorite')) \
+        .prefetch_related(
+            Prefetch(
+                'favorite', 
+                queryset=Favorite.objects.none(), 
+                to_attr='user_favorite'),
+            Prefetch(
+                'cart', 
+                queryset=Cart.objects.none(), 
+                to_attr='user_cart'),
+                ) \
         .select_related('discount').all().order_by('-date_add')[:15]
         queryset_book = Book.objects \
         .prefetch_related(
             Prefetch(
                 'favorite', 
                 queryset=Favorite.objects.none(), 
-                to_attr='user_favorite')
+                to_attr='user_favorite'),
+            Prefetch(
+                'cart', 
+                queryset=Cart.objects.none(), 
+                to_attr='user_cart'),
             ) \
         .select_related('author', 'discount').all().order_by('-date_add')[:15] 
     serialized_banners = BannerSerializer(queryset_banners, many=True).data

@@ -67,10 +67,11 @@ class ChancelleryMainPageSerializer(serializers.ModelSerializer):
 
     discount = ProductDiscountSerializer()
     user_favorite = FavoriteSerializer(many=True)
+    user_cart = CartSerializer(many=True)
 
     class Meta:
         model = Chancellery
-        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'discount', 'user_favorite']
+        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'discount', 'user_favorite', 'user_cart']
 
 class BookMainPageSerializer(serializers.ModelSerializer):
     '''Сериализатор для книг в главном меню'''
@@ -78,10 +79,11 @@ class BookMainPageSerializer(serializers.ModelSerializer):
     author = AuthorSerializer()
     discount = ProductDiscountSerializer()
     user_favorite = FavoriteSerializer(many=True)
+    user_cart = CartSerializer(many=True)
     
     class Meta: 
         model = Book 
-        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'author', 'discount', 'user_favorite']
+        fields = ['id', 'name', 'price', 'main_image', 'content_type', 'author', 'discount', 'user_favorite', 'user_cart']
 
 class ProductImagesSerializer(serializers.ModelSerializer):
     '''Сериализатор дополнительных фотографий продуктов'''
