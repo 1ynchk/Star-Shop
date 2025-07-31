@@ -9,6 +9,7 @@ from api_products.serializers import (
 from api_products.bll.product_page import (get_type_product)
 from django.db.models import Prefetch
 from api_favorite.models import Favorite
+from api_cart.models import Cart
 
 def get_type_serializer(type: str, queryset: QuerySet) -> Union[Response, ModelSerializer]:
     '''Возвращает сериализованный продукт для страницы продукта'''
@@ -29,7 +30,12 @@ def get_favorite_queryset(type: str, request: dict, products_id: list) -> QueryS
             Prefetch(
                 'favorite', 
                 queryset=Favorite.objects.filter(user=request.user), 
-                to_attr='user_favorite')
+                to_attr='user_favorite'),
+            Prefetch(
+                'cart',
+                queryset=Cart.objects.filter(user=request.user),
+                to_attr='user_cart' 
+            ), 
             ) \
         .select_related(
             'author', 
@@ -39,9 +45,14 @@ def get_favorite_queryset(type: str, request: dict, products_id: list) -> QueryS
         queryset = model_class.objects \
         .prefetch_related(
             Prefetch(
-            'favorite',
-            queryset=Favorite.objects.filter(user=request.user),
-            to_attr='user_favorite' 
+                'favorite',
+                queryset=Favorite.objects.filter(user=request.user),
+                to_attr='user_favorite' 
+            ), 
+            Prefetch(
+                'cart',
+                queryset=Cart.objects.filter(user=request.user),
+                to_attr='user_cart' 
             ), 
         ) \
         .select_related('discount') \

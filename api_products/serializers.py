@@ -136,3 +136,30 @@ class ReviewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductReviews
         fields = '__all__'
+
+class BaseProductSerializer(serializers.ModelSerializer):
+    discount = ProductDiscountSerializer()
+    ancillary_images = ProductImagesSerializer(many=True)
+    subcat = SubcategorySerializer()
+    
+    class Meta:
+        fields = [
+            'id', 'name', 'desc', 'price', 'articul', 'main_image',
+            'discount', 'ancillary_images', 'subcat', 'amount',
+            'date_add', 'content_type'
+        ]
+
+class BookSerializer(BaseProductSerializer):
+    author = AuthorSerializer()
+    
+    class Meta(BaseProductSerializer.Meta):
+        model = Book
+        fields = BaseProductSerializer.Meta.fields + [
+            'author', 'publisher', 'series', 'binding',
+            'pub_year', 'count_pages'
+        ]
+
+class ChancellerySerializer(BaseProductSerializer):
+    class Meta(BaseProductSerializer.Meta):
+        model = Chancellery
+        fields = BaseProductSerializer.Meta.fields

@@ -60,14 +60,12 @@ SESSION_COOKIE_HTTPONLY = True
 
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
 
-HOST_VAR = 'http://127.0.0.1:3000'
+HOST_VAR = [f"http://{host}:3000" for host in os.getenv('ALLOWED_HOSTS').split(', ')]
 
-CORS_ALLOWED_ORIGINS = [
-    HOST_VAR
-]
-CSRF_TRUSTED_ORIGINS = [
-        HOST_VAR
-    ]
+CORS_ALLOWED_ORIGINS = HOST_VAR
+
+CSRF_TRUSTED_ORIGINS = HOST_VAR
+    
 
 CORS_ALLOWED_HEADERS = [
     "accept",
