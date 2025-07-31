@@ -16,6 +16,7 @@ const ProfileSidebar = (profile) => {
         { 'path': '/profile/orders', 'title': 'Заказы' },
         { 'path': '/profile/bonuses', 'title': 'Бонусы' },
         { 'path': '/profile/favorite', 'title': 'Избраное' },
+        { 'path': '/profile/cart', 'title': 'Корзина' },
         { 'path': '/profile/reviews', 'title': 'Мои отзывы' },
     ]
 

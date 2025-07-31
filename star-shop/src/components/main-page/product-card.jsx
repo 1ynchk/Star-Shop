@@ -31,7 +31,10 @@ const ProductCard = (props) => {
                         <img
                             className='product_card__img'
                             src={main_image}
-                            alt='product card' />
+                            alt='product card'
+                            onLoad={(e) => e.target.style.opacity = 1} 
+                            style={{ opacity: 0, transition: 'opacity 0.5s ease' }} 
+                             />
                     </div>
                     <div className='product_card__title'>
                         {name.length < 50 ? name : `${name.slice(0, 50)}...`}

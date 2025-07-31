@@ -4,6 +4,7 @@ import { fetchGetProfileInfo } from './../requests/Users/profile-info';
 import { fetchEditProfileInfo } from './../requests/Users/edit-profile-info';
 import { fetchProfile } from './../requests/Users/profile-favorite';
 import { fetchAddToFavorite } from "../requests/Product/add-to-favorite";
+import { fetchAddToCart } from "../requests/Product/add-to-cart";
 
 const ProfileSlice = createSlice(
     {
@@ -81,7 +82,6 @@ const ProfileSlice = createSlice(
                 .addCase(
                     fetchAddToFavorite.fulfilled, (state, action) => {
                         let arrayFavorites = JSON.parse(JSON.stringify(state.favoriteProducts))
-                        console.log(arrayFavorites)
                         if (action.payload.data == null) {
                             arrayFavorites = arrayFavorites.filter(el => el.id != action.payload.product_id)
                         }
@@ -89,6 +89,23 @@ const ProfileSlice = createSlice(
                         state.favoriteFetchLoading = false
                     }
                 )
+
+                // add to cart
+                .addCase(
+                    fetchAddToCart.fulfilled, (state, action) => {
+                        console.log(action.payload) 
+                        let arrayFavorites = JSON.parse(JSON.stringify(state.favoriteProducts))
+                        console.log(arrayFavorites)
+                        for (let obj of arrayFavorites) {
+                            if (obj.id == action.payload.product_id) {
+                                obj.user_cart.push(action.payload.data)
+                            }
+                        }
+                        state.favoriteProducts = arrayFavorites
+
+                    }
+                )
+
                 .addCase(
                     fetchAddToFavorite.pending, (state, action) => {
                         state.favoriteFetchLoading = true

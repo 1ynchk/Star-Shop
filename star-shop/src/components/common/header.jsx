@@ -201,7 +201,19 @@ const HeaderUsersPart = (props) => {
             }
 
             {
-                !checkLoginLoading && (
+                isLogin && !checkLoginLoading && (
+                    <NavLink 
+                        to='/profile/cart'
+                        className='header__subcontainer'>
+                        <IoCartOutline className='header__img' />
+                        <div className='header__subtitle'>Корзина</div>
+                        <div className='shiny'></div>
+                    </NavLink>
+                )
+            }
+
+            {
+                !isLogin && !checkLoginLoading && (
                     <div className='header__subcontainer'>
                         <IoCartOutline className='header__img' />
                         <div className='header__subtitle'>Корзина</div>

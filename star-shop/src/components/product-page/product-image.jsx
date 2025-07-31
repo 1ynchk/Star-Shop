@@ -14,6 +14,8 @@ const ProductImage = (props) => {
                             alt='main image'
                             src={product.main_image}
                             className='product_image__main_image'
+                            onLoad={(e) => e.target.style.opacity = 1}
+                            style={{opacity: 0, transition: 'opacity 0.5 ease'}}
                         />
                     </div>
                 )
@@ -40,7 +42,8 @@ const ProductImage = (props) => {
                                     <img
                                         src={el.image}
                                         alt="ancillary image"
-                                        className='product_image__ancillary_image'
+                                        className='product_image__ancillary_image'onLoad={(e) => e.target.style.opacity = 1}
+                                        style={{opacity: 0, transition: 'opacity 0.5 ease'}}
                                     />
                                 </div>
                             )

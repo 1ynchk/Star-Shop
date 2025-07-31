@@ -20,6 +20,7 @@ import Footer from './common/footer';
 import ProfileRoot from './profile/profile-root';
 import ProfilePersonalData from './profile/profile-personal-data';
 import ProfileFavorite from './profile/profile-favorite';
+import ProfileCart from './profile/profile-cart';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
             <Route exact path='/profile' element={<ProfileRoot />}>
               <Route path='personal-data' element={<ProfilePersonalData />} />
               <Route path='favorite' element={<ProfileFavorite/>} />
+              <Route path='cart' element={<ProfileCart/>} />
             </Route>
 
             <Route exact path='/products' >

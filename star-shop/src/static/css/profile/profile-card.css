@@ -1,0 +1,63 @@
+.cart__wrapper_card {
+    margin-top: 20px;
+}
+
+.cart__container_card {
+    margin-top: 10px;
+    width: 70%;
+    height: 200px;
+    background-color: aqua;
+    border-radius: 10px;
+}
+
+.cart__all_wrapper {
+    margin-top: 30px;
+}
+
+.cart__checkbox_label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.cart__btn_check_all {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.cart__custom_checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.cart__btn_check_all:checked + .cart__custom_checkbox {
+  background-color: orange;
+  border-color: orange;
+}
+
+.cart__btn_check_all:checked + .cart__custom_checkbox::after {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cart__btn_check_all_title {
+    font-weight: 300;
+    margin-left: 10px;
+}
+
+.cart__btn_check_all_wrapper {
+    display: flex;
+}

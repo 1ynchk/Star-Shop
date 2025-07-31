@@ -37,7 +37,13 @@ const Banners = (props) => {
                                     <SwiperSlide
                                         key={ind}
                                         className='slider_container'>
-                                        <img className="banner_photo" src={el.image} alt='banner_photo' />
+                                        <img 
+                                            className="banner_photo" 
+                                            src={el.image} 
+                                            alt='banner_photo' 
+                                            onLoad={(e) => e.target.style.opacity = 1}
+                                            style={{opacity: 0, transition: 'opacity 1 ease'}}
+                                            />
                                     </SwiperSlide>
                                 )
                             })
